@@ -1,0 +1,116 @@
+/* :root {
+  --cloud-blue: #d4e3fc;
+  --crystal-blue: #a5e1f3;
+  --royal-blue: #3fb6f2;
+  --dark-blue: #21243a;
+  --green: #0df3b2;
+
+  --cool-grey-50: #fefefd;
+  --cool-grey-100: rgb(251, 251, 251);
+  --cool-grey-200: rgb(239, 241, 244);
+  --cool-grey-400: rgb(188, 194, 212);
+  --cool-grey-600: rgb(100, 114, 155);
+  --cool-grey-700: rgb(73, 81, 110);
+  --cool-grey-800: rgb(39, 43, 67);
+  --cool-grey-900: rgb(28, 30, 43);
+
+  --text-prinmary: var(--dark-blue);
+  --text-secondary: var(--green);
+  --text-accent: var(--royal-blue);
+  --text-invert: var(--cloud-blue);
+
+  --surface-prinmary: var(--dark-blue);
+  --surface-secondary: var(--green);
+  --surface-accent: var(--green);
+  --surface-invert: var(--cloud-blue);
+  --surface-base: var(--dark-blue);
+  --surface-alt1: #272b43;
+  --surface-alt2: #49516e;
+
+  --border-primary: var(--dark-blue);
+  --border-secondary: var(--green);
+  --border-accent: var(--royal-blue);
+}
+
+html.cafe {
+  --text-prinmary: red;
+  --text-secondary: blue;
+  --text-brand: yellow;
+  --text-invert: yellow;
+
+  --surface-prinmary: red;
+  --surface-secondary: blue;
+  --surface-brand: yellow;
+  --surface-invert: yellow;
+  --surface-base: yellow;
+  --surface-alt1: yellow;
+  --surface-alt2: yellow;
+
+  --border-primary: red;
+  --border-secondary: green;
+} */
+
+:root {
+  --surface-primary: red;
+}
+
+html[theme="cafe"] {
+  --surface-primary: orange;
+}
+
+html[theme="contrast"] {
+  --surface-primary: #d4e3fc;
+}
+
+html {
+  background-color: var(--surface-base);
+  color: var(--cool-grey-50);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 455;
+}
+code {
+  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+    Bitstream Vera Sans Mono, Courier New, monospace;
+}
+
+main {
+}
+h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* .text-gradient {
+	background-image: var(--accent-gradient);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-size: 400%;
+	background-position: 0%;
+}
+.instructions {
+	line-height: 1.6;
+	margin: 1rem 0;
+	border: 1px solid rgba(var(--accent), 25%);
+	background-color: white;
+	padding: 1rem;
+	border-radius: 0.4rem;
+}
+.instructions code {
+	font-size: 0.875em;
+	font-weight: bold;
+	background: rgba(var(--accent), 12%);
+	color: rgb(var(--accent));
+	border-radius: 4px;
+	padding: 0.3em 0.45em;
+}
+.instructions strong {
+	color: rgb(var(--accent));
+}
+.link-card-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+	gap: 1rem;
+	padding: 0;
+} */

@@ -1,0 +1,15 @@
+---
+const { title, url, pubDate } = Astro.props
+---
+
+<li>
+  <a href={url}>{title}</a>
+  <div>{pubDate}</div>
+</li>
+
+
+<style>
+  li {
+    margin-bottom: 1em;
+  }
+</style>

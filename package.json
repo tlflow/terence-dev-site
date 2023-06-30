@@ -10,6 +10,13 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^2.7.1"
+    "@astrojs/vue": "^2.2.1",
+    "@vueuse/core": "^10.2.1",
+    "astro": "^2.7.1",
+    "vue": "^3.3.4"
+  },
+  "devDependencies": {
+    "prettier": "^2.8.8",
+    "prettier-plugin-astro": "^0.10.0"
   }
 }
