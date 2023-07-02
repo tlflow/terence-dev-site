@@ -1,10 +1,4 @@
-/* :root {
-  --cloud-blue: #d4e3fc;
-  --crystal-blue: #a5e1f3;
-  --royal-blue: #3fb6f2;
-  --dark-blue: #21243a;
-  --green: #0df3b2;
-
+/*
   --cool-grey-50: #fefefd;
   --cool-grey-100: rgb(251, 251, 251);
   --cool-grey-200: rgb(239, 241, 244);
@@ -30,45 +24,125 @@
   --border-primary: var(--dark-blue);
   --border-secondary: var(--green);
   --border-accent: var(--royal-blue);
-}
-
-html.cafe {
-  --text-prinmary: red;
-  --text-secondary: blue;
-  --text-brand: yellow;
-  --text-invert: yellow;
-
-  --surface-prinmary: red;
-  --surface-secondary: blue;
-  --surface-brand: yellow;
-  --surface-invert: yellow;
-  --surface-base: yellow;
-  --surface-alt1: yellow;
-  --surface-alt2: yellow;
-
-  --border-primary: red;
-  --border-secondary: green;
 } */
 
 :root {
-  --surface-primary: red;
+  --color-text: rgb(28, 30, 43);
+  --color-background: rgb(28, 30, 43);
+  --color-primary-lighter: color-mix(in srgb, var(--color-primary), #fff 5%);
+  --color-primary: hsl(233, 27.5%, 17.8%);
+  --color-primary-darker: color-mix(in srgb, var(--color-primary), #000 15%);
+  --color-primary-darkest: color-mix(in srgb, var(--color-primary), #000 20%);
+  --color-secondary: #0df3b2;
+  --color-accent: #3fb6f2;
+
+  /* COOL GREY SETTINGS */
+  --cool-grey-50: rgb(254, 254, 253);
+  --cool-grey-100: rgb(251, 251, 251);
+  --cool-grey-200: rgb(239, 241, 244);
+  --cool-grey-400: rgb(188, 194, 212);
+  --cool-grey-600: rgb(100, 114, 155);
+  --cool-grey-700: rgb(73, 81, 110);
+  --cool-grey-800: rgb(39, 43, 67);
+  --cool-grey-900: rgb(28, 30, 43);
+
+  /* CONSISTENCY SETTINGS */
+  --panel-border-radius: 2rem;
+  --button-border-radius: 50rem;
+  --panel-padding: 2.4rem;
 }
 
 html[theme="cafe"] {
   --surface-primary: orange;
 }
 
+html[theme="hotairballoon"] {
+  --color-text: #073b4c;
+  --color-background: #fbf4e4;
+  --color-primary: #118ab2;
+  --color-secondary: #06d6a0;
+  --color-accent: #ef476f;
+  opacity: 1;
+  transition-property: all;
+  transition-duration: 350ms;
+}
+
 html[theme="contrast"] {
   --surface-primary: #d4e3fc;
+  opacity: 1;
+  transition-property: all;
+  transition-duration: 350ms;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
 }
 
 html {
-  background-color: var(--surface-base);
+  background-color: var(--color-primary);
   color: var(--cool-grey-50);
+  font-family: "Inter", Tofu, sans-serif;
   font-size: 18px;
+  font-weight: 260;
   font-style: normal;
-  font-weight: 455;
+  font-stretch: normal;
+  font-variation-settings: "slnt" 0;
+  font-optical-sizing: none;
+  text-align: start;
+  line-height: initial;
+  opacity: 1;
+  transition-property: all;
+  transition-duration: 350ms;
+  color-scheme: dark light;
 }
+
+body {
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 0.6rem;
+  padding: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background-color: var(--color-primary-darkest);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color: color-mix(in srgb, var(--color-primary), #fff 20%);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: color-mix(in srgb, var(--color-primary), #fff 30%);
+  border-radius: 10px;
+}
+
 code {
   font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
     Bitstream Vera Sans Mono, Courier New, monospace;

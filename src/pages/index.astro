@@ -1,15 +1,37 @@
 ---
 import ColorPicker from "../components/ColorPicker.vue";
-import SiteFooter from "../components/SiteFooter.astro";
+import HeaderPanel from "../partials/HeaderPanel.astro";
+import SiteFooter from "../partials/SiteFooter.astro";
+import ExperiencePanel from "../partials/ExperiencePanel.astro";
+import ExpertisePanel from "../partials/ExpertisePanel.astro";
 import Layout from "../layouts/Layout.astro";
-// import Card from '../components/Card.astro'
 ---
 
 <Layout title="Welcome to Astro.">
-  <main>
-    <h1>Welcome to the TerrorDome</h1>
+  <ColorPicker client:load />
 
-    <ColorPicker client:load />
+  <main>
+    <HeaderPanel />
+    <section>
+      <div class="container">
+        <ExperiencePanel />
+      </div>
+    </section>
   </main>
-  <SiteFooter />
+  <section>
+    <div class="container">
+      <ExpertisePanel />
+    </div>
+  </section>
 </Layout>
+<footer>
+  <div class="container">
+    <SiteFooter />
+  </div>
+</footer>
+
+<style>
+  .container {
+    padding: 0 1rem;
+  }
+</style>

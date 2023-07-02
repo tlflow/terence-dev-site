@@ -14,7 +14,15 @@ const mode = useColorMode({
   }
 })
 
-const { state, next } = useCycleList(['dark', 'cafe', 'contrast', 'auto'], { initialValue: mode });
+const options = [
+  'dark',
+  'hotairballoon',
+  'cafe',
+  'contrast',
+  'auto'
+]
+
+const { state, next } = useCycleList(options, { initialValue: mode });
 
 watchEffect(() => mode.value = state.value)
 
@@ -34,6 +42,11 @@ watchEffect(() => mode.value = state.value)
        align-middle
        class="align-middle" />
     <i v-if="state === 'cafe'"
+       i-carbon-cafe
+       inline-block
+       align-middle
+       class="align-middle" />
+    <i v-if="state === 'hotairballoon'"
        i-carbon-cafe
        inline-block
        align-middle
