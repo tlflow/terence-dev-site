@@ -3,11 +3,11 @@ import SVGClose from "../partials/svgs/close.astro";
 import SocialButtons from "./SocialButtons.astro";
 ---
 
-<div class="menu">
+<div id="mobile_menu" class="menu">
   <div class="menu-wrapper">
     <div class="menu-outer-layout-grid">
       <div class="menu-nav-wrapper">
-        <a class="close-btn" href="#">
+        <a id="close_menu_btn" class="close-btn" href="#">
           <div class="icon">
             <SVGClose />
           </div>
@@ -24,11 +24,11 @@ import SocialButtons from "./SocialButtons.astro";
             <li><a href="#">About Me</a></li>
           </ul>
         </nav>
-        <div class="btn-wrapper">
-          <a class="menu-btn btn" href="#">My Resume</a>
-        </div>
       </div>
-      <div class="social-btns-wrapper">
+      <div class="btns-wrapper">
+        <div class="btn-wrapper">
+          <a id="panel-menu-btn" class="menu-btn btn" href="#">My Resume</a>
+        </div>
         <SocialButtons />
       </div>
     </div>
@@ -39,15 +39,23 @@ import SocialButtons from "./SocialButtons.astro";
   .menu {
     position: absolute;
     top: 0;
-    width: 80%;
+    width: 280px;
     z-index: 1;
     height: 100vh;
+    transform: translate(300px, 0);
     right: 0;
     background-color: color-mix(
       in srgb,
       var(--color-primary-darkest),
       #000 20%
     );
+    box-shadow: rgb(0, 0, 0, 0.6) -10px 0px 15px;
+    transition: 0.3s ease-in;
+
+    &.js--is-active {
+      transform: translate(0, 0);
+      transition: 0.3s ease-in;
+    }
   }
 
   .menu-outer-layout-grid {
@@ -67,6 +75,7 @@ import SocialButtons from "./SocialButtons.astro";
 
   .btn-wrapper {
     text-align: center;
+    margin-bottom: 1em;
   }
 
   ul {
@@ -85,11 +94,12 @@ import SocialButtons from "./SocialButtons.astro";
 
   .close-btn {
     display: flex;
-    gap: 1rem;
+    gap: 0.4rem;
     align-items: center;
+    color: var(--color-accent);
   }
 
-  .social-btns-wrapper {
+  .btns-wrapper {
     justify-self: center;
     align-self: end;
   }

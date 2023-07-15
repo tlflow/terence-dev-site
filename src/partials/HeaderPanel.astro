@@ -7,6 +7,7 @@ import SVGLinkedIn from "../partials/svgs/linkedin.astro";
 import SVGTwitter from "../partials/svgs/twitter.astro";
 import SVGInstagram from "../partials/svgs/instagram.astro";
 import SVGWebflow from "../partials/svgs/webflow.astro";
+import HeaderPanelMenuBtn from "../components/HeaderPanelMenuBtn.astro";
 ---
 
 <header>
@@ -19,7 +20,9 @@ import SVGWebflow from "../partials/svgs/webflow.astro";
               <SVGBrandLogo />
             </a>
           </div>
-          <div class="menu-toggle">MENU</div>
+          <div>
+            <HeaderPanelMenuBtn client:load />
+          </div>
         </div>
         <div class="panel-content-middle">
           <div class="brand-icon icon">
@@ -336,18 +339,6 @@ import SVGWebflow from "../partials/svgs/webflow.astro";
       font-size: 1.8rem;
       padding: ;
     }
-  }
-
-  .menu-toggle {
-    background-color: var(--color-primary);
-    color: var(--color-secondary);
-    width: 3rem;
-    height: 1.4rem;
-    padding: 1.4em 3em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: var(--btn-border-radius);
   }
 
   .panel-content-top,

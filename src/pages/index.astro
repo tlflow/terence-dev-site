@@ -12,7 +12,7 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="Terence Flowers: Designer Developer">
   <!-- <ColorPicker client:load /> -->
-  <div class="page-wrappper js-menu-is-active">
+  <div class="page-wrapper">
     <main>
       <article>
         <div class="article-wrapper">
@@ -62,14 +62,20 @@ import Layout from "../layouts/Layout.astro";
 </Layout>
 
 <style is:global>
-  .page-wrapper {
-    position: relative;
-    top: 0;
-    width: 100%;
-    height: 100%;
+  body {
+    width: 100vw;
+    overflow-x: hidden;
 
-    &.js-menu-is-active {
-      filter: blur(8px) brightness(50%);
+    &.js--menu-is-active {
+      overflow: hidden;
+      transition: filter 0.2s ease-in;
+      width: 100%;
+      height: 100%;
+
+      .page-wrapper {
+        filter: blur(4px) brightness(50%);
+        transition: filter 0.2s ease-in;
+      }
     }
   }
 
@@ -79,6 +85,13 @@ import Layout from "../layouts/Layout.astro";
   .article-wrapper,
   .footer {
     container-type: inline-size;
+  }
+
+  .page-wrapper {
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: 100%;
   }
 
   .article-wrapper {
