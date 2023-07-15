@@ -1,0 +1,85 @@
+<div class="outer-layout-grid">
+  <div class="pic">
+    <div class="img-wrapper"></div>
+  </div>
+  <div class="information">
+    <div class="content">
+      <h2 class="about-heading">A self-proclaimed Renaissance Man</h2>
+      <p class="big">...and a guy with a big heart for helping people.</p>
+      <p>
+        I'm a people's guy and active in my church and community. In my spare
+        time you'll find me playing/watching sports, watching movies and custom
+        car building shows.
+      </p>
+      <p>
+        On a creative front, I'm constantly tinkering with DIY projects, doing
+        origami, painting, drawing cartoons, and practicing calligraphy.
+      </p>
+      <p>
+        But, my greatest joy is being a husband and a father to 4 wonderful
+        kids.
+      </p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .outer-layout-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    place-items: center;
+    row-gap: 2em;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    @container article (width > 1024px) {
+      grid-template-columns: repeat(12, 1fr);
+      max-width: 1450px;
+    }
+  }
+
+  h2.about-heading {
+    font-size: 2.9rem;
+    color: color-mix(in srgb, var(--color-accent), #fff 80%);
+    font-weight: 500;
+  }
+
+  .pic {
+    grid-column: 1 / span 4;
+
+    .img-wrapper {
+      position: relative;
+      background-color: #fff;
+      border-radius: var(--panel-border-radius);
+      overflow: hidden;
+      width: 16rem;
+      aspect-ratio: 4/6;
+      height: auto;
+
+      @container article (width > 678px) {
+        width: 24rem;
+      }
+
+      @container article (width > 1200px) {
+        width: 32rem;
+      }
+    }
+
+    @container (width > 678px) {
+      grid-column: 1 / span 6;
+    }
+  }
+
+  .content {
+    max-width: 48ch;
+    padding: 0 1em;
+  }
+
+  .information {
+    grid-column: 1 / span 4;
+
+    @container article (width >= 1024px) {
+      grid-column: 7 / span 6;
+    }
+  }
+</style>

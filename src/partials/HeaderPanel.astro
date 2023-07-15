@@ -1,13 +1,90 @@
+---
+import SVGBrandLogo from "../partials/svgs/brandlogo.astro";
+import SVGBrandLogoCircle from "../partials/svgs/brandlogocircle.astro";
+import SVGGithub from "../partials/svgs/github.astro";
+import SVGCodeSandbox from "../partials/svgs/codesandbox.astro";
+import SVGLinkedIn from "../partials/svgs/linkedin.astro";
+import SVGTwitter from "../partials/svgs/twitter.astro";
+import SVGInstagram from "../partials/svgs/instagram.astro";
+import SVGWebflow from "../partials/svgs/webflow.astro";
+---
+
 <header>
-  <div class="panel-wrapper">
-    <div class="panel">
-      <div class="content">
-        <div class="content-wrapper">
-          <h1>I'm some big text though</h1>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio
-            voluptatibus quasi ab, reprehenderit aliquid fugiat?
-          </p>
+  <div class="header-wrapper">
+    <div id="panel" class="panel">
+      <div class="panel-wrapper">
+        <div class="panel-content-top">
+          <div>
+            <a class="btn icon home-nav-icon icon-link" href="#">
+              <SVGBrandLogo />
+            </a>
+          </div>
+          <div class="menu-toggle">MENU</div>
+        </div>
+        <div class="panel-content-middle">
+          <div class="brand-icon icon">
+            <SVGBrandLogoCircle />
+          </div>
+          <div class="title-wrapper">
+            <h1 class="title">
+              Terence <span class="last-name">Flowers</span>
+            </h1>
+            <p class="subtitle">Developer &bull; Designer</p>
+          </div>
+        </div>
+        <div class="panel-content-bottom">
+          <div class="btn-group group-1">
+            <a href="#" class="btn icon-link">
+              <div class="contact-icon icon">
+                <SVGGithub />
+              </div>
+            </a>
+            <a href="#" class="btn icon-link">
+              <div class="contact-icon icon">
+                <SVGCodeSandbox />
+              </div>
+            </a>
+            <a href="#" class="btn icon-link">
+              <div class="contact-icon icon">
+                <SVGWebflow />
+              </div>
+            </a>
+          </div>
+          <div class="btn-group group-2">
+            <a href="#" class="btn icon-link">
+              <div class="contact-icon icon">
+                <SVGTwitter />
+              </div>
+            </a>
+            <a href="#" class="btn icon-link">
+              <div class="contact-icon icon">
+                <SVGInstagram />
+              </div>
+            </a>
+            <a href="#" class="btn icon-link">
+              <div class="contact-icon icon">
+                <SVGLinkedIn />
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="cta-wrapper">
+        <div class="cta">
+          <a href="#" class="cta-btn">Say Hi!</a>
+        </div>
+        <div class="cta-bkg">
+          <svg
+            viewBox="0 0 290 52"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              id="panel_cutout"
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M0.246872 51.8537C25.7892 51.8537 39.8279 40.2128 47.5271 28.0157C56.3034 14.1121 69.6518 0.500019 86.0936 0.500019H102.054H136.526H167.474H197.785H203.906C220.348 0.500019 233.696 14.1121 242.473 28.0157C250.172 40.2128 264.211 51.8537 289.753 51.8537H197.785H102.054H0.246872Z"
+              fill="currentColor"></path>
+          </svg>
         </div>
       </div>
       <div class="canvas-wrapper">
@@ -18,13 +95,70 @@
 </header>
 
 <script>
+  import buildThresholds from "../js/utils/thresholds";
+
+  const r = document.querySelector(":root");
+
+  let currDeg = 0;
+  let prevRatio = 0;
+  let currRatio = 0;
+  let num;
+
+  function setDegree(num) {
+    const x = num + "deg";
+    r.style.setProperty("--panel-num", x);
+  }
+
+  window.addEventListener("scroll", function () {
+    if (window.scrollY < 5) {
+      setDegree(0);
+    }
+  });
+
+  function createObserver() {
+    const panel = document.getElementById("panel");
+
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: buildThresholds(20),
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const x = entry.intersectionRatio;
+
+        if (currRatio > prevRatio) {
+          num = 1 - 2 * currDeg--;
+        } else {
+          num = 1 - 2 * currDeg++;
+        }
+
+        if (num <= 0) {
+          setDegree(num);
+        }
+        if (x >= 0.95) {
+          setDegree(0);
+        }
+
+        prevRatio = currRatio;
+        currRatio = x;
+      });
+    }, options);
+
+    observer.observe(panel);
+  }
+
+  createObserver();
+
   const canvas = document.getElementById("canvas");
-  const context = canvas.getContext("2d");
+  const ctx = canvas.getContext("2d");
+
   let time = 0;
 
   const color = function (x, y, r, g, b) {
-    context.fillStyle = `rgb(${r}, ${g}, ${b})`;
-    context.fillRect(x, y, 10, 10);
+    ctx.fillStyle = `rgb(${r}, ${g}, ${b})`;
+    ctx.fillRect(x, y, 10, 10);
   };
 
   const R = function (x, y, time) {
@@ -66,15 +200,224 @@
 </script>
 
 <style>
-  .panel-wrapper {
+  :root {
+    --panel-num: 0deg;
+  }
+
+  .brand-icon.icon {
+    --icon-size: 8rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-primary);
+    margin: 0 auto;
+    margin-bottom: 2.4em;
+
+    @container article (width >= 810px) {
+      --icon-size: 10rem;
+    }
+
+    @container article (width >= 1440px) {
+      --icon-size: 9rem;
+      margin-bottom: 1.4rem;
+    }
+  }
+
+  .home-nav-icon.icon {
+    color: var(--color-primary);
+
+    @container article (width >= 810px) {
+      --icon-size: 3rem;
+    }
+  }
+  .contact-icon.icon {
+    --icon-size: 1.6rem;
+    color: var(--color-primary);
+
+    @container article (width >= 810px) {
+      --icon-size: 2rem;
+    }
+  }
+
+  .btn {
+    display: inline-block;
+
+    &.icon-link {
+      border: none;
+      padding: 0;
+      background-color: transparent;
+    }
+
+    &:hover {
+      transition: color 0.2s ease-in;
+      color: color-mix(in srgb, var(--color-accent), #000 25%);
+    }
+  }
+
+  .header-wrapper {
     height: 100vh;
-    padding: 0 1rem;
+    overflow: hidden;
+    perspective: 650px;
+    padding: 1rem;
+    padding-bottom: 2.5rem;
   }
 
   .panel {
+    container-type: inline-size;
+    container-name: panel;
     position: relative;
     width: 100%;
-    height: 90vh;
+    height: 100%;
+    color: var(--color-primary);
+    transform: rotateX(var(--panel-num));
+  }
+
+  .panel-wrapper {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    padding: var(--panel-padding);
+    padding-bottom: calc(var(--panel-padding) + 2rem);
+
+    @container article (width >= 810px) {
+      padding-bottom: var(--panel-padding);
+    }
+  }
+
+  .cta {
+    position: absolute;
+    padding-top: 1rem;
+  }
+
+  .cta-wrapper {
+    z-index: 2;
+    position: absolute;
+    width: 100%;
+    height: 2.7rem;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+
+    /* height determines where tab is located */
+    @container article (width > 1600px) {
+      height: 4.7rem;
+    }
+  }
+
+  .cta-bkg {
+    position: absolute;
+    z-index: -1;
+    top: 2px;
+    width: 270px;
+
+    @container article (width > 1600px) {
+      width: 27rem;
+    }
+  }
+
+  .cta-btn {
+    display: inline-block;
+    border-radius: var(--btn-border-radius);
+    border: 2px solid var(--color-secondary);
+    padding: 1em 2em;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 339;
+    line-height: 0;
+    font-size: 1rem;
+
+    @container article (width > 1600px) {
+      font-size: 1.8rem;
+      padding: ;
+    }
+  }
+
+  .menu-toggle {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    width: 3rem;
+    height: 1.4rem;
+    padding: 1.4em 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--btn-border-radius);
+  }
+
+  .panel-content-top,
+  .panel-content-bottom {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .title-wrapper {
+    color: var(--color-primary);
+    text-transform: uppercase;
+    line-height: 1;
+  }
+
+  .title {
+    font-family: var(--font-display);
+    font-size: 3.4rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin-bottom: 0.1em;
+    line-height: 0.9;
+    text-align: center;
+
+    .last-name {
+      display: block;
+      font-weight: 600;
+      letter-spacing: normal;
+      position: relative;
+      left: 4px;
+    }
+
+    @container article (width >= 678px) {
+      font-size: 6rem;
+    }
+    @container article (width >= 1024px) {
+      font-size: 8rem;
+    }
+    @container article (width >= 1280px) {
+      font-size: 7.4rem;
+    }
+    @container article (width >= 1440px) {
+      font-size: 9rem;
+    }
+    @container article (width >= 2100px) {
+      font-size: 18rem;
+      margin-bottom: 0.2em;
+    }
+  }
+
+  .subtitle {
+    font-family: var(--font-primary);
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 0;
+    letter-spacing: 2px;
+    color: color-mix(in srgb, var(--color-primary), #fff 5%);
+
+    @container article (width >= 678px) {
+      font-size: 2rem;
+    }
+
+    @container article (width >= 1280px) {
+      font-size: 1.8rem;
+    }
+  }
+
+  canvas {
+    width: 100%;
+    height: 100%;
   }
 
   .canvas-wrapper {
@@ -84,23 +427,5 @@
     overflow: hidden;
     position: absolute;
     z-index: 1;
-  }
-
-  .content {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: 2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .content-wrapper {
-  }
-
-  canvas {
-    width: 100%;
-    height: 100%;
   }
 </style>

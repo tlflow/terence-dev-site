@@ -1,0 +1,288 @@
+---
+import SVGLaptop from "./svgs/laptop.astro";
+import SVGFloppyDisk from "./svgs/floppydisk.astro";
+import SVGPencil from "./svgs/pencil.astro";
+---
+
+<div class="outer-layout-grid">
+  <div class="grid-item-about-content">
+    <div class="about-grid">
+      <div class="info">
+        <div class="content">
+          <h3 class="my-name-is">
+            Hi, my name is <span>Terence Flowers.</span>
+          </h3>
+          <p class="big">
+            I build things for the web (and occasionally design them too).
+          </p>
+          <p>
+            I'm a software engineer specializing in building exceptional digital
+            experiences. Currently, I'm focused on building performant,
+            accessible, web apps and user-friendly experiences.
+          </p>
+          <p>
+            With outside-the-box thinking, I can operate independently
+            throughout the entire design and development lifecycle: research,
+            user experience design, UI design, development, testing, and
+            post-implementation review phases.
+          </p>
+          <p>
+            At the same time, I'm an avid team player that knows the importance
+            of collaborating within teams to release top-notch products.
+          </p>
+        </div>
+      </div>
+      <div class="side">
+        <div class="img-wrapper">
+          <img src="/images/me-in-3d.jpg" alt="A 3D version of me" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="grid-item-skills-content">
+    <div class="panel">
+      <div class="expertise-grid">
+        <div class="grid-item">
+          <div class="title">
+            <div class="icon icon-lg">
+              <SVGLaptop />
+            </div>
+            <h3>Frontend Development</h3>
+          </div>
+          <div class="descr">
+            <p class="inner">
+              20+ years of development experience w/ HTML, CSS, JS, JQuery, Vue
+              and other frameworks.
+            </p>
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="title">
+            <div class="icon icon-lg">
+              <SVGFloppyDisk />
+            </div>
+            <h3>Software Development</h3>
+          </div>
+          <div class="descr">
+            <p class="inner">
+              Experience in both functional and OOP: Dart, JavaScript, and more.
+            </p>
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="title">
+            <div class="icon icon-lg">
+              <SVGPencil />
+            </div>
+            <h3>Digtial & Graphic Design</h3>
+          </div>
+          <div class="descr">
+            <p class="inner">
+              I love designing interfaces, websites, apps, and more. Passionate
+              about UI/UX.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  :root {
+    --faded-color: color-mix(in srgb, var(--color-accent), #000 10%);
+  }
+  .outer-layout-grid {
+    display: grid;
+    grid-template-rows: auto;
+    row-gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    @container article (width > 1024px) {
+      max-width: 1450px;
+    }
+  }
+
+  .grid-item-about-content,
+  .grid-item-skills-content {
+    grid-column: 1 / span 4;
+  }
+
+  .panel h3 {
+    font-family: var(--font-display);
+    color: color-mix(in srgb, var(--color-accent), #fff 40%);
+    line-height: 1;
+    font-size: 1.2rem;
+  }
+
+  .outer-layout-grid,
+  .panel {
+    container-type: inline-size;
+  }
+
+  .panel {
+    container-name: panel;
+    background-color: var(--color-primary-darkest);
+    border-radius: var(--panel-border-radius);
+    padding: var(--panel-padding);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+    row-gap: 2.4em;
+
+    @container article (width >= 1024px) {
+      grid-template-columns: repeat(12, 1fr);
+    }
+  }
+
+  .about-grid .info {
+    grid-column: 1 / span 4;
+
+    .content {
+      max-width: 64ch;
+      padding: 0 1em;
+    }
+
+    @container article (width >= 1024px) {
+      grid-column: 2 / span 6;
+
+      .content {
+        padding: 0;
+      }
+    }
+  }
+
+  .about-grid .side {
+    grid-column: 1 / span 4;
+    grid-row: 1;
+
+    @container article (width >= 1024px) {
+      grid-column: 9 / span 4;
+    }
+  }
+
+  .img-wrapper {
+    position: relative;
+    width: 18.75rem;
+    height: auto;
+    aspect-ratio: 1/1;
+    border-radius: 2rem;
+    overflow: hidden;
+
+    @container article (width >= 810px) {
+      width: 20rem;
+    }
+
+    @container article (width > 1024px) {
+      width: 18rem;
+    }
+
+    img {
+      position: absolute;
+      object-fit: cover;
+    }
+  }
+
+  .expertise-grid {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 2rem;
+
+    @container panel (width >= 42em) {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto;
+    }
+  }
+
+  .my-name-is {
+    font-family: var(--font-display);
+    color: color-mix(in srgb, var(--color-accent), #fff 65%);
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 1.1;
+    margin-bottom: 0.6em;
+
+    span {
+      font-size: 4rem;
+      color: color-mix(in srgb, var(--color-accent), #fff 80%);
+      line-height: 1;
+    }
+
+    @container article (width >= 768px) {
+      span {
+        font-size: 4.3rem;
+        display: block;
+        line-height: 1.4;
+      }
+    }
+    @container article (width >= 1024px) {
+      span {
+        font-size: 3.5rem;
+        display: block;
+        line-height: 1.4;
+      }
+    }
+    @container article (width >= 1440px) {
+      font-size: 3rem;
+
+      span {
+        font-size: 5rem;
+        display: block;
+        line-height: 1.4;
+      }
+    }
+  }
+
+  .title {
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+    margin-bottom: 1em;
+    color: var(--color-accent);
+  }
+
+  .descr {
+    margin-left: 0.625rem;
+
+    &::before,
+    &::after {
+      font-family: var(--font-code);
+      color: var(--faded-color);
+      display: block;
+      opacity: 0.6;
+    }
+
+    &::before {
+      content: "<skills>";
+      margin-bottom: 5px;
+    }
+    &::after {
+      content: "</skills>";
+      margin-top: 5px;
+    }
+
+    .inner {
+      position: relative;
+      padding-left: 2rem;
+      font-size: 0.9rem;
+      font-family: var(--font-code);
+      line-height: 1.5;
+
+      &::before {
+        opacity: 0.5;
+        content: "";
+        width: 0;
+        height: 100%;
+        position: absolute;
+        background-color: var(--faded-color);
+        border: 0.4px dotted var(--faded-color);
+        bottom: 0;
+        left: 19px;
+      }
+    }
+  }
+</style>

@@ -1,0 +1,278 @@
+---
+import Tabs from "../components/TabsList.vue";
+import Tab from "../components/Tab.vue";
+---
+
+<div class="outer-layout-grid">
+  <div class="section-header">
+    <h2>My Experience</h2>
+    <p>Places I've Worked Professionally</p>
+  </div>
+  <div class="section-content">
+    <div class="panel">
+      <div class="panel-wrapper">
+        <Tabs client:visible>
+          <Tab active="true" title="Ally Bank">
+            <div class="descr">
+              <div class="inner">
+                <h3>Tech Lead / Principal - Software Engineer</h3>
+                <p class="timeframe-label">Mar 2021 &mdash; Present</p>
+                <ul>
+                  <li>
+                    Serve as a technical resource to business partners with
+                    knowledge and experience in front-end development and mobile
+                    practices.
+                  </li>
+                  <li>
+                    Leading a team of expert and junior-level developers to
+                    create reusable components, author content in AEM, and
+                    maintain/support our code base.
+                  </li>
+                  <li>
+                    Roadmap, create technical goals and project plan for
+                    multi-sized projects — which includes planning out quarterly
+                    goals and project milestones.
+                  </li>
+                  <li>
+                    Collaborates with UX to create/maintain standards for design
+                    systems, which feeds the development effort of new
+                    components for our frontend framework.
+                  </li>
+                  <li>
+                    Collaborate with both UX/UI Web Designers and Backend
+                    Developers to bridge the gap between graphical design and
+                    technical implementation to complete projects, support
+                    micro-sites, platforms, and multiple web experiences
+                  </li>
+                  <li>
+                    Conduct and participate in daily code reviews to provide
+                    feedback to team members to ensure high-quality code and
+                    adherence to best practices.
+                  </li>
+                  <li>
+                    Provide leadership and mentorship to our team, following
+                    industry best practices and security guidelines
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="descr">
+              <div class="inner">
+                <h3>Senior Web Developer</h3>
+                <p class="timeframe-label">Mar 2018 &mdash; Feb 2021</p>
+                <ul>
+                  <li>Served as a key member of the UX Development team</li>
+                  <li>
+                    Assisted in implementing standard CSS and JavaScript
+                    standards and guidelines
+                  </li>
+                  <li>
+                    Served as technical resource/SME to the team with advanced
+                    skill in markup and CSS
+                  </li>
+                  <li>
+                    Troubleshooting complex CSS and JavaScript issues on a
+                    variety of projects and production issues
+                  </li>
+                  <li>
+                    Mentored junior-level developers with coding, communication,
+                    and planning
+                  </li>
+                  <li>
+                    Provided technical direction for the creation of multiple
+                    new Storefront sections of the website including our
+                    Corporate, and Financial Life sections
+                  </li>
+                  <li>
+                    Architected and help develop BazaarVoice reviews section
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="descr">
+              <div class="inner">
+                <h3>Technical Coordinator</h3>
+                <p class="timeframe-label">Jul 2015 &mdash; Feb 2018</p>
+                <ul>
+                  <li>
+                    Research of new technology to be used within the development
+                    team
+                  </li>
+                  <li>
+                    Evaluated and assisted in setting up Bitbucket, Confluence,
+                    and Jira as SCM and development workflow tools
+                  </li>
+                  <li>
+                    Evaluated and recommended development tools for TDD and BDD
+                    for JavaScript suite
+                  </li>
+                  <li>
+                    Assisted in the development of governance policies for
+                    desktop and mobile browser support using analytics-supported
+                    data
+                  </li>
+                  <li>
+                    managed/updated software libraries to meet security
+                    guidelines and optimize applications for optimum speed and
+                    scalability
+                  </li>
+                  <li>
+                    maintain relationship with business partners and external
+                    teams in handling/publishing assets on internal server
+                  </li>
+                  <li>
+                    routinely meet with department heads to evaluate workflow
+                    and tools
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </Tab>
+          <Tab title="Wells Fargo">
+            Cras scelerisque, dolor vitae suscipit efficitur, risus orci
+            sagittis velit, ac molestie nulla tortor id augue.
+          </Tab>
+        </Tabs>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .outer-layout-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 1em;
+
+    @container article (width >= 1024px) {
+      grid-template-columns: repeat(12, 1fr);
+    }
+  }
+
+  .section-content {
+    grid-column: 1 / span 4;
+
+    @container article (width >= 1024px) {
+      grid-column: 2 / span 10;
+    }
+    /* @container article (width >= 1024px) {
+      grid-column: 3 / span 8;
+    } */
+  }
+
+  .panel {
+    background-color: var(--color-primary-darker);
+    border-radius: var(--panel-border-radius);
+    padding: var(--panel-padding);
+  }
+
+  h3 {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 0.4em;
+    line-height: 1.3;
+
+    @container article (width > 768px) {
+      font-size: 1.4rem;
+    }
+  }
+
+  .timeframe-label {
+    margin-bottom: 0.6em;
+    line-height: 1;
+    font-size: 0.8rem;
+    font-weight: 300;
+
+    @container article (width > 768px) {
+      font-size: 1rem;
+      margin-bottom: 0;
+    }
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1;
+  }
+
+  ul {
+    padding-top: 1.6em;
+
+    @container article (width > 768px) {
+      margin-left: 1rem;
+    }
+  }
+  ul li {
+    margin-left: 1rem;
+    padding-bottom: 1em;
+
+    &:last-child {
+      padding-bottom: 3em;
+    }
+  }
+
+  .descr {
+    --timeline-color: color-mix(
+      in srgb,
+      var(--color-primary-darkest),
+      #fff 15%
+    );
+
+    position: relative;
+    margin-left: 0.625rem;
+
+    &::before,
+    &::after {
+      display: block;
+    }
+
+    &::before {
+      position: absolute;
+      content: "";
+      border-radius: 50em;
+      height: 13px;
+      width: 13px;
+      background-color: var(--timeline-color);
+      top: 0.8rem;
+    }
+
+    &:last-child&::after {
+      position: absolute;
+      content: "";
+      border-radius: 50em;
+      height: 2px;
+      width: 13px;
+      background-color: var(--timeline-color);
+      bottom: -1.4rem;
+    }
+
+    .inner {
+      position: relative;
+      padding-left: 2rem;
+      font-size: 0.9rem;
+      line-height: 1.5;
+
+      &::before {
+        content: "";
+        width: 0;
+        height: 100%;
+        position: absolute;
+        background-color: var(--timeline-color);
+        border: 0.4px dotted var(--timeline-color);
+        bottom: 0;
+        left: 6px;
+        top: 1.4rem;
+      }
+
+      @container article (width >= 1024px) {
+        font-size: 1rem;
+      }
+      @container article (width >= 1440px) {
+        font-size: 1.3nnrem;
+      }
+    }
+  }
+
+  .descr:last-child li:last-child {
+    padding-bottom: 0;
+  }
+</style>

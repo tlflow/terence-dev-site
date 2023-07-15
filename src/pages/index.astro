@@ -2,36 +2,168 @@
 import ColorPicker from "../components/ColorPicker.vue";
 import HeaderPanel from "../partials/HeaderPanel.astro";
 import SiteFooter from "../partials/SiteFooter.astro";
-import ExperiencePanel from "../partials/ExperiencePanel.astro";
-import ExpertisePanel from "../partials/ExpertisePanel.astro";
+import MyExperience from "../partials/Experience.astro";
+import MyExperiments from "../partials/Experiments.astro";
+import About from "../partials/HomeAbout.astro";
+import MyExpertise from "../partials/Expertise.astro";
+import MobileMenu from "../components/MobileMenu.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Welcome to Astro.">
-  <ColorPicker client:load />
+<Layout title="Terence Flowers: Designer Developer">
+  <!-- <ColorPicker client:load /> -->
+  <div class="page-wrappper js-menu-is-active">
+    <main>
+      <article>
+        <div class="article-wrapper">
+          <HeaderPanel />
 
-  <main>
-    <HeaderPanel />
-    <section>
+          <section>
+            <div class="container">
+              <div class="content-wrapper">
+                <MyExpertise />
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <div class="container">
+              <div class="content-wrapper">
+                <MyExperience />
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <div class="container">
+              <div class="content-wrapper">
+                <MyExperiments />
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <div class="container">
+              <div class="content-wrapper">
+                <About />
+              </div>
+            </div>
+          </section>
+        </div>
+      </article>
+    </main>
+    <footer>
       <div class="container">
-        <ExperiencePanel />
+        <SiteFooter />
       </div>
-    </section>
-  </main>
-  <section>
-    <div class="container">
-      <ExpertisePanel />
-    </div>
-  </section>
-</Layout>
-<footer>
-  <div class="container">
-    <SiteFooter />
+    </footer>
   </div>
-</footer>
+  <MobileMenu />
+</Layout>
 
-<style>
+<style is:global>
+  .page-wrapper {
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+    &.js-menu-is-active {
+      filter: blur(8px) brightness(50%);
+    }
+  }
+
+  main {
+    padding-bottom: 4em;
+  }
+  .article-wrapper,
+  .footer {
+    container-type: inline-size;
+  }
+
+  .article-wrapper {
+    container-name: article;
+    width: 100%;
+    height: 100%;
+  }
+
   .container {
     padding: 0 1rem;
+  }
+
+  .content-wrapper {
+    padding: 4rem 0;
+  }
+
+  .section-header {
+    grid-column: 1 / span 4;
+    text-align: center;
+    margin-bottom: 1em;
+
+    @container article (width > 768px) {
+      grid-column: 1 / span 12;
+    }
+  }
+
+  h2 {
+    font-size: 2.2rem;
+    line-height: 1.2;
+    color: var(--color-accent);
+    margin-bottom: 0.4em;
+    font-weight: 600;
+    font-family: var(--font-display);
+
+    @container article (width > 40em) {
+      font-size: 2.5rem;
+    }
+
+    @container article (width > 110em ) {
+      font-size: 4.6rem;
+    }
+  }
+  .big {
+    color: color-mix(in srgb, var(--color-accent), #000 5%);
+    margin-bottom: 0.8em;
+    font-size: 2rem;
+    font-weight: 300;
+    line-height: 1.2;
+
+    @container article (width > 1800px) {
+      font-size: 2.4rem;
+    }
+  }
+
+  p {
+    color: color-mix(in srgb, var(--color-accent), #fff 40%);
+    line-height: 2.15rem;
+    font-size: 1.2rem;
+    margin-bottom: 0.6em;
+
+    @container article (width > 1800px) {
+      font-size: 1.4rem;
+    }
+  }
+
+  .wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    @container article (width > 1800px) {
+      max-width: 1550px;
+    }
+  }
+
+  .btn {
+    background-color: color-mix(in srgb, var(--color-primary), #fff 3%);
+    color: var(--color-accent);
+    border-radius: var(--btn-border-radius);
+    padding: 0.5em 1.25em;
+    display: inline-block;
+    border: 2px solid var(--color-secondary);
+    font-size: 1.4rem;
+    &:hover {
+      transition: color 0.2s ease-in;
+      color: color-mix(in srgb, var(--color-accent), #000 25%);
+    }
   }
 </style>

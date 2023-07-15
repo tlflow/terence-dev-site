@@ -1,0 +1,62 @@
+---
+import SVGLinkedIn from "../partials/svgs/linkedin.astro";
+import SVGTwitter from "../partials/svgs/twitter.astro";
+import SVGInstagram from "../partials/svgs/instagram.astro";
+---
+
+<div class="social-btns">
+  <div class="btn-wrapper">
+    <a href="#" class="btn footer-btn icon-link">
+      <div class="icon">
+        <SVGLinkedIn />
+      </div>
+    </a>
+    <a href="#" class="btn footer-btn icon-link">
+      <div class="icon">
+        <SVGTwitter />
+      </div>
+    </a>
+    <a href="#" class="btn footer-btn icon-link">
+      <div class="icon">
+        <SVGInstagram />
+      </div>
+    </a>
+  </div>
+</div>
+
+<style>
+  .btn.footer-btn {
+    border: none;
+    color: var(--color-accent);
+
+    &.icon-link {
+      padding: 0.5em;
+      border-radius: 1rem;
+    }
+
+    &:hover {
+      transition: color 0.2s ease-in;
+      color: color-mix(in srgb, var(--color-accent), #000 25%);
+    }
+
+    &:visited {
+      color: var(--color-accent);
+    }
+  }
+
+  .social-btns {
+    .btn-wrapper {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .btn .icon {
+      --icon-size: 2rem;
+
+      @container article (width > 800px) {
+        --icon-size: 3rem;
+      }
+    }
+  }
+</style>

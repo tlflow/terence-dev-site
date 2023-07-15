@@ -1,0 +1,96 @@
+---
+import SVGClose from "../partials/svgs/close.astro";
+import SocialButtons from "./SocialButtons.astro";
+---
+
+<div class="menu">
+  <div class="menu-wrapper">
+    <div class="menu-outer-layout-grid">
+      <div class="menu-nav-wrapper">
+        <a class="close-btn" href="#">
+          <div class="icon">
+            <SVGClose />
+          </div>
+          close
+        </a>
+      </div>
+      <div class="links-wrapper">
+        <nav>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">My Expertise</a></li>
+            <li><a href="#">My Experience</a></li>
+            <li><a href="#">My Experiments</a></li>
+            <li><a href="#">About Me</a></li>
+          </ul>
+        </nav>
+        <div class="btn-wrapper">
+          <a class="menu-btn btn" href="#">My Resume</a>
+        </div>
+      </div>
+      <div class="social-btns-wrapper">
+        <SocialButtons />
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .menu {
+    position: absolute;
+    top: 0;
+    width: 80%;
+    z-index: 1;
+    height: 100vh;
+    right: 0;
+    background-color: color-mix(
+      in srgb,
+      var(--color-primary-darkest),
+      #000 20%
+    );
+  }
+
+  .menu-outer-layout-grid {
+    display: grid;
+    grid-template-rows: 100px 2fr 1fr;
+    height: 90%;
+    /* background-color: aliceblue; */
+  }
+
+  a {
+    color: color-mix(in srgb, var(--color-accent), #fff 80%);
+  }
+
+  .menu-btn .btn {
+    font-size: 1rem;
+  }
+
+  .btn-wrapper {
+    text-align: center;
+  }
+
+  ul {
+    padding-bottom: 1em;
+  }
+
+  li {
+    list-style: none;
+    padding: 1em 0;
+  }
+
+  .menu-wrapper {
+    padding: 2rem;
+    height: 100%;
+  }
+
+  .close-btn {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .social-btns-wrapper {
+    justify-self: center;
+    align-self: end;
+  }
+</style>
