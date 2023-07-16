@@ -13,66 +13,78 @@ import Layout from "../layouts/Layout.astro";
 <Layout title="Terence Flowers: Designer Developer">
   <!-- <ColorPicker client:load /> -->
   <div class="page-wrapper">
-    <main>
-      <article>
-        <div class="article-wrapper">
-          <HeaderPanel />
+    <div class="page-content">
+      <main>
+        <article>
+          <div class="article-wrapper">
+            <HeaderPanel />
 
-          <section>
-            <div class="container">
-              <div class="content-wrapper">
-                <MyExpertise />
+            <section>
+              <div class="container">
+                <div class="content-wrapper">
+                  <MyExpertise />
+                </div>
               </div>
-            </div>
-          </section>
+            </section>
 
-          <section>
-            <div class="container">
-              <div class="content-wrapper">
-                <MyExperience />
+            <section>
+              <div class="container">
+                <div class="content-wrapper">
+                  <MyExperience />
+                </div>
               </div>
-            </div>
-          </section>
+            </section>
 
-          <section>
-            <div class="container">
-              <div class="content-wrapper">
-                <MyExperiments />
+            <section>
+              <div class="container">
+                <div class="content-wrapper">
+                  <MyExperiments />
+                </div>
               </div>
-            </div>
-          </section>
+            </section>
 
-          <section>
-            <div class="container">
-              <div class="content-wrapper">
-                <About />
+            <section>
+              <div class="container">
+                <div class="content-wrapper">
+                  <About />
+                </div>
               </div>
-            </div>
-          </section>
+            </section>
+          </div>
+        </article>
+      </main>
+      <footer>
+        <div class="container">
+          <SiteFooter />
         </div>
-      </article>
-    </main>
-    <footer>
-      <div class="container">
-        <SiteFooter />
-      </div>
-    </footer>
+      </footer>
+    </div>
+    <MobileMenu />
   </div>
-  <MobileMenu />
 </Layout>
 
 <style is:global>
-  body {
-    width: 100vw;
+  body,
+  html {
     overflow-x: hidden;
+    width: 100vw;
+    height: 100%;
+  }
 
+  body {
     &.js--menu-is-active {
       overflow: hidden;
+      width: 100vw;
+      height: 100vh;
       transition: filter 0.2s ease-in;
-      width: 100%;
-      height: 100%;
 
       .page-wrapper {
+        overflow: hidden;
+        width: 100vw;
+        height: 100vh;
+      }
+
+      .page-content {
         filter: blur(4px) brightness(50%);
         transition: filter 0.2s ease-in;
       }

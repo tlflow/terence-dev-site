@@ -1,6 +1,8 @@
 ---
 import SVGClose from "../partials/svgs/close.astro";
-import SocialButtons from "./SocialButtons.astro";
+import SVGLinkedIn from "../partials/svgs/linkedin.astro";
+import SVGTwitter from "../partials/svgs/twitter.astro";
+import SVGInstagram from "../partials/svgs/instagram.astro";
 ---
 
 <div id="mobile_menu" class="menu">
@@ -29,7 +31,29 @@ import SocialButtons from "./SocialButtons.astro";
         <div class="btn-wrapper">
           <a id="panel-menu-btn" class="menu-btn btn" href="#">My Resume</a>
         </div>
-        <SocialButtons />
+        <div class="social-btns">
+          <div class="btn-wrapper">
+            <div class="btn-layout-grid">
+              <a href="#" class="btn">
+                <div class="icon">
+                  <SVGLinkedIn />
+                </div>
+              </a>
+
+              <a href="#" class="btn">
+                <div class="icon">
+                  <SVGTwitter />
+                </div>
+              </a>
+
+              <a href="#" class="btn">
+                <div class="icon">
+                  <SVGInstagram />
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -39,10 +63,10 @@ import SocialButtons from "./SocialButtons.astro";
   .menu {
     position: absolute;
     top: 0;
-    width: 280px;
+    width: 85%;
     z-index: 1;
     height: 100vh;
-    transform: translate(300px, 0);
+    transform: translate(110%, 0);
     right: 0;
     background-color: color-mix(
       in srgb,
@@ -102,5 +126,14 @@ import SocialButtons from "./SocialButtons.astro";
   .btns-wrapper {
     justify-self: center;
     align-self: end;
+  }
+
+  .btns-wrapper .btn {
+    border: none;
+  }
+
+  .social-btns .btn {
+    border-radius: 1rem;
+    padding: 0.7rem;
   }
 </style>
