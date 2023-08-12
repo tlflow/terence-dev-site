@@ -99,6 +99,9 @@ import HeaderPanelMenuBtn from "../components/HeaderPanelMenuBtn.astro";
 
 <script>
   import buildThresholds from "../js/utils/thresholds";
+  window.addEventListener("scroll", () => {
+    console.log(window.scrollY);
+  });
 
   const r = document.querySelector(":root");
 
@@ -112,19 +115,13 @@ import HeaderPanelMenuBtn from "../components/HeaderPanelMenuBtn.astro";
     r.style.setProperty("--panel-num", x);
   }
 
-  window.addEventListener("scroll", function () {
-    if (window.scrollY < 5) {
-      setDegree(0);
-    }
-  });
-
   function createObserver() {
     const panel = document.getElementById("panel");
 
     const options = {
       root: null,
       rootMargin: "0px",
-      threshold: buildThresholds(20),
+      threshold: buildThresholds(100),
     };
 
     const observer = new IntersectionObserver((entries) => {

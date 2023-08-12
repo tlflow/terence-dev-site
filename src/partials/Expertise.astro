@@ -201,15 +201,16 @@ import SVGPencil from "./svgs/pencil.astro";
   .my-name-is {
     font-family: var(--font-display);
     color: color-mix(in srgb, var(--color-accent), #fff 65%);
-    font-size: 2rem;
+    font-size: 1.4rem;
     font-weight: 500;
     line-height: 1.1;
     margin-bottom: 0.6em;
 
     span {
-      font-size: 4rem;
+      display: block;
+      font-size: 2rem;
       color: color-mix(in srgb, var(--color-accent), #fff 80%);
-      line-height: 1;
+      line-height: 1.4;
     }
 
     @container article (width >= 768px) {
@@ -251,6 +252,7 @@ import SVGPencil from "./svgs/pencil.astro";
     &::before,
     &::after {
       font-family: var(--font-code);
+      font-size: 14px;
       color: var(--faded-color);
       display: block;
       opacity: 0.6;
