@@ -99,16 +99,18 @@ import HeaderPanelMenuBtn from "../components/HeaderPanelMenuBtn.astro";
 
 <script>
   import buildThresholds from "../js/utils/thresholds";
+  /*
   window.addEventListener("scroll", () => {
-    console.log(window.scrollY);
+    console.log("window scroll event", window.scrollY);
   });
+  */
 
   const r = document.querySelector(":root");
 
   let currDeg = 0;
   let prevRatio = 0;
   let currRatio = 0;
-  let num;
+  let num = 0;
 
   function setDegree(num) {
     const x = num + "deg";
@@ -130,7 +132,8 @@ import HeaderPanelMenuBtn from "../components/HeaderPanelMenuBtn.astro";
 
         if (currRatio > prevRatio) {
           num = 1 - 2 * currDeg--;
-        } else {
+        }
+        if (currRatio < prevRatio && num >= -50) {
           num = 1 - 2 * currDeg++;
         }
 
@@ -139,8 +142,11 @@ import HeaderPanelMenuBtn from "../components/HeaderPanelMenuBtn.astro";
         }
         if (x >= 0.95) {
           setDegree(0);
+          console.log("I should be setting this to 0 now");
         }
 
+        console.log("ratio", entries[0].intersectionRatio);
+        console.log("panel deg", num);
         prevRatio = currRatio;
         currRatio = x;
       });
