@@ -19,7 +19,7 @@ import Layout from "../layouts/Layout.astro";
           <div class="article-wrapper">
             <HeaderPanel />
 
-            <section>
+            <section class="my-expertise">
               <div class="container">
                 <div class="content-wrapper">
                   <MyExpertise />
@@ -118,6 +118,13 @@ import Layout from "../layouts/Layout.astro";
 
   .content-wrapper {
     padding: 4rem 0;
+  }
+
+  .my-expertise {
+    background: linear-gradient(
+      var(--color-primary-darkest),
+      var(--color-primary)
+    );
   }
 
   .section-header {

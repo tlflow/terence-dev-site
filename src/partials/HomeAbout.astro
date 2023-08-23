@@ -1,10 +1,16 @@
-<div class="outer-layout-grid">
-  <div class="pic">
+<div
+  class="outer-layout-grid animate"
+  data-animation-delay="0"
+  data-animation-direction="up">
+  <div
+    class="pic animate"
+    data-animation-delay="1"
+    data-animation-direction="up">
     <div class="img-wrapper"></div>
   </div>
   <div class="information">
     <div class="content">
-      <h2 class="about-heading">A Bonafide Web Dev Techie</h2>
+      <h2 class="about-heading">A Certified Frontend Dev Techie</h2>
       <p class="big">...but, also a guy with a big heart for helping people.</p>
       <p>
         I'm a people's guy and active in my church and community. In my spare
@@ -39,9 +45,19 @@
   }
 
   h2.about-heading {
-    font-size: 2.9rem;
-    color: color-mix(in srgb, var(--color-accent), #fff 80%);
+    font-family: var(--font-display);
+    color: color-mix(in srgb, var(--color-accent), #fff 65%);
+    font-size: 1.8rem;
     font-weight: 500;
+    line-height: 1.1;
+    margin-bottom: 0.6em;
+
+    span {
+      display: block;
+      font-size: 2rem;
+      color: color-mix(in srgb, var(--color-accent), #fff 80%);
+      line-height: 1.4;
+    }
   }
 
   .pic {

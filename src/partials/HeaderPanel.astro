@@ -10,7 +10,7 @@ import SVGWebflow from "../partials/svgs/webflow.astro";
 import HeaderPanelMenuBtn from "../components/HeaderPanelMenuBtn.astro";
 ---
 
-<header>
+<header class="page-header">
   <div class="header-wrapper">
     <div id="panel" class="panel">
       <div class="panel-wrapper">
@@ -140,13 +140,13 @@ import HeaderPanelMenuBtn from "../components/HeaderPanelMenuBtn.astro";
         if (num <= 0) {
           setDegree(num);
         }
-        if (x >= 0.95) {
+        if (x >= 0.9) {
           setDegree(0);
-          console.log("I should be setting this to 0 now");
+          // console.log("I should be setting panel deg to 0 now");
         }
 
-        console.log("ratio", entries[0].intersectionRatio);
-        console.log("panel deg", num);
+        // console.log("ratio", entries[0].intersectionRatio);
+        // console.log("panel deg", num);
         prevRatio = currRatio;
         currRatio = x;
       });
@@ -246,6 +246,10 @@ import HeaderPanelMenuBtn from "../components/HeaderPanelMenuBtn.astro";
     }
   }
 
+  .page-header {
+    background-color: var(--color-primary-darkest);
+  }
+
   .btn {
     display: inline-block;
 
@@ -321,6 +325,7 @@ import HeaderPanelMenuBtn from "../components/HeaderPanelMenuBtn.astro";
     z-index: -1;
     top: 2px;
     width: 270px;
+    color: var(--color-primary-darkest);
 
     @container article (width > 1600px) {
       width: 27rem;
