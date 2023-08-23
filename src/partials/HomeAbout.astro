@@ -1,3 +1,7 @@
+---
+import { Picture } from "astro-imagetools/components";
+---
+
 <div
   class="outer-layout-grid animate"
   data-animation-delay="0"
@@ -6,7 +10,13 @@
     class="pic animate"
     data-animation-delay="1"
     data-animation-direction="up">
-    <div class="img-wrapper"></div>
+    <div class="img-wrapper">
+      <Picture
+        src="/src/assets/images/me-and-black-panther.jpg"
+        alt="Me and Black Panther suit at Discovery Place"
+        objectFit="cover"
+      />
+    </div>
   </div>
   <div class="information">
     <div class="content">
@@ -65,11 +75,10 @@
 
     .img-wrapper {
       position: relative;
-      background-color: #fff;
       border-radius: var(--panel-border-radius);
       overflow: hidden;
-      width: 16rem;
-      aspect-ratio: 4/6;
+      width: 18rem;
+      /* aspect-ratio: 4/6; */
       height: auto;
 
       @container article (width > 678px) {
