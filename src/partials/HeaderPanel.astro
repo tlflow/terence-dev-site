@@ -1,5 +1,5 @@
 ---
-import SVGBrandLogo from "../partials/svgs/brandlogo.astro";
+import SVGBrandLogo from "../partials/svgs/brandlogocircle.astro";
 import SVGGithub from "../partials/svgs/github.astro";
 import SVGCodeSandbox from "../partials/svgs/codesandbox.astro";
 import SVGLinkedIn from "../partials/svgs/linkedin.astro";
@@ -22,31 +22,31 @@ import HeaderPanelMenuBtn from "../components/HeaderPanelMenuBtn.astro";
           <div>
             <div class="navigation-wrapper">
               <div class="nav-items">
-                <div>
+                <div class="nav-item">
                   <span class="nav-item-number">01.</span>
                   <a href="#" class="navlink" data-scrollTo="expertise">
                     <span>Expertise</span>
                   </a>
                 </div>
-                <div>
+                <div class="nav-item">
                   <span class="nav-item-number">02.</span>
                   <a href="#" class="navlink" data-scrollTo="experience">
                     <span>Experience</span>
                   </a>
                 </div>
-                <div>
+                <div class="nav-item">
                   <span class="nav-item-number">03.</span>
                   <a href="#" class="navlink" data-scrollTo="experiments">
                     <span>Experiments</span>
                   </a>
                 </div>
-                <div>
+                <div class="nav-item">
                   <span class="nav-item-number">04.</span>
                   <a href="#" class="navlink" data-scrollTo="about">
                     <span>About</span></a
                   >
                 </div>
-                <div>
+                <div class="nav-item">
                   <span class="nav-item-number">05.</span>
                   <a href="#" class="navlink" data-scrollTo="contact">
                     <span>Contact</span></a
@@ -104,7 +104,7 @@ import HeaderPanelMenuBtn from "../components/HeaderPanelMenuBtn.astro";
       </div>
       <div class="cta-wrapper">
         <div class="cta">
-          <a href="#" class="cta-btn">Say Hi!</a>
+          <a href="#" class="cta-btn" data-scrollto="contact">Say Hi!</a>
         </div>
         <div class="cta-bkg">
           <svg
@@ -263,6 +263,13 @@ import HeaderPanelMenuBtn from "../components/HeaderPanelMenuBtn.astro";
     place-items: center;
     gap: 1.3rem;
 
+    .nav-item {
+      margin-top: 10px;
+      display: flex;
+      align-items: baseline;
+      gap: 3px;
+    }
+
     .navlink {
       display: inline-block;
       text-decoration: none;
@@ -270,6 +277,7 @@ import HeaderPanelMenuBtn from "../components/HeaderPanelMenuBtn.astro";
       overflow: hidden;
       color: var(--color-primary);
       padding-bottom: 10px;
+      font-family: var(--font-display);
     }
 
     .navlink span::after {

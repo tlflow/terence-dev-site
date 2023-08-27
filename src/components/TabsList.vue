@@ -76,7 +76,7 @@ const changeTab = (index) => {
   grid-column: 1 / span 4;
 
   max-height: 32rem;
-  overflow: scroll;
+  overflow-y: scroll;
 
   @container article (width > 1024px) {
     grid-column: 3 / span 6;
