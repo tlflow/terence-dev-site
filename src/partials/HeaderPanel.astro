@@ -1,11 +1,12 @@
 ---
-import SVGBrandLogo from "../partials/svgs/brandlogocircle.astro";
+import SVGBrandLogo from "../partials/svgs/brandlogo.astro";
 import SVGGithub from "../partials/svgs/github.astro";
 import SVGCodeSandbox from "../partials/svgs/codesandbox.astro";
 import SVGLinkedIn from "../partials/svgs/linkedin.astro";
 import SVGTwitter from "../partials/svgs/twitter.astro";
 import SVGInstagram from "../partials/svgs/instagram.astro";
 import SVGWebflow from "../partials/svgs/webflow.astro";
+import SVGMouse from "../partials/svgs/mouse.astro";
 import HeaderPanelMenuBtn from "../components/HeaderPanelMenuBtn.astro";
 ---
 
@@ -63,6 +64,12 @@ import HeaderPanelMenuBtn from "../components/HeaderPanelMenuBtn.astro";
               Terence <span class="last-name">Flowers</span>
             </h1>
             <p class="subtitle">Software Engineer</p>
+            <div class="scroll-down">
+              <div class="contact-icon icon">
+                <SVGMouse />
+              </div>
+              scroll for more
+            </div>
           </div>
         </div>
         <div class="panel-content-bottom">
@@ -252,10 +259,21 @@ import HeaderPanelMenuBtn from "../components/HeaderPanelMenuBtn.astro";
     }
   }
 
+  .scroll-down {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2rem;
+    gap: 1rem;
+    text-transform: lowercase;
+  }
+
   .navigation-wrapper {
     display: flex;
     justify-content: end;
-    width: 35rem;
+    max-widthth: 35rem;
   }
 
   .nav-items {
@@ -268,6 +286,14 @@ import HeaderPanelMenuBtn from "../components/HeaderPanelMenuBtn.astro";
       display: flex;
       align-items: baseline;
       gap: 3px;
+    }
+
+    .nav-item {
+      display: none;
+
+      @container article (width >= 810px) {
+        display: flex;
+      }
     }
 
     .navlink {
@@ -344,6 +370,12 @@ import HeaderPanelMenuBtn from "../components/HeaderPanelMenuBtn.astro";
     perspective: 650px;
     padding: 1rem;
     padding-bottom: 2.5rem;
+    display: flex;
+    align-items: center;
+
+    @container article (width >= 810px) {
+      display: block;
+    }
   }
 
   .panel {
@@ -351,9 +383,13 @@ import HeaderPanelMenuBtn from "../components/HeaderPanelMenuBtn.astro";
     container-name: panel;
     position: relative;
     width: 100%;
-    height: 100%;
+    height: 96%;
     color: var(--color-primary);
     transform: rotateX(var(--panel-num));
+
+    @container article (width >= 810px) {
+      height: 100%;
+    }
   }
 
   .panel-wrapper {
