@@ -143,6 +143,10 @@ code {
   height: var(--icon-size);
 }
 
+.link {
+  color: var(--color-secondary);
+}
+
 /* .text-gradient {
 	background-image: var(--accent-gradient);
 	-webkit-background-clip: text;

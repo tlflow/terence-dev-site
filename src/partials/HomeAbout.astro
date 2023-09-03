@@ -1,5 +1,6 @@
 ---
-import { Picture } from "astro-imagetools/components";
+import { Image } from "astro:assets";
+import myImage from "../assets/images/me-and-black-panther.jpg";
 ---
 
 <div
@@ -11,11 +12,7 @@ import { Picture } from "astro-imagetools/components";
     data-animation-delay="1"
     data-animation-direction="up">
     <div class="img-wrapper" id="about">
-      <Picture
-        src="/src/assets/images/me-and-black-panther.jpg"
-        alt="Me and Black Panther suit at Discovery Place"
-        objectFit="cover"
-      />
+      <Image src={myImage} alt="Me and Black Panther suit at Discovery Place" />
     </div>
   </div>
   <div class="information">

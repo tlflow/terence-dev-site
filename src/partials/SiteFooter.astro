@@ -2,55 +2,35 @@
 import SVGLinkedIn from "../partials/svgs/linkedin.astro";
 import SVGTwitter from "../partials/svgs/twitter.astro";
 import SVGInstagram from "../partials/svgs/instagram.astro";
+
+import SocialBtns from "../components/SocialButtons.astro";
+import ContactBtns from "../components/ContactButtons.astro";
 ---
 
-<div class="panel">
-  <div class="panel-wrapper">
-    <div class="outer-layout-grid">
-      <div class="footer-heading">
-        <h2 id="contact" class="heading">
-          Have a question or just want to get in touch ?
-        </h2>
-      </div>
-      <div class="footer-btns">
-        <div class="contact-btns">
-          <div class="btn-wrapper">
-            <a
-              class="btn email"
-              href="mailto:terenceflowers.ux@gmail.com"
-              target="_blank">
-              terenceflowers.ux@gmail.com
-            </a>
-            <a class="btn phone" href="tel:234-567-8900"> + 1 234.567.8900</a>
+<footer class="page-footer">
+  <div class="container">
+    <div class="panel">
+      <div class="panel-wrapper">
+        <div class="outer-layout-grid">
+          <div class="footer-heading">
+            <h2 id="contact" class="heading">
+              Have a question or just want to get in touch ?
+            </h2>
           </div>
-        </div>
-        <div class="social-btns">
-          <div class="btn-wrapper">
-            <a href="#" class="btn">
-              <div class="icon">
-                <SVGLinkedIn />
-              </div>
-            </a>
-
-            <a href="#" class="btn">
-              <div class="icon">
-                <SVGTwitter />
-              </div>
-            </a>
-
-            <a href="#" class="btn">
-              <div class="icon">
-                <SVGInstagram />
-              </div>
-            </a>
+          <div class="footer-btns">
+            <ContactBtns />
+            <SocialBtns />
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</footer>
 
 <style>
+  .footer {
+    container-type: inline-size;
+  }
   .panel {
     container-type: inline-size;
     container-name: footer;
@@ -87,19 +67,6 @@ import SVGInstagram from "../partials/svgs/instagram.astro";
     }
   }
 
-  .email.btn,
-  .phone.btn {
-    border: none;
-    font-size: 1rem;
-  }
-  .email.btn {
-    font-size: 0.8rem;
-
-    @container (width > 450px) {
-      font-size: 1rem;
-    }
-  }
-
   .footer-btns {
     align-self: end;
 
@@ -111,28 +78,18 @@ import SVGInstagram from "../partials/svgs/instagram.astro";
       /* background: orange; */
     }
   }
-
-  .contact-btns {
-    .btn-wrapper {
-      display: grid;
-      gap: 1em;
-      justify-items: start;
-    }
-
-    @container footer (width > 768px) {
-      .btn-wrapper {
-        justify-items: start;
-      }
-    }
-  }
-
   .social-btns {
-    /* background: red; */
-
     @container footer (width >= 800px) {
       justify-self: end;
       align-self: end;
     }
+  }
+
+  .social-btns .btn-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 1rem;
+    max-width: 11rem;
   }
 
   .social-btns .btn {
