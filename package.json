@@ -10,12 +10,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/vue": "^2.2.1",
+    "@astrojs/vue": "^3.0.0",
     "@vueuse/core": "^10.2.1",
-    "astro": "^3.0.5",
-    "astro-purgecss": "^2.3.0",
-    "postcss-nested": "^6.0.1",
-    "vue": "^3.3.4"
+    "astro": "^3.0.7",
+    "vue": "^3.3.4",
+    "postcss-nested": "^6.0.1"
   },
   "devDependencies": {
     "prettier": "^2.8.8",
