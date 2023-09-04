@@ -10,7 +10,6 @@ export default () => {
 
     link.addEventListener("click", (e) => {
       e.preventDefault();
-      // destination?.scrollIntoView({ behavior: "smooth", block: "start" });
       window.scrollTo({
         top: offsetPosition,
         behavior: "smooth",

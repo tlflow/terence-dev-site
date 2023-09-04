@@ -1,4 +1,4 @@
-import buildThresholds from "./thresholds";
+import buildThresholds from "../utils/thresholds";
 
 export default () => {
   const animationItems = document.getElementsByClassName("animate");
@@ -13,11 +13,8 @@ export default () => {
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        // console.log("test", entry.intersectionRatio);
         if (entry.intersectionRatio > 0.4) {
           entry.target.classList.add("fade");
-          // console.log(entry.target, entry);
-          // observer.unobserve(entry.target);
         }
       });
     }, options);

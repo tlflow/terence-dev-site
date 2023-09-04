@@ -1,8 +1,9 @@
 .btn {
   background-color: color-mix(in srgb, var(--color-primary), #fff 3%);
-  color: var(--color-accent);
+  color: #fff;
   border-radius: var(--btn-border-radius);
   padding: 0.5em 1.25em;
+  font-family: var(--font-display);
   display: inline-block;
   border: 2px solid var(--color-secondary);
   font-size: 1.4rem;
@@ -12,16 +13,32 @@
   }
 }
 
+.btn.alternative {
+  background-color:  var(--color-secondary);
+  color: var(--color-primary);
+  font-weight: 550;
+}
+
 .cta-btn {
   display: inline-block;
+  background-color: color-mix(in srgb, var(--color-primary), #fff 3%);
+
   border-radius: var(--btn-border-radius);
   border: 2px solid var(--color-secondary);
   padding: 1em 2em;
   color: white;
-  text-transform: uppercase;
-  font-weight: 339;
+  text-transform: lowercase;
+  font-weight: 500;
   line-height: 0;
   font-size: 1rem;
+  font-family: var(--font-display);
+  transition: background-color 0.1s ease-in;
+
+  &:hover {
+    color: var(--color-primary);
+    background-color: var(--color-secondary);
+    transition: background-color 0.1s ease-in;
+  }
 }
 
 .popup-btn {

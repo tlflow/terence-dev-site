@@ -1,0 +1,154 @@
+---
+import SVGClose from "../partials/svgs/close.astro";
+import SocialBtns from "../components/SocialButtons.astro";
+import ContactBtns from "../components/ContactButtons.astro";
+---
+
+<div id="main_menu" data-status="">
+  <div class="container">
+    <div class="outer-layout-grid">
+      <div class="nav-section">
+        <div class="nav-controller">
+          <h2>Site Navigation</h2>
+          <a id="close_menu_btn" class="close-btn" href="#">
+            <div class="icon">
+              <SVGClose />
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="nav-section">
+        <h3>Home</h3>
+        <nav class="nav-links">
+          <a class="link" href="/index.html#about">Expertise</a>
+          <a class="link" href="/index.html#about">Experience</a>
+          <a class="link" href="/index.html#about">Experiments</a>
+          <a class="link" href="/index.html#about">About</a>
+        </nav>
+      </div>
+      <div class="nav-section">
+        <h3>Blog</h3>
+        <nav class="nav-links">
+          <a class="link" href="/blog">Most Recent</a>
+          <a class="link" href="/blog">Favorites</a>
+        </nav>
+
+        <h4>Categories</h4>
+        <div class="tag-wrapper">
+          <a class="link" href="#">Category One</a>
+          <a class="link" href="#">Category Two</a>
+          <a class="link" href="#">Category Three</a>
+          <a class="link" href="#">Category Four</a>
+        </div>
+        <h4>Tags</h4>
+        <div class="tag-wrapper">
+          <a class="tag" href="#">One</a>
+          <a class="tag" href="#">Two</a>
+          <a class="tag" href="#">Three</a>
+          <a class="tag" href="#">Four</a>
+        </div>
+      </div>
+      <div class="nav-section">
+        <div class="btns-wrapper">
+          <div class="btn-wrapper">
+            <a id="panel-menu-btn" class="btn alternative" href="#">My Resume</a
+            >
+          </div>
+        </div>
+        <ContactBtns />
+        <SocialBtns />
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  a {
+    color: var(--color-secondary);
+  }
+
+  .btn-wrapper {
+    text-align: center;
+    margin-bottom: 1em;
+  }
+
+  .nav-links {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 0.8em;
+    padding-top: 1.2em;
+  }
+
+  .close-btn {
+    color: var(--color-secondary);
+  }
+
+  .outer-layout-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 2rem;
+    margin-top: 2em;
+
+    @container sitenav (width > 800px) {
+      max-width: 1142px;
+      margin: 0 auto;
+    }
+  }
+
+  .nav-section {
+    grid-column: 1 / span 4;
+  }
+
+  .nav-controller {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .tag-wrapper {
+    display: flex;
+    gap: 8px;
+  }
+
+  .tag {
+    font-size: 0.8rem;
+    padding: 4px 8px;
+    border-radius: 50em;
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+    line-height: 1;
+    font-weight: 600;
+  }
+
+  #main_menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-primary);
+    container-name: sitenav;
+    container-type: inline-size;
+    z-index: -1;
+    opacity: 0;
+    transition: 0.2s all 0.2s ease-in;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    .container {
+      @container sitenav (width > 768px) {
+        padding: 0 4rem;
+      }
+    }
+
+    &[data-status="active"] {
+      z-index: 100;
+      opacity: 1;
+      transition: 0.2s all 0.2s ease-in;
+    }
+  }
+</style>

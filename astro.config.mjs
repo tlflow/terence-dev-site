@@ -6,16 +6,4 @@ import vue from "@astrojs/vue";
 export default defineConfig({
   integrations: [vue()],
   // integrations: [vue(), purgecss()],
-  /*
-  output: "static",
-  vite: {
-    build: {
-      rollupOptions: {
-        output: {
-          assetFileNames: "styles/[name][extname]",
-        },
-      },
-    },
-  },
-  */
 });

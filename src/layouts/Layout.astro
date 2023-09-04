@@ -5,9 +5,10 @@ import "../styles/button.css";
 import "../styles/animation.css";
 
 import SiteFooter from "../partials/SiteFooter.astro";
-import SocialBtns from "../components/SocialButtons.astro";
-import ContactBtns from "../components/ContactButtons.astro";
-import SVGClose from "../partials/svgs/close.astro";
+import SiteMenu from "../components/SiteMenu.astro";
+
+import SVGBrandLogo from "../partials/svgs/brandlogo.astro";
+import HeaderPanelMenuBtn from "../components/HeaderPanelMenuBtn.astro";
 
 // import ColorPicker from "../components/ColorPicker.vue";
 
@@ -40,66 +41,23 @@ const { title } = Astro.props;
 
   <body id="page-body" data-main-menu="">
     <div class="page-wrapper">
+      <div id="top_nav" data-status="">
+        <div class="container">
+          <div class="top-nav-wrapper">
+            <div class="">
+              <a class="btn icon home-nav-icon icon-link" href="#">
+                <SVGBrandLogo />
+              </a>
+            </div>
+            <HeaderPanelMenuBtn />
+          </div>
+        </div>
+      </div>
       <div class="page-content">
         <slot />
         <SiteFooter />
       </div>
-      <div id="main_menu" class="site-navigation" data-status="">
-        <div class="container">
-          <div class="outer-layout-grid">
-            <div class="nav-section">
-              <div class="nav-controller">
-                <h2>Site Navigation</h2>
-                <a id="close_menu_btn" class="close-btn" href="#">
-                  <div class="icon">
-                    <SVGClose />
-                  </div>
-                  close
-                </a>
-              </div>
-            </div>
-            <div class="nav-section">
-              <h3>Home</h3>
-              <ul>
-                <li>
-                  <a class="link" href="/index.html#about">Expertise</a>
-                </li>
-                <li><a class="link" href="/index.html#about">About</a></li>
-              </ul>
-            </div>
-            <div class="nav-section">
-              <h3>Blog</h3>
-              <a class="link" href="/blog">Blog Index</a>
-
-              <h4>Categories</h4>
-              <div class="tag-wrapper">
-                <a class="link" href="#">Category One</a>
-                <a class="link" href="#">Category Two</a>
-                <a class="link" href="#">Category Three</a>
-                <a class="link" href="#">Category Four</a>
-              </div>
-              <h4>Tags</h4>
-              <div class="tag-wrapper">
-                <a class="link" href="#">Tag One</a>
-                <a class="link" href="#">Tag Two</a>
-                <a class="link" href="#">Tag Three</a>
-                <a class="link" href="#">Tag Four</a>
-              </div>
-            </div>
-            <div class="nav-section">
-              <div class="btns-wrapper">
-                <div class="btn-wrapper">
-                  <a id="panel-menu-btn" class="menu-btn btn" href="#"
-                    >My Resume</a
-                  >
-                </div>
-              </div>
-              <ContactBtns />
-              <SocialBtns />
-            </div>
-          </div>
-        </div>
-      </div>
+      <SiteMenu />
     </div>
   </body>
 </html>
@@ -117,79 +75,124 @@ const { title } = Astro.props;
     width: 100vw;
     height: 100vh;
     transition: filter 0.2s ease-in;
-
-    .page-wrapper {
-      overflow: hidden;
-      width: 100vw;
-      height: 100vh;
-    }
-
     .page-content {
+      position: relative;
       filter: blur(4px) brightness(50%);
       transition: filter 0.2s ease-in;
+      z-index: 1;
     }
   }
 
-  .site-navigation {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  .home-nav-icon.icon {
+    color: var(--color-secondary);
+    height: 42px;
+    width: 32px;
+
+    @container article (width >= 810px) {
+      --icon-size: 3rem;
+    }
+  }
+
+  .btn {
+    display: inline-block;
+
+    &.icon-link {
+      border: none;
+      padding: 0;
+      background-color: transparent;
+    }
+
+    &:hover {
+      transition: color 0.2s ease-in;
+      color: color-mix(in srgb, var(--color-secondary), #fff 25%);
+    }
+  }
+
+  #top_nav {
+    position: fixed;
+    top: 0px;
+    z-index: 99;
     background-color: var(--color-primary);
-    container-name: sitenav;
-    container-type: inline-size;
-    z-index: -1;
-    opacity: 0;
-    transition: all 0.2s ease-in;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.6) 2px 6px 10px,
+    inset rgba(212, 212, 212, 0.138) 0px -2px 0,
+    inset rgba(26, 31, 49, 0.746) 0px -4px 0;
+    padding: 20px 0;
 
-    .container {
-      @container sitenav (width > 768px) {
-        padding: 0 4rem;
-      }
-    }
-
-    .close-btn {
-      color: var(--color-secondary);
-    }
+    transform: translateY(-100px);
+    transition: transform 0.3s ease-in;
 
     &[data-status="active"] {
-      z-index: 100;
-      opacity: 1;
-      transition: all 0.2s ease-in;
-    }
-
-    h2 {
-      font-size: 1.2rem;
-    }
-
-    &.js--menu-is-active {
-    }
-
-    .outer-layout-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      row-gap: 2rem;
-      margin-top: 2em;
-
-      @container sitenav (width > 800px) {
-        max-width: 1142px;
-        margin: 0 auto;
-      }
-    }
-
-    .nav-section {
-      grid-column: 1 / span 4;
-    }
-
-    .nav-controller {
-      display: flex;
-      justify-content: space-between;
+      transform: translateY(0px);
+      transition: transform 0.2s ease-in-out;
     }
   }
-
-  .tag-wrapper {
+  .top-nav-wrapper {
     display: flex;
-    gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
   }
 </style>
+
+<script>
+  import navigation from "../js/handlers/navigation";
+  import buildThresholds from "../js/utils/thresholds";
+
+  const $_TOPNAV = document.getElementById("top_nav");
+
+  function showTopNav() {
+    $_TOPNAV.dataset.status = "active";
+  }
+  function hideTopNav() {
+    $_TOPNAV.dataset.status = "";
+  }
+
+  function isTopNavHidden() {
+    return $_TOPNAV.dataset.status !== "active";
+  }
+
+  function createObserver() {
+    const headerWrapper = document.getElementsByClassName("header-wrapper")[0];
+
+    let scrollPositions;
+    scrollPositions = [];
+
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: buildThresholds(10),
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const headerPosY = entry.boundingClientRect.top;
+
+        scrollPositions.push(headerPosY);
+
+        const lastTwoPositions = scrollPositions.slice(-2);
+        const preVal = lastTwoPositions[0];
+        const newVal = lastTwoPositions[1];
+
+        if (preVal < newVal) {
+          //scrolling up
+          if (entry.isIntersecting) {
+            hideTopNav();
+            scrollPositions = [];
+            return;
+          }
+        } else {
+          // scrolling down
+          if (entry.intersectionRatio < 0.25 && isTopNavHidden()) {
+            showTopNav();
+            scrollPositions = [];
+            return;
+          }
+        }
+      });
+    }, options);
+    observer.observe(headerWrapper);
+  }
+
+  createObserver();
+  navigation();
+</script>

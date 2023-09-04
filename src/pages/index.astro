@@ -1,6 +1,6 @@
 ---
 import About from "../partials/HomeAbout.astro";
-import HeaderPanel from "../partials/HeaderPanel.astro";
+import HeaderPanel from "../components/HeaderPanel.astro";
 import MyExperience from "../partials/Experience.astro";
 import MyExperiments from "../partials/Experiments.astro";
 import MyExpertise from "../partials/Expertise.astro";
@@ -50,8 +50,8 @@ import Layout from "../layouts/Layout.astro";
 </Layout>
 
 <script>
-  import scrollTo from "../js/utils/scrollTo";
-  import AnimationEffects from "../js/utils/animate";
+  import scrollTo from "../js/handlers/scrollTo";
+  import AnimationEffects from "../js/display/animate";
 
   AnimationEffects();
   scrollTo();
