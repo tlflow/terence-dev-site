@@ -1,0 +1,105 @@
+---
+import SVGBrandLogo from "../partials/svgs/brandlogo.astro";
+import HeaderPanelMenuBtn from "../components/HeaderPanelMenuBtn.astro";
+---
+
+<div id="top_nav" data-status="">
+  <div class="container">
+    <div class="top-nav-wrapper">
+      <div class="">
+        <a class="btn icon home-nav-icon icon-link" href="#">
+          <SVGBrandLogo />
+        </a>
+      </div>
+      <HeaderPanelMenuBtn />
+    </div>
+  </div>
+</div>
+
+<style>
+  #top_nav {
+    position: fixed;
+    top: 0px;
+    z-index: 99;
+    background-color: var(--color-primary);
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.6) 2px 6px 10px,
+      inset rgba(212, 212, 212, 0.138) 0px -2px 0,
+      inset rgba(26, 31, 49, 0.746) 0px -4px 0;
+    padding: 20px 0;
+
+    transform: translateY(-100px);
+    transition: transform 0.3s ease-in;
+
+    &[data-status="active"] {
+      transform: translateY(0px);
+      transition: transform 0.2s ease-in-out;
+    }
+  }
+  .top-nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+</style>
+
+<script>
+  import buildThresholds from "../js/utils/thresholds";
+
+  const $_TOPNAV = document.getElementById("top_nav");
+
+  function showTopNav() {
+    $_TOPNAV.dataset.status = "active";
+  }
+  function hideTopNav() {
+    $_TOPNAV.dataset.status = "";
+  }
+
+  function isTopNavHidden() {
+    return $_TOPNAV.dataset.status !== "active";
+  }
+
+  function createObserver() {
+    const headerWrapper = document.getElementsByClassName("header-wrapper")[0];
+
+    let scrollPositions;
+    scrollPositions = [];
+
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: buildThresholds(10),
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const headerPosY = entry.boundingClientRect.top;
+
+        scrollPositions.push(headerPosY);
+
+        const lastTwoPositions = scrollPositions.slice(-2);
+        const preVal = lastTwoPositions[0];
+        const newVal = lastTwoPositions[1];
+
+        if (preVal < newVal) {
+          //scrolling up
+          if (entry.isIntersecting) {
+            hideTopNav();
+            scrollPositions = [];
+            return;
+          }
+        } else {
+          // scrolling down
+          if (entry.intersectionRatio < 0.25 && isTopNavHidden()) {
+            showTopNav();
+            scrollPositions = [];
+            return;
+          }
+        }
+      });
+    }, options);
+    observer.observe(headerWrapper);
+  }
+
+  createObserver();
+</script>

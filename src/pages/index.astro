@@ -1,13 +1,13 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
 import About from "../partials/HomeAbout.astro";
 import HeaderPanel from "../components/HeaderPanel.astro";
 import MyExperience from "../partials/Experience.astro";
 import MyExperiments from "../partials/Experiments.astro";
 import MyExpertise from "../partials/Expertise.astro";
-import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Terence Flowers: Designer Developer">
+<BaseLayout pageTitle="Terence Flowers: Designer Developer">
   <main>
     <article>
       <div class="article-wrapper">
@@ -47,7 +47,7 @@ import Layout from "../layouts/Layout.astro";
       </div>
     </article>
   </main>
-</Layout>
+</BaseLayout>
 
 <script>
   import scrollTo from "../js/handlers/scrollTo";

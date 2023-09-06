@@ -137,10 +137,22 @@ code {
   font-family: var(--font-code);
 }
 
+
+
 .icon {
   --icon-size: 2rem;
   width: var(--icon-size);
   height: var(--icon-size);
+}
+
+.home-nav-icon.icon {
+  color: var(--color-secondary);
+  height: 42px;
+  width: 32px;
+
+  @container article (width >= 810px) {
+    --icon-size: 3rem;
+  }
 }
 
 .link {

@@ -1,6 +1,5 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import "../styles/main.css"
+import BaseLayout from "../layouts/BaseLayout.astro";
 
 const identity = {
   firstName: "Sarah",
@@ -20,20 +19,32 @@ const fontWeight = "bold";
 const textCase = "uppercase";
 ---
 
-<Layout title="About Me">
-	<main>
-		<h1>About Me</h1>
-    <h2>... and my new Astro site!</h2>
-    <p>I am working through Astro's introductory tutorial. This is the second page on my website, and it's the first one I built myself!</p>
-    <p>This site will update as I complete more of the tutorial, so keep checking back and see how my journey is going!</p>
-    <p>My skills are:</p>
-    <ul>
-      {skills.map((skill) => <li class="skill">{skill}</li>)}
-    </ul>
+<BaseLayout pageTitle="About Me | Terence Flowers">
+  <main>
+    <article>
+      <header class="page-header">
+        <div class="header-wrapper">
+          <h1>About Me</h1>
+        </div>
+      </header>
+      <h2>... and my new Astro site!</h2>
+      <p>
+        I am working through Astro's introductory tutorial. This is the second
+        page on my website, and it's the first one I built myself!
+      </p>
+      <p>
+        This site will update as I complete more of the tutorial, so keep
+        checking back and see how my journey is going!
+      </p>
+      <p>My skills are:</p>
+      <ul>
+        {skills.map((skill) => <li class="skill">{skill}</li>)}
+      </ul>
+    </article>
   </main>
-</Layout>
+</BaseLayout>
 
-<style define:vars={{skillColor, fontWeight, textCase}}>
+<style define:vars={{ skillColor, fontWeight, textCase }}>
   h1 {
     color: purple;
     font-size: 4rem;
