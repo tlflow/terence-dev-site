@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
-import TestLayout from "../../../layouts/TestLayout.astro";
+import TestLayout from "../../../layouts/BlogIndexLayout.astro";
 
 const allPosts = await getCollection("blog", ({ data }) => {
   return data.draft !== false && data.pubDate < new Date();

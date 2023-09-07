@@ -9,7 +9,7 @@ import MyExpertise from "../partials/Expertise.astro";
 
 <BaseLayout pageTitle="Terence Flowers: Designer Developer">
   <main>
-    <article>
+    <article class="home">
       <div class="article-wrapper">
         <HeaderPanel />
 
@@ -58,25 +58,6 @@ import MyExpertise from "../partials/Expertise.astro";
 </script>
 
 <style is:global>
-  main {
-    padding-bottom: 4em;
-  }
-
-  .article-wrapper {
-    container-name: article;
-    container-type: inline-size;
-    width: 100%;
-    height: 100%;
-  }
-
-  .container {
-    padding: 0 1rem;
-  }
-
-  .content-wrapper {
-    padding: 2rem 0;
-  }
-
   section.expertise {
     background: linear-gradient(
       var(--color-primary-darkest),
@@ -99,45 +80,6 @@ import MyExpertise from "../partials/Expertise.astro";
 
     @container article (width > 768px) {
       grid-column: 1 / span 12;
-    }
-  }
-
-  h2 {
-    font-size: 2.2rem;
-    line-height: 1.2;
-    color: var(--color-accent);
-    margin-bottom: 0.4em;
-    font-weight: 600;
-    font-family: var(--font-display);
-
-    @container article (width > 40em) {
-      font-size: 2.5rem;
-    }
-
-    @container article (width > 110em ) {
-      font-size: 4.6rem;
-    }
-  }
-  .big {
-    color: color-mix(in srgb, var(--color-accent), #000 5%);
-    margin-bottom: 0.8em;
-    font-size: 1.5rem;
-    font-weight: 300;
-    line-height: 1.2;
-
-    @container article (width > 1800px) {
-      font-size: 2.4rem;
-    }
-  }
-
-  p {
-    color: color-mix(in srgb, var(--color-accent), #fff 40%);
-    line-height: 2.15rem;
-    font-size: 1.2rem;
-    margin-bottom: 0.6em;
-
-    @container article (width > 1800px) {
-      font-size: 1.4rem;
     }
   }
 

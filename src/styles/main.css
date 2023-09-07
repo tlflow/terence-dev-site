@@ -137,8 +137,6 @@ code {
   font-family: var(--font-code);
 }
 
-
-
 .icon {
   --icon-size: 2rem;
   width: var(--icon-size);

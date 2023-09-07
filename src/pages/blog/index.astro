@@ -1,24 +1,36 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogIndexLayout from '../../layouts/BlogIndexLayout.astro';
 import { getCollection } from "astro:content";
 
-const blogPosts = await getCollection("blog");
+
+// const blogPosts = await getCollection("blog");
+const blogPosts = await getCollection("blog", ({ data }) => {
+    return data.draft !== false && data.pubDate < new Date();
+  });
 ---
 
 <BaseLayout pageTitle="Blog | Terence Flowers">
-  <main>
+  <BlogIndexLayout>
+    <main>
     <article>
       <header class="page-header">
         <div class="header-wrapper">
-          <h1>About Me</h1>
+          <h1>Blog Index</h1>
         </div>
       </header>
-      {blogPosts.map((post) => (
-        <h2>{post.data.title}</h2>
-        <p>{post.data.description}</p>
-        <a href={`/blog/${post.slug}`}>Read Post</a>
-        ))
-      }
+      <section>
+        <div class="container">
+
+          {blogPosts.map((post) => (
+            <h2>{post.data.title}</h2>
+            <p>{post.data.description}</p>
+            <a href={`/blog/${post.slug}`}>Read Post</a>
+            ))
+          }
+      </div>
+      </section>
     </article>
   </main>
+  </BlogIndexLayout>
 </BaseLayout>

@@ -1,0 +1,59 @@
+---
+---
+
+<main>
+  <article class="article">
+    <div class="outer-layout-grid">
+      <header class="page-header">
+        <div class="container">
+          <div class="header-wrapper">
+            <slot name="blog-header" />
+          </div>
+        </div>
+      </header>
+
+      <div class="content">
+        <div class="container">
+          <slot />
+        </div>
+      </div>
+
+      <footer>
+        <div class="container">
+          <a href="#">contact</a>
+          <a href="#">share</a>
+        </div>
+      </footer>
+    </div>
+  </article>
+</main>
+
+<style>
+  .page-header,
+  .content {
+    width: 65ch;
+    margin: 0 auto;
+  }
+
+  .header-wrapper {
+    font-size: 3.2rem;
+    font-weight: 700;
+    font-family: var(--font-display);
+  }
+
+  .page-header {
+    height: 18rem;
+  }
+
+  .outer-layout-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 2rem;
+
+    header,
+    .content,
+    footer {
+      grid-column: 1 / span 4;
+    }
+  }
+</style>
