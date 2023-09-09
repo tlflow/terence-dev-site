@@ -1,4 +1,5 @@
 ---
+const { sectionName } = Astro.props;
 ---
 
 <main>
@@ -7,7 +8,9 @@
       <header class="page-header">
         <div class="container">
           <div class="header-wrapper">
+            <div class="section-title">{sectionName}</div>
             <slot name="blog-header" />
+            <div class="author">by Terence Flowers</div>
           </div>
         </div>
       </header>
@@ -29,10 +32,6 @@
 </main>
 
 <style>
-  .article {
-    /* font-size: 18px; */
-    /* line-height: 23px; */
-  }
   .page-header,
   .content {
     width: 100%;
@@ -43,10 +42,15 @@
     }
   }
 
+  .page-header {
+    padding-top: 5em;
+  }
+
   .header-wrapper {
-    /* font-size: 3.2rem; */
-    font-weight: 700;
-    font-family: var(--font-display);
+  }
+
+  .author {
+    padding-top: 1.2em;
   }
 
   .page-header {

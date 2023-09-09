@@ -1,5 +1,5 @@
 ---
-title: Post 2
+title: This would probably be a realistic size for a title
 description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 pubDate: 2023-01-02
 draft: true
@@ -9,7 +9,7 @@ tags: ["astro", "blogging"]
 
 ## Lorem ipsum dolor sit amet, consectetur adipiscing elit
 
-Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eget sit amet tellus cras adipiscing enim eu turpis. Quis lectus nulla at volutpat diam. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare.
+Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eget sit amet tellus cras adipiscing enim eu turpis. Quis lectus nulla at volutpat diam. Viverra suspendisse [a test link](https://www.google.com) potenti nullam ac tortor vitae purus faucibus ornare.
 
 ## Lorem ipsum dolor sit amet, consectetur adipiscing elit
 

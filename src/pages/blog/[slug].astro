@@ -16,18 +16,26 @@ export async function getStaticPaths() {
 
 interface Props {
   post: CollectionEntry<"blog">;
+  sectionName: string;
   headerClass: string;
 }
 
-const { post } = Astro.props;
+const { post, sectionName } = Astro.props;
 const { Content } = await post.render();
 ---
 
 <BaseLayout pageTitle="Blog | Terence Flowers">
-  <BlogPostLayout>
-    <h1 slot="blog-header">{post.data.title}</h1>
+  <BlogPostLayout sectionName="Blog">
+    <h1 class="post-title" slot="blog-header">{post.data.title}</h1>
     <Content />
   </BlogPostLayout>
 </BaseLayout>
 
-<style></style>
+<style>
+  .post-title {
+    /* font-size: 3.2rem; */
+    font-weight: 700;
+    color: var(--color-secondary-2);
+    /* font-family: var(--font-display); */
+  }
+</style>

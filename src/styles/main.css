@@ -5,7 +5,8 @@
   --color-primary: hsl(233, 27.5%, 17.8%);
   --color-primary-darker: color-mix(in srgb, var(--color-primary), #000 15%);
   --color-primary-darkest: color-mix(in srgb, var(--color-primary), #000 20%);
-  --color-secondary: #0df3b2;
+  --color-secondary: hsl(163, 90.6%, 50.2%);
+  --color-secondary-2: hsl(145, 48.3%, 65.9%);
   --color-accent: #3fb6f2;
 
   /* COOL GREY SETTINGS */

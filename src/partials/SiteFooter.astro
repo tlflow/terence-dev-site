@@ -49,28 +49,25 @@ import ContactBtns from "../components/ContactButtons.astro";
     display: grid;
     grid-template-rows: 1fr 1fr;
 
+    /*
     @container footer (width > 350px) {
       min-height: 18em;
     }
     @container footer (width > 1024px) {
       min-height: 14em;
     }
+    */
   }
 
   .footer-heading h2.heading {
-    font-size: 2rem;
     color: var(--color-accent);
+    /* font-size: 2rem; */
     margin: 0;
-
-    @container footer (width > 350px) {
-      font-size: 3rem;
-    }
   }
 
   .footer-btns {
-    align-self: end;
-
     display: grid;
+    align-self: end;
     gap: 1em;
 
     @container footer (width >= 820px) {
