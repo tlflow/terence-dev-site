@@ -9,14 +9,15 @@
   --color-accent: #3fb6f2;
 
   /* COOL GREY SETTINGS */
-  --cool-grey-50: rgb(254, 254, 253);
-  --cool-grey-100: rgb(251, 251, 251);
-  --cool-grey-200: rgb(239, 241, 244);
-  --cool-grey-400: rgb(188, 194, 212);
-  --cool-grey-600: rgb(100, 114, 155);
-  --cool-grey-700: rgb(73, 81, 110);
-  --cool-grey-800: rgb(39, 43, 67);
-  --cool-grey-900: rgb(28, 30, 43);
+  --cool-grey-50: hsl(60, 33.3%, 99.4%);
+  --cool-grey-100: hsl(0, 0%, 98.4%);
+  --cool-grey-200: hsl(216, 18.5%, 94.7%);
+  --cool-grey-400: hsl(225, 21.8%, 78.4%);
+  --cool-grey-500: hsl(224, 20%, 65%);
+  --cool-grey-600: hsl(225, 21.6%, 50%);
+  --cool-grey-700: hsl(227, 20.2%, 35.9%);
+  --cool-grey-800: hsl(231, 26.4%, 20.8%);
+  --cool-grey-900: hsl(232, 21.1%, 13.9%);
 
   /* CONSISTENCY SETTINGS */
   --panel-border-radius: 2rem;
@@ -45,19 +46,6 @@
 
 html {
   background-color: var(--color-primary);
-  color: var(--cool-grey-50);
-  font-family: var(--font-primary);
-  font-size: 18px;
-  font-weight: 400;
-  font-style: normal;
-  font-stretch: normal;
-  font-variation-settings: "slnt" 0;
-  font-optical-sizing: none;
-  text-align: start;
-  line-height: initial;
-  opacity: 1;
-  transition-property: all;
-  transition-duration: 350ms;
   color-scheme: dark light;
 
   &[theme="cafe"] {

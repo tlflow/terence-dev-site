@@ -1,6 +1,29 @@
+html {
+  font-family: var(--font-primary);
+  font-size: 18px;
+  line-height: 23px;
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  font-variation-settings: "slnt" 0;
+  font-optical-sizing: none;
+  text-align: start;
+  opacity: 1;
+  transition-property: all;
+  transition-duration: 350ms;
+}
+
+body,
+.article {
+  color: var(--cool-grey-500);
+  font-size: 1rem;
+  line-height: 1.2777778rem;
+}
+
+/*
 article.home {
   h2 {
-    font-size: 2.2rem;
+    font-size: 2.6111111rem;
     line-height: 1.2;
     color: var(--color-accent);
     margin-bottom: 0.4em;
@@ -38,24 +61,26 @@ article.home {
     }
   }
 }
+*/
 
-article.article {
-  font-size: 1em;
-  line-height: 1.27777778em;
-
+/* mobile */
+.article {
   h2,
   .h2 {
-    font-size: 2.61111111em;
-    line-height: 1.46808511em;
-    margin-top: 0.4893617em;
-    margin-bottom: 0.4893617em;
+    color: var(--cool-grey-50);
+    font-size: 1.625rem;
+    font-weight: 600;
+    line-height: 1.37;
+    margin-top: 0.88461538em;
+    margin-bottom: 0.88461538em;
   }
   h3,
   .h3 {
-    font-size: 1.61111111em;
-    line-height: 1.5862069em;
-    margin-top: 0.79310345em;
-    margin-bottom: 0em;
+    color: var(--cool-grey-100);
+    font-size: 1.22222222em;
+    line-height: 1.04545455em;
+    margin-top: 1.04545455em;
+    margin-bottom: 1.04545455em;
   }
   h4,
   .h4 {
@@ -116,3 +141,80 @@ article.article {
     bottom: -0.25em;
   }
 }
+
+/* desktop */
+/*
+article.article {
+  h2,
+  .h2 {
+    font-size: 2.61111111rem;
+    line-height: 0.9787234em;
+    margin-top: 0.4893617em;
+    margin-bottom: 0.4893617em;
+  }
+  h3,
+  .h3 {
+    font-size: 1.61111111em;
+    line-height: 1.5862069em;
+    margin-top: 0.79310345em;
+    margin-bottom: 0em;
+  }
+  h4,
+  .h4 {
+    font-size: 1em;
+    line-height: 1.27777778em;
+    margin-top: 1.27777778em;
+    margin-bottom: 0em;
+  }
+  h5,
+  .h5 {
+    font-size: 1em;
+    line-height: 1.27777778em;
+    margin-top: 1.27777778em;
+    margin-bottom: 0em;
+  }
+  p,
+  ul,
+  ol,
+  pre,
+  table,
+  blockquote {
+    margin-top: 0em;
+    margin-bottom: 1.27777778em;
+  }
+  ul ul,
+  ol ol,
+  ul ol,
+  ol ul {
+    margin-top: 0em;
+    margin-bottom: 0em;
+  }
+
+  hr,
+  .hr {
+    border: 1px solid;
+    margin: -1px 0;
+  }
+  a,
+  b,
+  i,
+  strong,
+  em,
+  small,
+  code {
+    line-height: 0;
+  }
+  sub,
+  sup {
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+  sup {
+    top: -0.5em;
+  }
+  sub {
+    bottom: -0.25em;
+  }
+}
+*/

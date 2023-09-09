@@ -29,14 +29,22 @@
 </main>
 
 <style>
+  .article {
+    /* font-size: 18px; */
+    /* line-height: 23px; */
+  }
   .page-header,
   .content {
-    width: 65ch;
-    margin: 0 auto;
+    width: 100%;
+
+    @container article (width >= 1024px) {
+      width: 65ch;
+      margin: 0 auto;
+    }
   }
 
   .header-wrapper {
-    font-size: 3.2rem;
+    /* font-size: 3.2rem; */
     font-weight: 700;
     font-family: var(--font-display);
   }
