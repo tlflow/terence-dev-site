@@ -7,7 +7,7 @@ import HeaderPanelMenuBtn from "../components/HeaderPanelMenuBtn.astro";
   <div class="container">
     <div class="top-nav-wrapper">
       <div class="">
-        <a class="btn icon home-nav-icon icon-link" href="#">
+        <a class="icon home-nav-icon icon-link" href="/">
           <SVGBrandLogo />
         </a>
       </div>
@@ -18,23 +18,46 @@ import HeaderPanelMenuBtn from "../components/HeaderPanelMenuBtn.astro";
 
 <style>
   #top_nav {
-    position: fixed;
-    top: 0px;
-    z-index: 99;
     background-color: var(--color-primary);
+    position: relative;
+    top: 0;
     width: 100%;
-    box-shadow: rgba(0, 0, 0, 0.6) 2px 6px 10px,
-      inset rgba(212, 212, 212, 0.138) 0px -2px 0,
-      inset rgba(26, 31, 49, 0.746) 0px -4px 0;
-    padding: 20px 0;
+    padding: 16px 0;
+    box-shadow: none;
+    z-index: 99;
+    transform: translateY(0px);
+    transition: all 0.3s ease-in;
 
+    &[data-status="unlocked"] {
+      transform: translateY(-100px);
+    }
+
+    &[data-status="active"] {
+      position: fixed;
+      transform: translateY(0px);
+      transition: all 0.35s ease-in-out;
+      box-shadow: rgba(0, 0, 0, 0.499) 0px 2px 6px,
+        inset rgba(67, 67, 67, 0.14) 0px -2px 0;
+      /* inset rgba(26, 31, 49, 0.746) 0px -4px 0; */
+    }
+  }
+
+  body.homepage #top_nav {
+    position: fixed;
+    top: 0;
     transform: translateY(-100px);
-    transition: transform 0.3s ease-in;
 
     &[data-status="active"] {
       transform: translateY(0px);
-      transition: transform 0.2s ease-in-out;
+      transition: all 0.35s ease-in-out;
+      box-shadow: rgba(0, 0, 0, 0.499) 0px 2px 6px,
+        inset rgba(67, 67, 67, 0.14) 0px -2px 0;
+      /* inset rgba(26, 31, 49, 0.746) 0px -4px 0; */
     }
+  }
+
+  .home-nav-icon {
+    display: inline-block;
   }
   .top-nav-wrapper {
     display: flex;
@@ -53,6 +76,9 @@ import HeaderPanelMenuBtn from "../components/HeaderPanelMenuBtn.astro";
   }
   function hideTopNav() {
     $_TOPNAV.dataset.status = "";
+  }
+  function unlockTopNav() {
+    $_TOPNAV.dataset.status = "unlocked";
   }
 
   function isTopNavHidden() {
@@ -90,6 +116,15 @@ import HeaderPanelMenuBtn from "../components/HeaderPanelMenuBtn.astro";
           }
         } else {
           // scrolling down
+          if (
+            entry.intersectionRatio < 0.75 &&
+            entry.intersectionRatio > 0.25 &&
+            isTopNavHidden()
+          ) {
+            unlockTopNav();
+            // scrollPositions = [];
+            return;
+          }
           if (entry.intersectionRatio < 0.25 && isTopNavHidden()) {
             showTopNav();
             scrollPositions = [];

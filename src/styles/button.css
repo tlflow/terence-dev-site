@@ -14,7 +14,7 @@
 }
 
 .btn.alternative {
-  background-color:  var(--color-secondary);
+  background-color: var(--color-secondary);
   color: var(--color-primary);
   font-weight: 550;
 }
@@ -39,6 +39,18 @@
     background-color: var(--color-secondary);
     transition: background-color 0.1s ease-in;
   }
+}
+
+.tag {
+  font-size: 0.8rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 50em;
+  /* border: 1ps */
+  background-color: hsla(145, 48.3%, 65.9%, 0.15);
+  line-height: 1;
+  font-weight: 600;
+  color: var(--color-secondary);
+  font-weight: 300;
 }
 
 .popup-btn {

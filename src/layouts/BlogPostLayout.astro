@@ -1,5 +1,5 @@
 ---
-const { sectionName } = Astro.props;
+const { sectionName, postDate } = Astro.props;
 ---
 
 <main>
@@ -10,7 +10,10 @@ const { sectionName } = Astro.props;
           <div class="header-wrapper">
             <div class="section-title">{sectionName}</div>
             <slot name="blog-header" />
-            <div class="author">by Terence Flowers</div>
+            <div class="blog-meta">
+              <div class="author">by Terence Flowers</div>
+              <div class="date">{postDate}</div>
+            </div>
           </div>
         </div>
       </header>
@@ -18,13 +21,18 @@ const { sectionName } = Astro.props;
       <div class="content">
         <div class="container">
           <slot />
+          <div class="tags">
+            <slot name="blog-tags" />
+          </div>
         </div>
       </div>
 
-      <footer>
+      <footer class="article-footer">
         <div class="container">
-          <a href="#">contact</a>
-          <a href="#">share</a>
+          <div class="wrapper">
+            <a href="#">contact</a>
+            <a href="#">share</a>
+          </div>
         </div>
       </footer>
     </div>
@@ -54,7 +62,8 @@ const { sectionName } = Astro.props;
   }
 
   .page-header {
-    height: 18rem;
+    /* height: 18rem; */
+    padding-top: 2rem;
   }
 
   .outer-layout-grid {
@@ -67,5 +76,26 @@ const { sectionName } = Astro.props;
     footer {
       grid-column: 1 / span 4;
     }
+  }
+
+  .blog-meta {
+    padding-top: 0.8em;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 4px;
+
+    .author,
+    .date {
+      grid-column: 1 / span 4;
+    }
+  }
+
+  .tags {
+    padding: 1em 0 2em;
+  }
+
+  .article-footer .wrapper {
+    display: flex;
+    justify-content: space-between;
   }
 </style>

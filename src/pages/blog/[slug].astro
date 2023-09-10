@@ -21,13 +21,28 @@ interface Props {
 }
 
 const { post, sectionName } = Astro.props;
+const convertedDate = new Intl.DateTimeFormat("en-US", {
+  dateStyle: "full",
+}).format(post.data.pubDate);
+const tags = post.data.tags.flat();
 const { Content } = await post.render();
 ---
 
 <BaseLayout pageTitle="Blog | Terence Flowers">
-  <BlogPostLayout sectionName="Blog">
+  <BlogPostLayout sectionName="Blog" postDate={convertedDate}>
     <h1 class="post-title" slot="blog-header">{post.data.title}</h1>
     <Content />
+    <div class="tags-list" slot="blog-tags">
+      {
+        tags.map((tag) => (
+          <div class="tag-wrapper">
+            <a class="tag" href={`/blog/tags/${tag}`}>
+              {tag}
+            </a>
+          </div>
+        ))
+      }
+    </div>
   </BlogPostLayout>
 </BaseLayout>
 
@@ -37,5 +52,16 @@ const { Content } = await post.render();
     font-weight: 700;
     color: var(--color-secondary-2);
     /* font-family: var(--font-display); */
+  }
+   {
+  }
+
+  .tags-list {
+    display: flex;
+    gap: 8px;
+  }
+
+  .tag {
+    color: var(--color-secondary);
   }
 </style>

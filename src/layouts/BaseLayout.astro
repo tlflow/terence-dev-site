@@ -13,9 +13,10 @@ import TopNav from "../components/TopNav.astro";
 
 export interface Props {
   pageTitle: string;
+  class: string;
 }
 
-const { pageTitle } = Astro.props;
+const { pageTitle, class: pageClass } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -38,7 +39,7 @@ const { pageTitle } = Astro.props;
 
   <!-- <ColorPicker client:load /> -->
 
-  <body id="page-body" data-main-menu="">
+  <body id="page-body" class={pageClass} data-main-menu="">
     <div class="page-wrapper">
       <TopNav />
       <div class="page-content">
