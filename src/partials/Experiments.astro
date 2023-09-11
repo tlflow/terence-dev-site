@@ -1,59 +1,29 @@
 ---
+import { getCollection } from "astro:content";
+
+const publishedPosts = await getCollection("experiments", ({ data }) => {
+  return data.draft !== false && data.pubDate < new Date();
+});
 ---
 
 <div class="outer-layout-grid">
-  <div class="section-header">
-    <h2 id="experiments">My Experiments</h2>
-    <p>Some fun stuff I've been tinkering with lately</p>
+  <h2 id="experiments" class="section-heading">My Experiments</h2>
+  <p class="section-description">
+    Some fun stuff I've been tinkering with lately
+  </p>
+  <div class="card-layout-grid">
+    {
+      publishedPosts.map((post) => (
+        <div class="card">
+          <h3>{post.data.title}</h3>
+          <p class="description">{post.data.description}</p>
+          <a href={`/blog/${post.slug}`}>Read Post</a>
+        </div>
+      ))
+    }
   </div>
-  <div class="section-content">
-    <div class="card-layout-grid">
-      <div class="card">
-        <h3>Fun Item</h3>
-        <p class="descriptiion">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt vel
-          molestiae et? Omnis, qui nesciunt!
-        </p>
-      </div>
-      <div class="card">
-        <h3>Fun Item</h3>
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt vel
-          molestiae et? Omnis, qui nesciunt!
-        </p>
-      </div>
-      <div class="card">
-        <h3>Fun Item</h3>
-        <p class="descriptiion">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt vel
-          molestiae et? Omnis, qui nesciunt!
-        </p>
-      </div>
-      <div class="card">
-        <h3>Fun Item</h3>
-        <p class="descriptiion">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt vel
-          molestiae et? Omnis, qui nesciunt!
-        </p>
-      </div>
-      <div class="card">
-        <h3>Fun Item</h3>
-        <p class="descriptiion">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt vel
-          molestiae et? Omnis, qui nesciunt!
-        </p>
-      </div>
-      <div class="card">
-        <h3>Fun Item</h3>
-        <p class="descriptiion">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt vel
-          molestiae et? Omnis, qui nesciunt!
-        </p>
-      </div>
-    </div>
-    <div class="see-more">
-      <a href="#" class="btn">see more</a>
-    </div>
+  <div class="see-more">
+    <a href="#" class="btn">see more</a>
   </div>
 </div>
 
@@ -67,6 +37,13 @@
     @container article (width > 768px) {
       grid-template-columns: repeat(12, 1fr);
     }
+  }
+
+  .section-heading,
+  .section-description,
+  .card-layout-grid,
+  .see-more {
+    grid-column: 1 / span 4;
   }
 
   .see-more {

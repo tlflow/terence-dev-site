@@ -4,13 +4,13 @@ import Tab from "../components/Tab.vue";
 ---
 
 <div
-  class="outer-layout-grid animate"
+  class="outer-layout-grid"
   data-animation-delay="0"
-  data-animation-direction="up">
-  <div class="section-header">
-    <h2 id="experience">My Experience</h2>
-    <p>Places I've Worked Professionally</p>
-  </div>
+  data-animation-direction="up"
+>
+  <h2 id="experience" class="section-heading">My Experience</h2>
+  <p class="section-description">Places I've Worked Professionally</p>
+
   <div class="section-content">
     <div class="panel">
       <div class="panel-wrapper">
@@ -150,6 +150,11 @@ import Tab from "../components/Tab.vue";
     @container article (width >= 1024px) {
       grid-template-columns: repeat(12, 1fr);
     }
+  }
+
+  .section-heading,
+  .section-description {
+    grid-column: 1 / span 4;
   }
 
   .section-content {

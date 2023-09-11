@@ -12,7 +12,8 @@ import SVGPencil from "./svgs/pencil.astro";
           <h3
             class="my-name-is animate"
             data-animation-delay="0"
-            data-animation-direction="up">
+            data-animation-direction="up"
+          >
             Hi, my name is <span>Terence Flowers.</span>
           </h3>
           <p class="big">
@@ -39,7 +40,8 @@ import SVGPencil from "./svgs/pencil.astro";
         <div
           class="img-wrapper animate"
           data-animation-delay="1"
-          data-animation-direction="up">
+          data-animation-direction="up"
+        >
           <img
             src="/images/me-in-3d.jpg"
             id="expertise"
@@ -119,14 +121,6 @@ import SVGPencil from "./svgs/pencil.astro";
   .grid-item-skills-content {
     grid-column: 1 / span 4;
   }
-
-  .panel h3 {
-    font-family: var(--font-display);
-    /* color: color-mix(in srgb, var(--color-accent), #fff 40%); */
-    line-height: 1;
-    font-size: 1.2rem;
-  }
-
   .outer-layout-grid,
   .panel {
     container-type: inline-size;
@@ -254,7 +248,9 @@ import SVGPencil from "./svgs/pencil.astro";
     align-items: center;
     gap: 0.4em;
     margin-bottom: 1em;
-    color: var(--faded-color);
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    line-height: 1;
   }
 
   .descr {

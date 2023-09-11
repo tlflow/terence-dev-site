@@ -64,6 +64,7 @@ article.home {
 */
 
 /* mobile */
+
 .article {
   h1,
   .h1 {
@@ -160,6 +161,45 @@ article.home {
 
     :hover {
       color: var(--color-secondary);
+    }
+  }
+}
+
+.article.home {
+  h1.title {
+    color: var(--color-primary);
+  }
+  h2,
+  .h2 {
+    margin-top: 0;
+  }
+  h3,
+  .h3 {
+    margin-top: 0;
+  }
+
+  p.description {
+    margin-bottom: 0;
+  }
+
+  .title h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0;
+  }
+
+  a.btn {
+    line-height: normal;
+  }
+
+  .big {
+    color: var(--color-secondary-2);
+    margin-bottom: 0.8em;
+    font-size: 1.5rem;
+    font-weight: 300;
+    line-height: 1.2;
+
+    @container article (width > 1800px) {
+      font-size: 2.4rem;
     }
   }
 }

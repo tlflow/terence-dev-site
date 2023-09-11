@@ -93,6 +93,10 @@ const changeTab = (index) => {
   gap: 1rem;
 }
 
+.tab.active ul {
+  padding: 0;
+}
+
 #tab-headers button {
   list-style: none;
   padding: 1rem 1.25rem;

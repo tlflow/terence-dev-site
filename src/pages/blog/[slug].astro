@@ -20,7 +20,7 @@ interface Props {
   headerClass: string;
 }
 
-const { post, sectionName } = Astro.props;
+const { post } = Astro.props;
 const convertedDate = new Intl.DateTimeFormat("en-US", {
   dateStyle: "full",
 }).format(post.data.pubDate);
@@ -28,7 +28,7 @@ const tags = post.data.tags.flat();
 const { Content } = await post.render();
 ---
 
-<BaseLayout pageTitle="Blog | Terence Flowers">
+<BaseLayout class="blog-tags" pageTitle="Blog | Terence Flowers">
   <BlogPostLayout sectionName="Blog" postDate={convertedDate}>
     <h1 class="post-title" slot="blog-header">{post.data.title}</h1>
     <Content />

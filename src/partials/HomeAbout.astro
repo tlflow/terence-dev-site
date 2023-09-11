@@ -4,13 +4,16 @@ import myImage from "../assets/images/me-and-black-panther.jpg";
 ---
 
 <div
-  class="outer-layout-grid animate"
+  class="outer-layout-grid"
   data-animation-delay="0"
-  data-animation-direction="up">
+  data-animation-direction="up"
+>
+  <h2 class="section-heading">About</h2>
   <div
     class="pic animate"
     data-animation-delay="1"
-    data-animation-direction="up">
+    data-animation-direction="up"
+  >
     <div class="img-wrapper" id="about">
       <Image src={myImage} alt="Me and Black Panther suit at Discovery Place" />
     </div>
@@ -51,6 +54,11 @@ import myImage from "../assets/images/me-and-black-panther.jpg";
       grid-template-columns: repeat(12, 1fr);
       max-width: 1450px;
     }
+  }
+
+  .section-heading {
+    grid-column: 1 / span 4;
+    place-self: stretch;
   }
 
   h2.about-heading {
