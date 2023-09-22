@@ -40,8 +40,14 @@ const { sectionName, postDate } = Astro.props;
 </main>
 
 <style>
+  .article {
+    container-name: article;
+    container-type: inline-size;
+  }
+
   .page-header,
-  .content {
+  .content,
+  .article-footer {
     width: 100%;
 
     @container article (width >= 1024px) {

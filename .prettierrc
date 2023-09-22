@@ -1,0 +1,17 @@
+{
+  "useTabs": true,
+  "tabWidth": 1,
+  "singleQuote": true,
+  "trailingComma": "all",
+  "semi": false,
+  "printWidth": 100,
+  "plugins": [
+    "prettier-plugin-astro"
+  ],
+  "pluginSearchDirs": false,
+  "singleAttributePerLine": true,
+  "documentSelectors": [
+      "**/*.astro",
+      "**/*.mdx"
+    ]
+}

@@ -1,23 +1,52 @@
 ---
 export interface Props {
-  title: string;
-  height: number;
-  width: number;
-  embedId: string;
+	title: string
+	height: number
+	width: number
+	embedId: string
+  tabs: string
 }
 
-const {
-  title,
-  embedId,
-  height,
-} = Astro.props;
+/**
+ * tabs can be any either "html | js |css" and then result'
+ * ex. "html,result" or "css,result" --> NO SPACES
+ */
 
-const url = `https://codepen.io/tlflow/pen/${embedId}`;
+const { title, embedId, height, tabs } = Astro.props
+
+const penUrl = `https://codepen.io/tlflow/pen/${embedId}`
+const meUrl = 'https://codepen.io/tlflow/'
 ---
 
-<p class="codepen" data-height={height} data-theme-id="dark" data-default-tab="css,result" data-slug-hash={embedId} data-user="tlflow" style="height: {height}px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
-  <span>See the Pen <a href="}">
-  {title}</a> by Terence Flowers (<a href={url}>@tlflow</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
+<p
+	class="codepen"
+	data-height={height}
+	data-theme-id="dark"
+	data-default-tab={tabs}
+	data-slug-hash={embedId}
+	data-user="tlflow"
+	style="height: {height}px;"
+>
+	<span
+		>See the Pen <a href={penUrl}> {title}</a> by Terence Flowers (<a href={meUrl}>@tlflow</a>) on <a
+			href="https://codepen.io">CodePen</a
+		>.</span
+	>
 </p>
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<script
+	async
+	src="https://cpwebassets.codepen.io/assets/embed/ei.js"
+></script>
+
+
+<style>
+  .codepen {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid;
+    margin: 1em 0;
+    padding: 1em;
+  }
+</style>
