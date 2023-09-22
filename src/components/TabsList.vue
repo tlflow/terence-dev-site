@@ -102,12 +102,12 @@ const changeTab = (index) => {
   padding: 1rem 1.25rem;
   position: relative;
   cursor: pointer;
-  color: #fff;
+  color: var(--accent-color);
   border: 2px solid transparent;
 
   &.active {
     border: 2px solid var(--color-secondary);
-    color: var(--accent-color);
+    color: #fff;
     font-weight: bold;
   }
 }
