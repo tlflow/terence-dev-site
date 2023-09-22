@@ -30,6 +30,38 @@ const weSupportAstro = true
 ---
 ```
 
+```css
+.tilting-card-content {
+  --perspective: 500px;
+  --rotateX: 0;
+  --rotateY: 0;
+  --angle: 15deg;
+
+  position: relative;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  box-shadow: var(--shadow);
+  padding: 2rem;
+  aspect-ratio: 1 / 2;
+  background-image: url("https://images.unsplash.com/photo-1528321917418-af00f8823ded?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NTg0MjY1Mzg&ixlib=rb-1.2.1&q=80&w=800");
+  transform: perspective(var(--perspective)) rotateX(var(--rotateX))
+    rotateY(var(--rotateY));
+  transition: transform 350ms ease;
+}
+
+.tilting-card-content > :where(h1, p) {
+  background: white;
+  margin: 0;
+  padding: 0.5rem;
+}
+
+.mouse-position-tracker {
+  position: absolute;
+  inset: 0;
+}
+```
+
 <CodePenEmbed
 	embedId="GRdrXPb"
 	title="A new attempt"
