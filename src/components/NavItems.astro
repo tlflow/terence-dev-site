@@ -1,0 +1,141 @@
+---
+import HeaderPanelMenuBtn from './HeaderPanelMenuBtn.astro'
+
+const { class: className } = Astro.props
+const fullClassList = `navigation-wrapper ${className}`
+---
+
+<div class={fullClassList}>
+	<div class="nav-items">
+		<div class="nav-item">
+			<span class="nav-item-number">01.</span>
+			<a
+				href="#"
+				class="navlink"
+				data-scrollTo="expertise"
+			>
+				<span>Expertise</span>
+			</a>
+		</div>
+		<div class="nav-item">
+			<span class="nav-item-number">02.</span>
+			<a
+				href="#"
+				class="navlink"
+				data-scrollTo="experience"
+			>
+				<span>Experience</span>
+			</a>
+		</div>
+		<div class="nav-item">
+			<span class="nav-item-number">03.</span>
+			<a
+				href="#"
+				class="navlink"
+				data-scrollTo="experiments"
+			>
+				<span>Experiments</span>
+			</a>
+		</div>
+		<div class="nav-item">
+			<span class="nav-item-number">04.</span>
+			<a
+				href="#"
+				class="navlink"
+				data-scrollTo="about"
+			>
+				<span>About</span></a
+			>
+		</div>
+		<div class="nav-item">
+			<span class="nav-item-number">05.</span>
+			<a
+				href="#"
+				class="navlink"
+				data-scrollTo="contact"
+			>
+				<span>Contact</span></a
+			>
+		</div>
+		<HeaderPanelMenuBtn />
+	</div>
+</div>
+
+<style>
+	.navigation-wrapper {
+		display: flex;
+		justify-content: end;
+		max-widthth: 35rem;
+	}
+
+	.nav-items {
+		display: flex;
+		place-items: center;
+		gap: 1.3rem;
+
+		.nav-item {
+			margin-top: 10px;
+			display: flex;
+			align-items: baseline;
+			gap: 3px;
+		}
+
+		/*
+		.nav-item {
+			display: none;
+
+			@container article (width >= 810px) {
+				display: flex;
+			}
+		}
+    */
+
+		.navlink {
+			display: inline-block;
+			text-decoration: none;
+			position: relative;
+			overflow: hidden;
+			color: var(--color-primary);
+			padding-bottom: 10px;
+			font-family: var(--font-display);
+		}
+
+		.navlink span::after {
+			position: absolute;
+			display: block;
+			content: ' ';
+			border-bottom: solid 0.1vmax var(--color-primary-darkest);
+			height: 1px;
+			width: 100%;
+			transition: left 500ms linear;
+			left: -100%;
+			opacity: 0.75;
+			bottom: 1px;
+		}
+
+		.navlink:hover span::after {
+			transition: left 500ms linear;
+			left: 100%;
+		}
+
+		.nav-item-number {
+			font-weight: bold;
+		}
+	}
+
+	.navigation-wrapper.top {
+		.nav-item {
+			font-size: 14px;
+			/* color: #fff; */
+		}
+
+		.navlink {
+			color: #fff;
+		}
+
+		.nav-item-number {
+			font-weight: 300;
+			color: var(--color-secondary);
+		}
+	}
+</style>

@@ -1,5 +1,8 @@
 ---
+import { Image } from 'astro:assets';
+
 const { sectionName, postDate } = Astro.props;
+import avatar from '../assets/images/me-in-3d.jpg';
 ---
 
 <main>
@@ -29,6 +32,14 @@ const { sectionName, postDate } = Astro.props;
 
       <footer class="article-footer">
         <div class="container">
+          <div class="avatar">
+            <Image src={avatar} alt="Headshot of Terence Flowers" width="65" height="65" />
+          </div>
+          <h2 class="article-footer__title">Written by Terence Flowers</h2>
+
+          <p class="article-footer__description">I am a software developer and CSS enthusiast. I am passionate about creating exceptional digital
+            experiences, and building performant, accessible, web apps and user-friendly experiences.</p>
+
           <div class="wrapper">
             <a href="#">contact</a>
             <a href="#">share</a>
@@ -89,6 +100,7 @@ const { sectionName, postDate } = Astro.props;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     row-gap: 4px;
+    color: hsl(216deg 14.3% 84.55%);
 
     .author,
     .date {
@@ -97,11 +109,36 @@ const { sectionName, postDate } = Astro.props;
   }
 
   .tags {
-    padding: 1em 0 2em;
+    padding: 2em 0 2em;
+  }
+
+  .section-title {
+    color: var(--cool-grey-200);
   }
 
   .article-footer .wrapper {
     display: flex;
     justify-content: space-between;
+  }
+
+  .article-footer {
+    margin-bottom: 2rem;
+  }
+
+  .article-footer__title {
+    font-weight: 400;
+  }
+
+  .avatar {
+    position: relative;
+    height: 83px;
+    width: 77px;
+    border-radius: 50px;
+    overflow: hidden;
+
+    img {
+      position: absolute;
+      object-fit: contain;
+    }
   }
 </style>

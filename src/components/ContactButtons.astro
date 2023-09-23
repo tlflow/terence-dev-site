@@ -1,39 +1,45 @@
 ---
+
 ---
 
 <div class="contact-btns">
-  <div class="btn-wrapper">
-    <a
-      class="btn email"
-      href="mailto:terenceflowers.ux@gmail.com"
-      target="_blank"
-    >
-      me@terenceflowers.com
-    </a>
-    <a class="btn phone" href="tel:234-567-8900"> + 1 704.502.9526</a>
-  </div>
+	<div class="btn-wrapper">
+		<a
+			class="btn email"
+			href="mailto:terenceflowers.ux@gmail.com"
+			target="_blank"
+		>
+			me@terenceflowers.com
+		</a>
+		<a
+			class="btn phone"
+			href="tel:234-567-8900"
+		>
+			+ 1 704.502.9526</a
+		>
+	</div>
 </div>
 
 <style>
-  .contact-btns {
-    .btn-wrapper {
-      display: grid;
-      gap: 1em;
-      justify-items: start;
-    }
+	.contact-btns {
+		.btn-wrapper {
+			display: grid;
+			gap: 1em;
+			justify-items: start;
+		}
 
-    .email.btn,
-    .phone.btn {
-      /* border: none; */
-      font-size: 1rem;
-      border: 1px solid var(--color-secondary-2);
-    }
-    .email.btn {
-      font-size: 0.9rem;
+		.email.btn,
+		.phone.btn {
+			/* border: none; */
+			font-size: 1rem;
+			border: 1px solid var(--color-secondary);
+		}
+		.email.btn {
+			font-size: 0.9rem;
 
-      @container (width > 450px) {
-        font-size: 1rem;
-      }
-    }
-  }
+			@container (width > 450px) {
+				font-size: 1rem;
+			}
+		}
+	}
 </style>

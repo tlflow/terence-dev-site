@@ -1,463 +1,405 @@
 ---
-import SVGBrandLogo from "../partials/svgs/brandlogo.astro";
-import SVGGithub from "../partials/svgs/github.astro";
-import SVGCodeSandbox from "../partials/svgs/codesandbox.astro";
-import SVGLinkedIn from "../partials/svgs/linkedin.astro";
-import SVGTwitter from "../partials/svgs/twitter.astro";
-import SVGInstagram from "../partials/svgs/instagram.astro";
-import SVGWebflow from "../partials/svgs/webflow.astro";
-import SVGMouse from "../partials/svgs/mouse.astro";
-import HeaderPanelMenuBtn from "./HeaderPanelMenuBtn.astro";
+import SVGBrandLogo from '../partials/svgs/brandlogo.astro'
+import SVGGithub from '../partials/svgs/github.astro'
+import SVGCodeSandbox from '../partials/svgs/codesandbox.astro'
+import SVGLinkedIn from '../partials/svgs/linkedin.astro'
+import SVGTwitter from '../partials/svgs/twitter.astro'
+import SVGInstagram from '../partials/svgs/instagram.astro'
+import SVGWebflow from '../partials/svgs/webflow.astro'
+import SVGMouse from '../partials/svgs/mouse.astro'
+import NavItems from './NavItems.astro'
 ---
 
 <header class="page-header">
-  <div class="header-wrapper">
-    <div id="panel" class="panel">
-      <div class="panel-wrapper">
-        <div class="panel-content-top">
-          <div>
-            <a class="btn icon home-nav-icon icon-link" href="#">
-              <SVGBrandLogo />
-            </a>
-          </div>
-          <div>
-            <div class="navigation-wrapper">
-              <div class="nav-items">
-                <div class="nav-item">
-                  <span class="nav-item-number">01.</span>
-                  <a href="#" class="navlink" data-scrollTo="expertise">
-                    <span>Expertise</span>
-                  </a>
-                </div>
-                <div class="nav-item">
-                  <span class="nav-item-number">02.</span>
-                  <a href="#" class="navlink" data-scrollTo="experience">
-                    <span>Experience</span>
-                  </a>
-                </div>
-                <div class="nav-item">
-                  <span class="nav-item-number">03.</span>
-                  <a href="#" class="navlink" data-scrollTo="experiments">
-                    <span>Experiments</span>
-                  </a>
-                </div>
-                <div class="nav-item">
-                  <span class="nav-item-number">04.</span>
-                  <a href="#" class="navlink" data-scrollTo="about">
-                    <span>About</span></a
-                  >
-                </div>
-                <div class="nav-item">
-                  <span class="nav-item-number">05.</span>
-                  <a href="#" class="navlink" data-scrollTo="contact">
-                    <span>Contact</span></a
-                  >
-                </div>
-                <HeaderPanelMenuBtn />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="panel-content-middle">
-          <div class="title-wrapper">
-            <h1 class="title">
-              Terence <span class="last-name">Flowers</span>
-            </h1>
-            <p class="subtitle">Software Engineer</p>
-            <div class="scroll-down">
-              <div class="contact-icon icon">
-                <SVGMouse />
-              </div>
-              scroll for more
-            </div>
-          </div>
-        </div>
-        <div class="panel-content-bottom">
-          <div class="btn-group group-1">
-            <a href="#" class="btn icon-link">
-              <div class="contact-icon icon">
-                <SVGGithub />
-              </div>
-            </a>
-            <a href="#" class="btn icon-link">
-              <div class="contact-icon icon">
-                <SVGCodeSandbox />
-              </div>
-            </a>
-            <a href="#" class="btn icon-link">
-              <div class="contact-icon icon">
-                <SVGWebflow />
-              </div>
-            </a>
-          </div>
-          <div class="btn-group group-2">
-            <a href="#" class="btn icon-link">
-              <div class="contact-icon icon">
-                <SVGTwitter />
-              </div>
-            </a>
-            <a href="#" class="btn icon-link">
-              <div class="contact-icon icon">
-                <SVGInstagram />
-              </div>
-            </a>
-            <a href="#" class="btn icon-link">
-              <div class="contact-icon icon">
-                <SVGLinkedIn />
-              </div>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="cta-wrapper">
-        <div class="cta">
-          <a href="#" class="cta-btn" data-scrollto="contact">Say hello!</a>
-        </div>
-        <div class="cta-bkg">
-          <svg
-            viewBox="0 0 290 52"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg">
-            <path
-              id="panel_cutout"
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M0.246872 51.8537C25.7892 51.8537 39.8279 40.2128 47.5271 28.0157C56.3034 14.1121 69.6518 0.500019 86.0936 0.500019H102.054H136.526H167.474H197.785H203.906C220.348 0.500019 233.696 14.1121 242.473 28.0157C250.172 40.2128 264.211 51.8537 289.753 51.8537H197.785H102.054H0.246872Z"
-              fill="currentColor"></path>
-          </svg>
-        </div>
-      </div>
-      <div class="canvas-wrapper">
-        <canvas id="canvas" width="32px" height="32px"></canvas>
-      </div>
-    </div>
-  </div>
+	<div class="header-wrapper">
+		<div
+			id="panel"
+			class="panel"
+		>
+			<div class="panel-wrapper">
+				<div class="panel-content-top">
+					<div>
+						<a
+							class="btn icon home-nav-icon icon-link"
+							href="#"
+						>
+							<SVGBrandLogo />
+						</a>
+					</div>
+					<div>
+						<NavItems />
+					</div>
+				</div>
+				<div class="panel-content-middle">
+					<div class="title-wrapper">
+						<h1 class="title">
+							Terence <span class="last-name">Flowers</span>
+						</h1>
+						<p class="subtitle">Software Engineer</p>
+						<div class="scroll-down">
+							<div class="contact-icon icon">
+								<SVGMouse />
+							</div>
+							 scroll for more
+						</div>
+					</div>
+				</div>
+				<div class="panel-content-bottom">
+					<div class="btn-group group-1">
+						<a
+							href="#"
+							class="btn icon-link"
+						>
+							<div class="contact-icon icon">
+								<SVGGithub />
+							</div>
+						</a>
+						<a
+							href="#"
+							class="btn icon-link"
+						>
+							<div class="contact-icon icon">
+								<SVGCodeSandbox />
+							</div>
+						</a>
+						<a
+							href="#"
+							class="btn icon-link"
+						>
+							<div class="contact-icon icon">
+								<SVGWebflow />
+							</div>
+						</a>
+					</div>
+					<div class="btn-group group-2">
+						<a
+							href="#"
+							class="btn icon-link"
+						>
+							<div class="contact-icon icon">
+								<SVGTwitter />
+							</div>
+						</a>
+						<a
+							href="#"
+							class="btn icon-link"
+						>
+							<div class="contact-icon icon">
+								<SVGInstagram />
+							</div>
+						</a>
+						<a
+							href="#"
+							class="btn icon-link"
+						>
+							<div class="contact-icon icon">
+								<SVGLinkedIn />
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="cta-wrapper">
+				<div class="cta">
+					<a
+						href="#"
+						class="cta-btn"
+						data-scrollto="contact"
+						>Say hello!</a
+					>
+				</div>
+				<div class="cta-bkg">
+					<svg
+						viewBox="0 0 290 52"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg"
+					>
+						<path
+							id="panel_cutout"
+							fill-rule="evenodd"
+							clip-rule="evenodd"
+							d="M0.246872 51.8537C25.7892 51.8537 39.8279 40.2128 47.5271 28.0157C56.3034 14.1121 69.6518 0.500019 86.0936 0.500019H102.054H136.526H167.474H197.785H203.906C220.348 0.500019 233.696 14.1121 242.473 28.0157C250.172 40.2128 264.211 51.8537 289.753 51.8537H197.785H102.054H0.246872Z"
+							fill="currentColor"
+						></path>
+					</svg>
+				</div>
+			</div>
+			<div class="canvas-wrapper">
+				<canvas
+					id="canvas"
+					width="32px"
+					height="32px"
+				></canvas>
+			</div>
+		</div>
+	</div>
 </header>
 
 <script>
-  import movingBlobs from "../js/display/movingBlobs";
-  import buildThresholds from "../js/utils/thresholds";
+	import movingBlobs from '../js/display/movingBlobs'
+	import buildThresholds from '../js/utils/thresholds'
 
-  const r = document.querySelector(":root");
+	const r = document.querySelector(':root')
 
-  let currDeg = 0;
-  let prevRatio = 0;
-  let currRatio = 0;
-  let num = 0;
+	let currDeg = 0
+	let prevRatio = 0
+	let currRatio = 0
+	let num = 0
 
-  function setDegree(num) {
-    const x = num + "deg";
-    r.style.setProperty("--panel-num", x);
-  }
+	function setDegree(num) {
+		const x = num + 'deg'
+		r.style.setProperty('--panel-num', x)
+	}
 
-  function createObserver() {
-    const panel = document.getElementById("panel");
+	function createObserver() {
+		const panel = document.getElementById('panel')
 
-    const options = {
-      root: null,
-      rootMargin: "0px",
-      threshold: buildThresholds(100),
-    };
+		const options = {
+			root: null,
+			rootMargin: '0px',
+			threshold: buildThresholds(100),
+		}
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        const x = entry.intersectionRatio;
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				const x = entry.intersectionRatio
 
-        if (currRatio > prevRatio) {
-          num = 1 - 2 * currDeg--;
-        }
-        if (currRatio < prevRatio && num >= -50) {
-          num = 1 - 2 * currDeg++;
-        }
+				if (currRatio > prevRatio) {
+					num = 1 - 2 * currDeg--
+				}
+				if (currRatio < prevRatio && num >= -50) {
+					num = 1 - 2 * currDeg++
+				}
 
-        if (num <= 0) {
-          setDegree(num);
-        }
-        if (x >= 0.9) {
-          setDegree(0);
-        }
+				if (num <= 0) {
+					setDegree(num)
+				}
+				if (x >= 0.9) {
+					setDegree(0)
+				}
 
-        prevRatio = currRatio;
-        currRatio = x;
-      });
-    }, options);
+				prevRatio = currRatio
+				currRatio = x
+			})
+		}, options)
 
-    observer.observe(panel);
-  }
+		observer.observe(panel)
+	}
 
-  createObserver();
-  movingBlobs();
+	createObserver()
+	movingBlobs()
 </script>
 
 <style>
-  :root {
-    --panel-num: 0deg;
-  }
+	:root {
+		--panel-num: 0deg;
+	}
 
-  .scroll-down {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-top: 2rem;
-    gap: 0.5em;
-    text-transform: lowercase;
-  }
+	.scroll-down {
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding-top: 2rem;
+		gap: 0.5em;
+		text-transform: lowercase;
+	}
 
-  .navigation-wrapper {
-    display: flex;
-    justify-content: end;
-    max-widthth: 35rem;
-  }
+	.home-nav-icon.icon {
+		color: var(--color-primary);
 
-  .nav-items {
-    display: flex;
-    place-items: center;
-    gap: 1.3rem;
+		@container article (width >= 810px) {
+			--icon-size: 3rem;
+		}
+	}
+	.contact-icon.icon {
+		--icon-size: 1.6rem;
+		color: var(--color-primary);
 
-    .nav-item {
-      margin-top: 10px;
-      display: flex;
-      align-items: baseline;
-      gap: 3px;
-    }
+		@container article (width >= 810px) {
+			--icon-size: 2rem;
+		}
+	}
 
-    .nav-item {
-      display: none;
+	.page-header {
+		background-color: var(--color-primary-darkest);
+	}
 
-      @container article (width >= 810px) {
-        display: flex;
-      }
-    }
+	.btn {
+		display: inline-block;
 
-    .navlink {
-      display: inline-block;
-      text-decoration: none;
-      position: relative;
-      overflow: hidden;
-      color: var(--color-primary);
-      padding-bottom: 10px;
-      font-family: var(--font-display);
-    }
+		&.icon-link {
+			border: none;
+			padding: 0;
+			background-color: transparent;
+		}
 
-    .navlink span::after {
-      position: absolute;
-      display: block;
-      content: " ";
-      border-bottom: solid 0.1vmax var(--color-primary-darkest);
-      height: 1px;
-      width: 100%;
-      transition: left 500ms linear;
-      left: -100%;
-      opacity: 0.75;
-      bottom: 1px;
-    }
+		&:hover {
+			transition: color 0.2s ease-in;
+			color: color-mix(in srgb, var(--color-accent), #000 25%);
+		}
+	}
 
-    .navlink:hover span::after {
-      transition: left 500ms linear;
-      left: 100%;
-    }
+	.header-wrapper {
+		height: 100vh;
+		overflow: hidden;
+		perspective: 650px;
+		padding: 1rem;
+		padding-bottom: 2.5rem;
+		display: flex;
+		align-items: center;
 
-    .nav-item-number {
-      font-weight: bold;
-    }
-  }
+		@container article (width >= 810px) {
+			display: block;
+		}
+	}
 
-  .home-nav-icon.icon {
-    color: var(--color-primary);
+	.panel {
+		container-type: inline-size;
+		container-name: panel;
+		position: relative;
+		width: 100%;
+		height: 96%;
+		color: var(--color-primary);
+		transform: rotateX(var(--panel-num));
 
-    @container article (width >= 810px) {
-      --icon-size: 3rem;
-    }
-  }
-  .contact-icon.icon {
-    --icon-size: 1.6rem;
-    color: var(--color-primary);
+		@container article (width >= 810px) {
+			height: 100%;
+		}
+	}
 
-    @container article (width >= 810px) {
-      --icon-size: 2rem;
-    }
-  }
+	.panel-wrapper {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		z-index: 2;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-direction: column;
+		padding: var(--panel-padding);
+		padding-bottom: calc(var(--panel-padding) + 2rem);
 
-  .page-header {
-    background-color: var(--color-primary-darkest);
-  }
+		@container article (width >= 810px) {
+			padding-bottom: var(--panel-padding);
+		}
+	}
 
-  .btn {
-    display: inline-block;
+	.cta {
+		position: absolute;
+		padding-top: 1rem;
+	}
 
-    &.icon-link {
-      border: none;
-      padding: 0;
-      background-color: transparent;
-    }
+	.cta-wrapper {
+		z-index: 2;
+		position: absolute;
+		width: 100%;
+		height: 2.7rem;
+		bottom: 0;
+		display: flex;
+		justify-content: center;
 
-    &:hover {
-      transition: color 0.2s ease-in;
-      color: color-mix(in srgb, var(--color-accent), #000 25%);
-    }
-  }
+		/* height determines where tab is located */
+		@container article (width > 1600px) {
+			height: 4.7rem;
+		}
+	}
 
-  .header-wrapper {
-    height: 100vh;
-    overflow: hidden;
-    perspective: 650px;
-    padding: 1rem;
-    padding-bottom: 2.5rem;
-    display: flex;
-    align-items: center;
+	.cta-bkg {
+		position: absolute;
+		z-index: -1;
+		top: 2px;
+		width: 270px;
+		color: var(--color-primary-darkest);
 
-    @container article (width >= 810px) {
-      display: block;
-    }
-  }
+		@container article (width > 1600px) {
+			width: 27rem;
+		}
+	}
 
-  .panel {
-    container-type: inline-size;
-    container-name: panel;
-    position: relative;
-    width: 100%;
-    height: 96%;
-    color: var(--color-primary);
-    transform: rotateX(var(--panel-num));
+	.cta-btn {
+		@container article (width > 1600px) {
+			font-size: 1.8rem;
+		}
+	}
 
-    @container article (width >= 810px) {
-      height: 100%;
-    }
-  }
+	.panel-content-top,
+	.panel-content-bottom {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+	}
+	.title-wrapper {
+		color: var(--color-primary);
+		text-transform: uppercase;
+		line-height: 1;
+	}
 
-  .panel-wrapper {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: 2;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: column;
-    padding: var(--panel-padding);
-    padding-bottom: calc(var(--panel-padding) + 2rem);
+	.title {
+		font-family: var(--font-display);
+		font-size: 3.4rem;
+		font-weight: 300;
+		letter-spacing: 2px;
+		margin-bottom: 0.1em;
+		line-height: 0.9;
+		text-align: center;
 
-    @container article (width >= 810px) {
-      padding-bottom: var(--panel-padding);
-    }
-  }
+		.last-name {
+			display: block;
+			font-weight: 600;
+			letter-spacing: normal;
+			position: relative;
+			left: 4px;
+		}
 
-  .cta {
-    position: absolute;
-    padding-top: 1rem;
-  }
+		@container article (width >= 678px) {
+			font-size: 6rem;
+		}
+		@container article (width >= 1024px) {
+			font-size: 8rem;
+		}
+		@container article (width >= 1280px) {
+			font-size: 7.4rem;
+		}
+		@container article (width >= 1440px) {
+			font-size: 9rem;
+		}
+		@container article (width >= 2100px) {
+			font-size: 18rem;
+			margin-bottom: 0.2em;
+		}
+	}
 
-  .cta-wrapper {
-    z-index: 2;
-    position: absolute;
-    width: 100%;
-    height: 2.7rem;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
+	.subtitle {
+		font-family: var(--font-primary);
+		text-align: center;
+		font-size: 1rem;
+		font-weight: 400;
+		margin-bottom: 0;
+		letter-spacing: 2px;
+		color: color-mix(in srgb, var(--color-primary), #fff 5%);
 
-    /* height determines where tab is located */
-    @container article (width > 1600px) {
-      height: 4.7rem;
-    }
-  }
+		@container article (width >= 678px) {
+			font-size: 2rem;
+		}
 
-  .cta-bkg {
-    position: absolute;
-    z-index: -1;
-    top: 2px;
-    width: 270px;
-    color: var(--color-primary-darkest);
+		@container article (width >= 1280px) {
+			font-size: 1.8rem;
+		}
+	}
 
-    @container article (width > 1600px) {
-      width: 27rem;
-    }
-  }
+	canvas {
+		width: 100%;
+		height: 100%;
+	}
 
-  .cta-btn {
-    @container article (width > 1600px) {
-      font-size: 1.8rem;
-    }
-  }
-
-  .panel-content-top,
-  .panel-content-bottom {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-  }
-  .title-wrapper {
-    color: var(--color-primary);
-    text-transform: uppercase;
-    line-height: 1;
-  }
-
-  .title {
-    font-family: var(--font-display);
-    font-size: 3.4rem;
-    font-weight: 300;
-    letter-spacing: 2px;
-    margin-bottom: 0.1em;
-    line-height: 0.9;
-    text-align: center;
-
-    .last-name {
-      display: block;
-      font-weight: 600;
-      letter-spacing: normal;
-      position: relative;
-      left: 4px;
-    }
-
-    @container article (width >= 678px) {
-      font-size: 6rem;
-    }
-    @container article (width >= 1024px) {
-      font-size: 8rem;
-    }
-    @container article (width >= 1280px) {
-      font-size: 7.4rem;
-    }
-    @container article (width >= 1440px) {
-      font-size: 9rem;
-    }
-    @container article (width >= 2100px) {
-      font-size: 18rem;
-      margin-bottom: 0.2em;
-    }
-  }
-
-  .subtitle {
-    font-family: var(--font-primary);
-    text-align: center;
-    font-size: 1rem;
-    font-weight: 400;
-    margin-bottom: 0;
-    letter-spacing: 2px;
-    color: color-mix(in srgb, var(--color-primary), #fff 5%);
-
-    @container article (width >= 678px) {
-      font-size: 2rem;
-    }
-
-    @container article (width >= 1280px) {
-      font-size: 1.8rem;
-    }
-  }
-
-  canvas {
-    width: 100%;
-    height: 100%;
-  }
-
-  .canvas-wrapper {
-    border-radius: 2rem;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    position: absolute;
-    z-index: 1;
-  }
+	.canvas-wrapper {
+		border-radius: 2rem;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+		position: absolute;
+		z-index: 1;
+	}
 </style>

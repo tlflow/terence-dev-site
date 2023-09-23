@@ -1,131 +1,134 @@
 .btn {
-  background-color: color-mix(in srgb, var(--color-primary), #fff 3%);
-  color: #fff;
-  border-radius: var(--btn-border-radius);
-  padding: 0.5em 1.25em;
-  font-family: var(--font-display);
-  display: inline-block;
-  border: 2px solid var(--color-secondary);
-  font-size: 1.4rem;
-  &:hover {
-    transition: color 0.2s ease-in;
-    color: color-mix(in srgb, var(--color-accent), #000 25%);
-  }
+	background-color: color-mix(in srgb, var(--color-primary), #fff 3%);
+	color: var(--color-secondary);
+	border-radius: var(--btn-border-radius);
+	padding: 0.5em 1.25em;
+	font-family: var(--font-display);
+	display: inline-block;
+	border: 2px solid var(--color-secondary);
+	font-size: 1.4rem;
+
+	&:hover {
+		transition: color 0.2s ease-in;
+		color: var(--cool-grey-200);
+	}
 }
 
 .btn.alternative {
-  background-color: var(--color-secondary);
-  color: var(--color-primary);
-  font-weight: 550;
+	background-color: var(--color-secondary);
+	color: var(--color-primary);
+	font-weight: 550;
 }
 
 .cta-btn {
-  display: inline-block;
-  background-color: color-mix(in srgb, var(--color-primary), #fff 3%);
+	display: inline-block;
+	background-color: color-mix(in srgb, var(--color-primary), #fff 3%);
 
-  border-radius: var(--btn-border-radius);
-  border: 2px solid var(--color-secondary);
-  padding: 1em 2em;
-  color: white;
-  text-transform: lowercase;
-  font-weight: 500;
-  line-height: 0;
-  font-size: 1rem;
-  font-family: var(--font-display);
-  transition: background-color 0.1s ease-in;
+	border-radius: var(--btn-border-radius);
+	border: 2px solid var(--color-secondary);
+	padding: 1em 2em;
+	color: white;
+	text-transform: lowercase;
+	font-weight: 500;
+	line-height: 0;
+	font-size: 1rem;
+	font-family: var(--font-display);
+	transition: background-color 0.1s ease-in;
 
-  &:hover {
-    color: var(--color-primary);
-    background-color: var(--color-secondary);
-    transition: background-color 0.1s ease-in;
-  }
+	&:hover {
+		color: var(--color-primary);
+		background-color: var(--color-secondary);
+		transition: background-color 0.1s ease-in;
+	}
 }
 
 .tag {
-  font-size: 0.8rem;
-  padding: 0.4rem 0.8rem;
-  border-radius: 50em;
-  /* border: 1ps */
-  background-color: hsla(145, 48.3%, 65.9%, 0.15);
-  line-height: 1;
-  font-weight: 600;
-  color: var(--color-secondary);
-  font-weight: 300;
+	font-size: 0.8rem;
+	padding: 0.4rem 0.8rem;
+	border-radius: 50em;
+	/* border: 1ps */
+	background-color: hsla(145, 48.3%, 65.9%, 0.15);
+	line-height: 1;
+	font-weight: 600;
+	color: var(--color-secondary);
+	font-weight: 300;
 }
 
 .popup-btn {
-  position: relative;
-  cursor: pointer;
-  margin-left: 5px;
-  margin-bottom: 15px;
-  box-sizing: border-box;
-  font-size: 1.4em;
-  text-decoration: none;
-  font-weight: bold;
-  color: var(--popup-btn-text-color);
-  height: var(--popup-btn-height);
-  line-height: var(--popup-btn-height);
-  padding: 0 calc(var(--popup-btn-height) / 2);
-  display: inline-block;
-  width: auto;
-  border-radius: 5px;
-  border-top: 1px solid color-mix(in srgb, var(--popup-btn-color), #fff 22%);
-  border-bottom: 1px solid color-mix(in srgb, var(--popup-btn-color), #fff 20%);
-  background: linear-gradient(
-    to bottom,
-    color-mix(in srgb, var(--popup-btn-color), #fff 15%) 0%,
-    color-mix(in srgb, var(--popup-btn-color), #fff 12%) 26%,
-    var(--popup-btn-color) 100%
-  );
-  top: 0;
-  transition: all var(--popup-btn-speed) var(--popup-btn-timing-function);
+	position: relative;
+	cursor: pointer;
+	margin-left: 5px;
+	margin-bottom: 15px;
+	box-sizing: border-box;
+	font-size: 1.4em;
+	text-decoration: none;
+	font-weight: bold;
+	color: var(--popup-btn-text-color);
+	height: var(--popup-btn-height);
+	line-height: var(--popup-btn-height);
+	padding: 0 calc(var(--popup-btn-height) / 2);
+	display: inline-block;
+	width: auto;
+	border-radius: 5px;
+	border-top: 1px solid color-mix(in srgb, var(--popup-btn-color), #fff 22%);
+	border-bottom: 1px solid color-mix(in srgb, var(--popup-btn-color), #fff 20%);
+	background: linear-gradient(
+		to bottom,
+		color-mix(in srgb, var(--popup-btn-color), #fff 15%) 0%,
+		color-mix(in srgb, var(--popup-btn-color), #fff 12%) 26%,
+		var(--popup-btn-color) 100%
+	);
+	top: 0;
+	transition: all var(--popup-btn-speed) var(--popup-btn-timing-function);
 
-  &:before {
-    display: inline-block;
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    z-index: -1;
-    top: var(--popup-btn-depth);
-    border-radius: 5px;
-    height: var(--popup-btn-height);
-    background: linear-gradient(
-      to top,
-      color-mix(in srgb, var(--popup-btn-color), #000 40%) 0%,
-      color-mix(in srgb, var(--popup-btn-color), #000 25%)
-        var(--popup-btn-depth)
-    );
-    transition: all (var(--popup-btn-speed) * 1.3s)
-      var(--popup-btn-timing-function);
-    box-shadow: 0 1px 0 2px rgba(0, 0, 0, 0.3),
-      0 5px (var(--popup-btn-depth) * 0.4) rgba(0, 0, 0, 0.5),
-      0 (var(--popup-btn-depth) * 1.8) 9px rgba(0, 0, 0, 0.2);
-  }
+	&:before {
+		display: inline-block;
+		content: '';
+		position: absolute;
+		left: 0;
+		right: 0;
+		z-index: -1;
+		top: var(--popup-btn-depth);
+		border-radius: 5px;
+		height: var(--popup-btn-height);
+		background: linear-gradient(
+			to top,
+			color-mix(in srgb, var(--popup-btn-color), #000 40%) 0%,
+			color-mix(in srgb, var(--popup-btn-color), #000 25%) var(--popup-btn-depth)
+		);
+		transition: all (var(--popup-btn-speed) * 1.3s) var(--popup-btn-timing-function);
+		box-shadow:
+			0 1px 0 2px rgba(0, 0, 0, 0.3),
+			0 5px (var(--popup-btn-depth) * 0.4) rgba(0, 0, 0, 0.5),
+			0 (var(--popup-btn-depth) * 1.8) 9px rgba(0, 0, 0, 0.2);
+	}
 
-  &:visited {
-    color: var(--popup-btn-text-color);
-  }
+	&:visited {
+		color: var(--popup-btn-text-color);
+	}
 
-  &:hover {
-    background: linear-gradient(
-      to bottom,
-      color-mix(in srgb, var(--popup-btn-color), #fff 7%),
-      color-mix(in srgb, var(--popup-btn-color), #fff 26%),
-      color-mix(in srgb, var(--popup-btn-color), #fff 40%)
-    );
-  }
+	&:hover {
+		background: linear-gradient(
+			to bottom,
+			color-mix(in srgb, var(--popup-btn-color), #fff 7%),
+			color-mix(in srgb, var(--popup-btn-color), #fff 26%),
+			color-mix(in srgb, var(--popup-btn-color), #fff 40%)
+		);
+	}
 
-  &:active {
-    top: var(--popup-btn-depth);
-    text-shadow: 0 -2px 0 var(--popup-btn-color),
-      0 1px 1px color-mix(in srgb, var(--popup-btn-color), #000 20%),
-      0 0 4px #fff;
-    color: color-mix(in srgb, var(--color-primary), #fff 45%);
+	&:active {
+		top: var(--popup-btn-depth);
+		text-shadow:
+			0 -2px 0 var(--popup-btn-color),
+			0 1px 1px color-mix(in srgb, var(--popup-btn-color), #000 20%),
+			0 0 4px #fff;
+		color: color-mix(in srgb, var(--color-primary), #fff 45%);
 
-    &:before {
-      top: 0;
-      box-shadow: 0 3px 3px rgba(0, 0, 0, 0.7), 0 3px 9px rgba(0, 0, 0, 0.2);
-    }
-  }
+		&:before {
+			top: 0;
+			box-shadow:
+				0 3px 3px rgba(0, 0, 0, 0.7),
+				0 3px 9px rgba(0, 0, 0, 0.2);
+		}
+	}
 }

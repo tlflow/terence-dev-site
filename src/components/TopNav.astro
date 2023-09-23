@@ -1,140 +1,153 @@
 ---
-import SVGBrandLogo from "../partials/svgs/brandlogo.astro";
-import HeaderPanelMenuBtn from "../components/HeaderPanelMenuBtn.astro";
+import SVGBrandLogo from '../partials/svgs/brandlogo.astro'
+import NavItems from './NavItems.astro'
 ---
 
-<div id="top_nav" data-status="">
-  <div class="container">
-    <div class="top-nav-wrapper">
-      <div class="">
-        <a class="icon home-nav-icon icon-link" href="/">
-          <SVGBrandLogo />
-        </a>
-      </div>
-      <HeaderPanelMenuBtn />
-    </div>
-  </div>
+<div
+	id="top_nav"
+	data-status=""
+>
+	<div class="container">
+		<div class="top-nav-wrapper">
+			<div class="">
+				<a
+					class="icon home-nav-icon icon-link"
+					href="/"
+				>
+					<SVGBrandLogo />
+				</a>
+			</div>
+			<NavItems class="top" />
+		</div>
+	</div>
 </div>
 
 <style>
-  #top_nav {
-    background-color: var(--color-primary);
-    position: relative;
-    top: 0;
-    width: 100%;
-    padding: 16px 0;
-    box-shadow: none;
-    z-index: 99;
-    transform: translateY(0px);
-    transition: all 0.3s ease-in;
+	.nav-wrapper {
+		display: flex;
+	}
+	.test {
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+		gap: 10px;
+	}
 
-    &[data-status="unlocked"] {
-      transform: translateY(-100px);
-    }
+	#top_nav {
+		background-color: var(--color-primary);
+		position: relative;
+		top: 0;
+		width: 100%;
+		padding: 16px 0;
+		box-shadow: none;
+		z-index: 99;
+		transform: translateY(0px);
+		transition: all 0.3s ease-in;
 
-    &[data-status="active"] {
-      position: fixed;
-      transform: translateY(0px);
-      transition: all 0.35s ease-in-out;
-      box-shadow: rgba(0, 0, 0, 0.499) 0px 2px 6px,
-        inset rgba(67, 67, 67, 0.14) 0px -2px 0;
-      /* inset rgba(26, 31, 49, 0.746) 0px -4px 0; */
-    }
-  }
+		&[data-status='unlocked'] {
+			transform: translateY(-100px);
+		}
 
-  body.homepage #top_nav {
-    position: fixed;
-    top: 0;
-    transform: translateY(-100px);
+		&[data-status='active'] {
+			position: fixed;
+			transform: translateY(0px);
+			transition: all 0.35s ease-in-out;
+			box-shadow:
+				rgba(0, 0, 0, 0.499) 0px 2px 6px,
+				inset rgba(67, 67, 67, 0.14) 0px -2px 0;
+			/* inset rgba(26, 31, 49, 0.746) 0px -4px 0; */
+		}
+	}
 
-    &[data-status="active"] {
-      transform: translateY(0px);
-      transition: all 0.35s ease-in-out;
-      box-shadow: rgba(0, 0, 0, 0.499) 0px 2px 6px,
-        inset rgba(67, 67, 67, 0.14) 0px -2px 0;
-      /* inset rgba(26, 31, 49, 0.746) 0px -4px 0; */
-    }
-  }
+	body.homepage #top_nav {
+		position: fixed;
+		top: 0;
+		transform: translateY(-100px);
 
-  .home-nav-icon {
-    display: inline-block;
-  }
-  .top-nav-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+		&[data-status='active'] {
+			transform: translateY(0px);
+			transition: all 0.35s ease-in-out;
+			box-shadow:
+				rgba(0, 0, 0, 0.499) 0px 2px 6px,
+				inset rgba(67, 67, 67, 0.14) 0px -2px 0;
+			/* inset rgba(26, 31, 49, 0.746) 0px -4px 0; */
+		}
+	}
+
+	.home-nav-icon {
+		display: inline-block;
+	}
+	.top-nav-wrapper {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
 </style>
 
 <script>
-  import buildThresholds from "../js/utils/thresholds";
+	import buildThresholds from '../js/utils/thresholds'
 
-  const $_TOPNAV = document.getElementById("top_nav");
+	const $_TOPNAV = document.getElementById('top_nav')
 
-  function showTopNav() {
-    $_TOPNAV.dataset.status = "active";
-  }
-  function hideTopNav() {
-    $_TOPNAV.dataset.status = "";
-  }
-  function unlockTopNav() {
-    $_TOPNAV.dataset.status = "unlocked";
-  }
+	function showTopNav() {
+		$_TOPNAV.dataset.status = 'active'
+	}
+	function hideTopNav() {
+		$_TOPNAV.dataset.status = ''
+	}
+	function unlockTopNav() {
+		$_TOPNAV.dataset.status = 'unlocked'
+	}
 
-  function isTopNavHidden() {
-    return $_TOPNAV.dataset.status !== "active";
-  }
+	function isTopNavHidden() {
+		return $_TOPNAV.dataset.status !== 'active'
+	}
 
-  function createObserver() {
-    const headerWrapper = document.getElementsByClassName("header-wrapper")[0];
+	function createObserver() {
+		const headerWrapper = document.getElementsByClassName('header-wrapper')[0]
 
-    let scrollPositions;
-    scrollPositions = [];
+		let scrollPositions
+		scrollPositions = []
 
-    const options = {
-      root: null,
-      rootMargin: "0px",
-      threshold: buildThresholds(10),
-    };
+		const options = {
+			root: null,
+			rootMargin: '0px',
+			threshold: buildThresholds(10),
+		}
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        const headerPosY = entry.boundingClientRect.top;
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				const headerPosY = entry.boundingClientRect.top
 
-        scrollPositions.push(headerPosY);
+				scrollPositions.push(headerPosY)
 
-        const lastTwoPositions = scrollPositions.slice(-2);
-        const preVal = lastTwoPositions[0];
-        const newVal = lastTwoPositions[1];
+				const lastTwoPositions = scrollPositions.slice(-2)
+				const preVal = lastTwoPositions[0]
+				const newVal = lastTwoPositions[1]
 
-        if (preVal < newVal) {
-          //scrolling up
-          if (entry.isIntersecting) {
-            hideTopNav();
-            scrollPositions = [];
-            return;
-          }
-        } else {
-          // scrolling down
-          if (
-            entry.intersectionRatio < 0.75 &&
-            entry.intersectionRatio > 0.25 &&
-            isTopNavHidden()
-          ) {
-            unlockTopNav();
-            // scrollPositions = [];
-            return;
-          }
-          if (entry.intersectionRatio < 0.25 && isTopNavHidden()) {
-            showTopNav();
-            scrollPositions = [];
-            return;
-          }
-        }
-      });
-    }, options);
-    observer.observe(headerWrapper);
-  }
+				if (preVal < newVal) {
+					//scrolling up
+					if (entry.isIntersecting) {
+						hideTopNav()
+						scrollPositions = []
+						return
+					}
+				} else {
+					// scrolling down
+					if (entry.intersectionRatio < 0.75 && entry.intersectionRatio > 0.25 && isTopNavHidden()) {
+						unlockTopNav()
+						// scrollPositions = [];
+						return
+					}
+					if (entry.intersectionRatio < 0.25 && isTopNavHidden()) {
+						showTopNav()
+						scrollPositions = []
+						return
+					}
+				}
+			})
+		}, options)
+		observer.observe(headerWrapper)
+	}
 
-  createObserver();
+	createObserver()
 </script>
