@@ -1,24 +1,20 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogIndexLayout from "../../layouts/BlogIndexLayout.astro";
 import { getCollection } from "astro:content";
 
 const blogPosts = await getCollection("experiments");
 ---
 
-<BaseLayout pageTitle="Blog | Terence Flowers">
-  <main>
-    <article>
-      <header class="page-header">
-        <div class="header-wrapper">
-          <h1>About Me</h1>
-        </div>
-      </header>
-      {blogPosts.map((post) => (
+<BaseLayout class="blog-tags" pageTitle="Experiments | Terence Flowers">
+  <BlogIndexLayout>
+    <h1 class="post-title" slot="blog-header">Experiments</h1>
+    <p slot="blog-description">This is a few projects I'm working on.</p>
+    {blogPosts.map((post) => (
         <h2>{post.data.title}</h2>
         <p>{post.data.description}</p>
         <a href={`/experiments/${post.slug}`}>Read Post</a>
         ))
       }
-    </article>
-  </main>
-</Layout>
+  </BlogIndexLayout>
+</BaseLayout>

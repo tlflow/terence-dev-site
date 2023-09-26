@@ -1,11 +1,72 @@
 ---
+const { sectionName } = Astro.props
 ---
 
 <main>
-  <header class="page-header">
-    <div class="header-wrapper">
-      <h2>This is a test</h2>
-    </div>
-  </header>
-  <slot />
+	<article class="article">
+		<div class="outer-layout-grid">
+			<header class="page-header">
+				<div class="container">
+					<div class="header-wrapper">
+						<div class="section-title">{sectionName}</div>
+						<slot name="blog-header" />
+						<slot name="blog-description" />
+					</div>
+				</div>
+			</header>
+
+			<div class="content">
+				<div class="container">
+					<slot />
+					<div class="tags">
+						<slot name="blog-tags" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</article>
 </main>
+
+<style>
+	.article {
+		container-name: article;
+		container-type: inline-size;
+	}
+
+	.page-header,
+	.content {
+		width: 100%;
+
+		@container article (width >= 1024px) {
+			width: 65ch;
+			margin: 0 auto;
+		}
+	}
+	.page-header {
+		padding-top: 5em;
+	}
+
+	.header-wrapper {
+	}
+
+	.page-header {
+		/* height: 18rem; */
+		padding-top: 2rem;
+	}
+
+	.outer-layout-grid {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		row-gap: 2rem;
+
+		header,
+		.content,
+		footer {
+			grid-column: 1 / span 4;
+		}
+	}
+
+	.section-title {
+		color: var(--cool-grey-200);
+	}
+</style>

@@ -10,7 +10,7 @@ const fullClassList = `navigation-wrapper ${className}`
 		<div class="nav-item">
 			<span class="nav-item-number">01.</span>
 			<a
-				href="#"
+				href="../#expertise"
 				class="navlink"
 				data-scrollTo="expertise"
 			>
@@ -20,7 +20,7 @@ const fullClassList = `navigation-wrapper ${className}`
 		<div class="nav-item">
 			<span class="nav-item-number">02.</span>
 			<a
-				href="#"
+				href="../#experience"
 				class="navlink"
 				data-scrollTo="experience"
 			>
@@ -30,7 +30,7 @@ const fullClassList = `navigation-wrapper ${className}`
 		<div class="nav-item">
 			<span class="nav-item-number">03.</span>
 			<a
-				href="#"
+				href="../#experiments"
 				class="navlink"
 				data-scrollTo="experiments"
 			>
@@ -40,7 +40,7 @@ const fullClassList = `navigation-wrapper ${className}`
 		<div class="nav-item">
 			<span class="nav-item-number">04.</span>
 			<a
-				href="#"
+				href="../#about"
 				class="navlink"
 				data-scrollTo="about"
 			>
@@ -50,7 +50,7 @@ const fullClassList = `navigation-wrapper ${className}`
 		<div class="nav-item">
 			<span class="nav-item-number">05.</span>
 			<a
-				href="#"
+				href="../#contact"
 				class="navlink"
 				data-scrollTo="contact"
 			>
@@ -65,7 +65,7 @@ const fullClassList = `navigation-wrapper ${className}`
 	.navigation-wrapper {
 		display: flex;
 		justify-content: end;
-		max-widthth: 35rem;
+		max-width: 35rem;
 	}
 
 	.nav-items {
@@ -74,32 +74,26 @@ const fullClassList = `navigation-wrapper ${className}`
 		gap: 1.3rem;
 
 		.nav-item {
-			margin-top: 10px;
-			display: flex;
-			align-items: baseline;
-			gap: 3px;
-		}
-
-		/*
-		.nav-item {
 			display: none;
 
-			@container article (width >= 810px) {
+			@media (min-width: 768px) {
 				display: flex;
+				gap: 3px;
+				align-items: baseline;
 			}
 		}
-    */
 
 		.navlink {
 			display: inline-block;
 			text-decoration: none;
 			position: relative;
-			overflow: hidden;
+			/* overflow: hidden; */
 			color: var(--color-primary);
-			padding-bottom: 10px;
+			/* padding-bottom: 10px; */
 			font-family: var(--font-display);
 		}
 
+		/*
 		.navlink span::after {
 			position: absolute;
 			display: block;
@@ -117,16 +111,22 @@ const fullClassList = `navigation-wrapper ${className}`
 			transition: left 500ms linear;
 			left: 100%;
 		}
+    */
 
 		.nav-item-number {
 			font-weight: bold;
 		}
 	}
 
+	.navigation-wrapper.header-panel {
+		.nav-item {
+			font-size: 16px;
+		}
+	}
+
 	.navigation-wrapper.top {
 		.nav-item {
 			font-size: 14px;
-			/* color: #fff; */
 		}
 
 		.navlink {
