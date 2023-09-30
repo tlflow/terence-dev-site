@@ -209,6 +209,12 @@ article.home {
 	}
 }
 
+.article.blog-index {
+	.link {
+		color: var(--color-secondary);
+	}
+}
+
 /* desktop */
 /*
 article.article {

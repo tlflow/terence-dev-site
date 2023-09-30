@@ -4,6 +4,7 @@
   "singleQuote": true,
   "trailingComma": "all",
   "semi": false,
+  "bracketSameLine": true,
   "printWidth": 100,
   "plugins": [
     "prettier-plugin-astro"

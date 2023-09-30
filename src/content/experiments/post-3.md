@@ -1,6 +1,6 @@
 ---
 title: This is a Javascript Story Post 3
-description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+description: Lorem ipsum dolor sit amet.
 pubDate: 2023-01-02
 draft: true
 tags: ["javascript"]

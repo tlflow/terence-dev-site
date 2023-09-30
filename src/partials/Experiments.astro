@@ -1,4 +1,5 @@
 ---
+import SVGFloppyDisk from './svgs/floppydisk.astro'
 import { getCollection } from 'astro:content'
 
 const publishedPosts = await getCollection('experiments', ({ data }) => {
@@ -9,8 +10,7 @@ const publishedPosts = await getCollection('experiments', ({ data }) => {
 <div class="outer-layout-grid">
 	<h2
 		id="experiments"
-		class="section-heading"
-	>
+		class="section-heading">
 		My Experiments
 	</h2>
 	<p class="section-description">Some fun stuff I've been tinkering with lately</p>
@@ -18,14 +18,17 @@ const publishedPosts = await getCollection('experiments', ({ data }) => {
 		{
 			publishedPosts.map((post) => (
 				<div class="card">
-					<h3 class="h4">{post.data.title}</h3>
+					<div class="icon icon-lg">
+						<SVGFloppyDisk />
+					</div>
+					<h3 class="h4">
+						<a
+							class="card-link"
+							href={`/blog/${post.slug}`}>
+							{post.data.title}
+						</a>
+					</h3>
 					<p class="description">{post.data.description}</p>
-					<a
-						class="card-link"
-						href={`/blog/${post.slug}`}
-					>
-						See Experiment
-					</a>
 				</div>
 			))
 		}
@@ -98,7 +101,13 @@ const publishedPosts = await getCollection('experiments', ({ data }) => {
 		margin-bottom: 0.5rem;
 	}
 
+	.card .icon {
+		color: var(--color-secondary);
+		padding-bottom: 3em;
+	}
+
 	.card-link {
 		font-size: 0.8rem;
+		color: var(--color-secondary);
 	}
 </style>

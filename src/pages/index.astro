@@ -1,100 +1,105 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import About from "../partials/HomeAbout.astro";
-import HeaderPanel from "../components/HeaderPanel.astro";
-import MyExperience from "../partials/Experience.astro";
-import MyExperiments from "../partials/Experiments.astro";
-import MyExpertise from "../partials/Expertise.astro";
+import BaseLayout from '../layouts/BaseLayout.astro'
+import About from '../partials/HomeAbout.astro'
+import HeaderPanel from '../components/HeaderPanel.astro'
+import MyExperience from '../partials/Experience.astro'
+import MyExperiments from '../partials/Experiments.astro'
+import MyExpertise from '../partials/Expertise.astro'
 ---
 
-<BaseLayout class="homepage" pageTitle="Terence Flowers: Designer Developer">
-  <main>
-    <article class="article home">
-      <div class="article-wrapper">
-        <HeaderPanel />
+<BaseLayout
+	class="homepage"
+	pageTitle="Terence Flowers: Designer Developer">
+	<main>
+		<article class="article home">
+			<div class="article-wrapper">
+				<HeaderPanel />
 
-        <section class="expertise">
-          <div class="container">
-            <div class="content-wrapper">
-              <MyExpertise />
-            </div>
-          </div>
-        </section>
+				<section class="expertise">
+					<div class="container">
+						<div class="content-wrapper">
+							<MyExpertise />
+						</div>
+					</div>
+				</section>
 
-        <section class="experience">
-          <div class="container">
-            <div class="content-wrapper">
-              <MyExperience />
-            </div>
-          </div>
-        </section>
+				<section class="experience">
+					<div class="container">
+						<div class="content-wrapper">
+							<MyExperience />
+						</div>
+					</div>
+				</section>
 
-        <section class="experiments">
-          <div class="container">
-            <div class="content-wrapper">
-              <MyExperiments />
-            </div>
-          </div>
-        </section>
+				<section class="experiments">
+					<div class="container">
+						<div class="content-wrapper">
+							<MyExperiments />
+						</div>
+					</div>
+				</section>
 
-        <section class="about">
-          <div class="container">
-            <div class="content-wrapper">
-              <About />
-            </div>
-          </div>
-        </section>
-      </div>
-    </article>
-  </main>
+				<section class="about">
+					<div class="container">
+						<div class="content-wrapper">
+							<About />
+						</div>
+					</div>
+				</section>
+			</div>
+		</article>
+	</main>
 </BaseLayout>
 
 <script>
-  import scrollTo from "../js/handlers/scrollTo";
-  import AnimationEffects from "../js/display/animate";
+	import scrollTo from '../js/handlers/scrollTo'
+	import AnimationEffects from '../js/display/animate'
 
-  AnimationEffects();
-  scrollTo();
+	AnimationEffects()
+	scrollTo()
 </script>
 
 <style is:global>
-  section.expertise {
-    background: linear-gradient(
-      var(--color-primary-darkest),
-      var(--color-primary)
-    );
-  }
+	section.expertise {
+		background: linear-gradient(var(--color-primary-darkest), var(--color-primary));
+	}
 
-  section.about {
-    padding-top: 1rem;
-  }
+	section.about {
+		padding-top: 1rem;
+	}
 
-  .section-header {
-    grid-column: 1 / span 4;
-    text-align: center;
-    margin-bottom: 1em;
+	.section-header {
+		grid-column: 1 / span 4;
+		text-align: center;
+		margin-bottom: 1em;
 
-    @container article (width > 768px) {
-      grid-column: 1 / span 12;
-    }
-  }
+		@container article (width > 768px) {
+			grid-column: 1 / span 12;
+		}
+	}
 
-  .wrapper {
-    max-width: 1200px;
-    margin: 0 auto;
+	.wrapper {
+		max-width: 1200px;
+		margin: 0 auto;
 
-    @container article (width > 1800px) {
-      max-width: 1550px;
-    }
-  }
+		@container article (width > 1800px) {
+			max-width: 1550px;
+		}
+	}
 
-  .section-heading {
-    position: sticky;
-    top: 78px;
-    z-index: 98;
-    background: var(--color-primary);
-    font-size: 0.8rem !important;
-    text-transform: uppercase;
-    padding: 0.8rem 0;
-  }
+	.section-heading {
+		position: sticky;
+		top: 4rem;
+		z-index: 98;
+		background: var(--color-primary);
+		font-size: 0.8rem !important;
+		text-transform: uppercase;
+		padding: 0.8rem 0;
+
+		@container article (width > 375px) {
+			position: relative;
+			top: 0;
+			background-color: transparent;
+		}
+	}
 </style>

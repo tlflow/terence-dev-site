@@ -135,8 +135,8 @@ code {
 
 .home-nav-icon.icon {
 	color: var(--color-secondary);
-	height: 42px;
-	width: 32px;
+	height: 1.8rem;
+	width: 1.6rem;
 
 	@container article (width >= 810px) {
 		--icon-size: 3rem;

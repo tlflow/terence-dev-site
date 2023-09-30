@@ -1,6 +1,6 @@
 ---
 title: Javascript and CSS Post 2
-description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.
 pubDate: 2023-01-02
 draft: true
 author: Jane Doe

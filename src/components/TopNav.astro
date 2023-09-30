@@ -5,21 +5,25 @@ import NavItems from './NavItems.astro'
 
 <div
 	id="top_nav"
-	data-status=""
->
-	<div class="container">
-		<div class="top-nav-wrapper">
-			<div class="">
-				<a
-					class="icon home-nav-icon icon-link"
-					href="/"
-				>
-					<SVGBrandLogo />
-				</a>
+	data-status="">
+	<div class="nav-content">
+		<div class="container">
+			<div class="top-nav-wrapper">
+				<div class="nav-brand">
+					<a
+						class="brand-link"
+						href="/">
+						<div class="icon home-nav-icon icon-link">
+							<SVGBrandLogo />
+						</div>
+						<span>Terence Flowers</span>
+					</a>
+				</div>
+				<NavItems class="top" />
 			</div>
-			<NavItems class="top" />
 		</div>
 	</div>
+	<div class="nav-overlay"></div>
 </div>
 
 <style>
@@ -27,16 +31,45 @@ import NavItems from './NavItems.astro'
 		display: flex;
 	}
 
+	.nav-content {
+		position: absolute;
+		z-index: 1;
+		background-color: hsl(233, 27.5%, 17.8%, 90%);
+		height: 100%;
+		width: 100%;
+		top: 0;
+		padding: 16px 0;
+		box-shadow: none;
+	}
+
+	.nav-overlay {
+		position: relative;
+		z-index: 0;
+		/* filter: blur(4px) brightness(50%); */
+		position: absolute;
+		backdrop-filter: blur(4px);
+		width: 100%;
+		height: 100%;
+		top: 0;
+	}
+
+	.nav-brand .brand-link {
+		display: flex;
+		gap: 0.8rem;
+		align-items: center;
+		color: var(--color-secondary);
+		font-family: var(--font-display);
+	}
+
 	#top_nav {
-		background-color: var(--color-primary);
 		position: relative;
 		top: 0;
 		width: 100%;
-		padding: 16px 0;
-		box-shadow: none;
+
 		z-index: 99;
 		transform: translateY(0px);
 		transition: all 0.3s ease-in;
+		min-height: 4rem;
 
 		&[data-status='unlocked'] {
 			transform: translateY(-100px);
@@ -46,9 +79,13 @@ import NavItems from './NavItems.astro'
 			position: fixed;
 			transform: translateY(0px);
 			transition: all 0.35s ease-in-out;
-			box-shadow:
-				rgba(0, 0, 0, 0.499) 0px 2px 6px,
-				inset rgba(67, 67, 67, 0.14) 0px -2px 0;
+
+			.nav-content {
+				box-shadow:
+					rgba(0, 0, 0, 0.499) 0px 2px 6px,
+					inset rgba(67, 67, 67, 0.14) 0px -2px 0;
+			}
+
 			/* inset rgba(26, 31, 49, 0.746) 0px -4px 0; */
 		}
 	}
