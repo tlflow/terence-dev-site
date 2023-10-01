@@ -1,144 +1,161 @@
 ---
-import { Image } from 'astro:assets';
+import { Image } from 'astro:assets'
 
-const { sectionName, postDate } = Astro.props;
-import avatar from '../assets/images/me-in-3d.jpg';
+const { sectionName, postDate } = Astro.props
+import avatar from '../assets/images/headshot.jpg'
 ---
 
 <main>
-  <article class="article">
-    <div class="outer-layout-grid">
-      <header class="page-header">
-        <div class="container">
-          <div class="header-wrapper">
-            <div class="section-title">{sectionName}</div>
-            <slot name="blog-header" />
-            <div class="blog-meta">
-              <div class="author">by Terence Flowers</div>
-              <div class="date">{postDate}</div>
-            </div>
-          </div>
-        </div>
-      </header>
+	<article class="article">
+		<div class="outer-layout-grid">
+			<header class="page-header">
+				<div class="container">
+					<div class="header-wrapper">
+						<div class="section-title">{sectionName}</div>
+						<slot name="blog-header" />
+						<div class="blog-meta">
+							<div class="author">by Terence Flowers</div>
+							<div class="date">{postDate}</div>
+						</div>
+					</div>
+				</div>
+			</header>
 
-      <div class="content">
-        <div class="container">
-          <slot />
-          <div class="tags">
-            <slot name="blog-tags" />
-          </div>
-        </div>
-      </div>
+			<div class="content">
+				<div class="container">
+					<slot />
+					<div class="tags">
+						<slot name="blog-tags" />
+					</div>
+				</div>
+			</div>
 
-      <footer class="article-footer">
-        <div class="container">
-          <div class="avatar">
-            <Image src={avatar} alt="Headshot of Terence Flowers" width="65" height="65" />
-          </div>
-          <h2 class="article-footer__title">Written by Terence Flowers</h2>
+			<footer class="article-footer">
+				<div class="container">
+					<div class="avatar">
+						<Image
+							src={avatar}
+							alt="Headshot of Terence Flowers"
+							width="65"
+							height="65"
+						/>
+					</div>
+					<h2 class="article-footer__title">Written by Terence Flowers</h2>
 
-          <p class="article-footer__description">I am a software developer and CSS enthusiast. I am passionate about creating exceptional digital
-            experiences, and building performant, accessible, web apps and user-friendly experiences.</p>
+					<p class="article-footer__description">
+						I am a software developer and CSS enthusiast. I am passionate about creating exceptional
+						digital experiences, and building performant, accessible, web apps and user-friendly
+						experiences.
+					</p>
 
-          <div class="wrapper">
-            <a href="#">contact</a>
-            <a href="#">share</a>
-          </div>
-        </div>
-      </footer>
-    </div>
-  </article>
+					<div class="article-footer__btns">
+						<div class="wrapper">
+							<a href="#">contact</a>
+							<a href="#">share</a>
+						</div>
+					</div>
+				</div>
+			</footer>
+		</div>
+	</article>
 </main>
 
 <style>
-  .article {
-    container-name: article;
-    container-type: inline-size;
-  }
+	.article {
+		container-name: article;
+		container-type: inline-size;
+	}
 
-  .page-header,
-  .content,
-  .article-footer {
-    width: 100%;
+	.page-header,
+	.content,
+	.article-footer {
+		width: 100%;
 
-    @container article (width >= 1024px) {
-      width: 65ch;
-      margin: 0 auto;
-    }
-  }
+		@container article (width >= 1024px) {
+			width: 65ch;
+			margin: 0 auto;
+		}
+	}
 
-  .page-header {
-    padding-top: 5em;
-  }
+	.page-header {
+		padding-top: 5em;
+	}
 
-  .header-wrapper {
-  }
+	.header-wrapper {
+	}
 
-  .author {
-    padding-top: 1.2em;
-  }
+	.author {
+		padding-top: 1.2em;
+	}
 
-  .page-header {
-    /* height: 18rem; */
-    padding-top: 2rem;
-  }
+	.page-header {
+		/* height: 18rem; */
+		padding-top: 2rem;
+	}
 
-  .outer-layout-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    row-gap: 2rem;
+	.outer-layout-grid {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		row-gap: 2rem;
 
-    header,
-    .content,
-    footer {
-      grid-column: 1 / span 4;
-    }
-  }
+		header,
+		.content,
+		footer {
+			grid-column: 1 / span 4;
+		}
+	}
 
-  .blog-meta {
-    padding-top: 0.8em;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    row-gap: 4px;
-    color: hsl(216deg 14.3% 84.55%);
+	.blog-meta {
+		padding-top: 0.8em;
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		row-gap: 4px;
+		color: hsl(216deg 14.3% 84.55%);
 
-    .author,
-    .date {
-      grid-column: 1 / span 4;
-    }
-  }
+		.author,
+		.date {
+			grid-column: 1 / span 4;
+		}
+	}
 
-  .tags {
-    padding: 2em 0 2em;
-  }
+	.tags {
+		padding: 2em 0 2em;
+	}
 
-  .section-title {
-    color: var(--cool-grey-200);
-  }
+	.section-title {
+		color: var(--cool-grey-200);
+	}
 
-  .article-footer .wrapper {
-    display: flex;
-    justify-content: space-between;
-  }
+	.article-footer .wrapper {
+		display: flex;
+		justify-content: space-between;
+	}
 
-  .article-footer {
-    margin-bottom: 2rem;
-  }
+	.article-footer__btns {
+		margin: 2em 0 1em;
+	}
 
-  .article-footer__title {
-    font-weight: 400;
-  }
+	.article-footer {
+		margin-bottom: 2rem;
+	}
 
-  .avatar {
-    position: relative;
-    height: 83px;
-    width: 77px;
-    border-radius: 50px;
-    overflow: hidden;
+	.article-footer__title {
+		font-size: 1.5rem;
+		font-weight: 400;
+		margin-top: 0.6em;
+		margin-bottom: 0.4em;
+	}
 
-    img {
-      position: absolute;
-      object-fit: contain;
-    }
-  }
+	.avatar {
+		position: relative;
+		height: 4rem;
+		width: 4rem;
+		border-radius: 50px;
+		overflow: hidden;
+
+		img {
+			position: absolute;
+			object-fit: contain;
+		}
+	}
 </style>

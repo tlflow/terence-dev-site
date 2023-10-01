@@ -215,6 +215,16 @@ article.home {
 	}
 }
 
+.article {
+	.link {
+		color: var(--color-secondary);
+	}
+
+	a.tag {
+		color: var(--color-secondary-2);
+	}
+}
+
 /* desktop */
 /*
 article.article {
