@@ -1,6 +1,4 @@
 ---
-import HeaderPanelMenuBtn from './HeaderPanelMenuBtn.astro'
-
 const { class: className } = Astro.props
 const fullClassList = `navigation-wrapper ${className}`
 ---
@@ -12,8 +10,7 @@ const fullClassList = `navigation-wrapper ${className}`
 			<a
 				href="../#expertise"
 				class="navlink"
-				data-scrollTo="expertise"
-			>
+				data-scrollTo="expertise">
 				<span>Expertise</span>
 			</a>
 		</div>
@@ -22,8 +19,7 @@ const fullClassList = `navigation-wrapper ${className}`
 			<a
 				href="../#experience"
 				class="navlink"
-				data-scrollTo="experience"
-			>
+				data-scrollTo="experience">
 				<span>Experience</span>
 			</a>
 		</div>
@@ -32,8 +28,7 @@ const fullClassList = `navigation-wrapper ${className}`
 			<a
 				href="../#experiments"
 				class="navlink"
-				data-scrollTo="experiments"
-			>
+				data-scrollTo="experiments">
 				<span>Experiments</span>
 			</a>
 		</div>
@@ -42,8 +37,7 @@ const fullClassList = `navigation-wrapper ${className}`
 			<a
 				href="../#about"
 				class="navlink"
-				data-scrollTo="about"
-			>
+				data-scrollTo="about">
 				<span>About</span></a
 			>
 		</div>
@@ -52,12 +46,11 @@ const fullClassList = `navigation-wrapper ${className}`
 			<a
 				href="../#contact"
 				class="navlink"
-				data-scrollTo="contact"
-			>
+				data-scrollTo="contact">
 				<span>Contact</span></a
 			>
 		</div>
-		<HeaderPanelMenuBtn />
+		<slot />
 	</div>
 </div>
 
@@ -65,36 +58,52 @@ const fullClassList = `navigation-wrapper ${className}`
 	.navigation-wrapper {
 		display: flex;
 		justify-content: end;
-		max-width: 35rem;
+	}
+
+	.nav-item {
+		display: none;
 	}
 
 	.nav-items {
 		display: flex;
 		place-items: center;
 		gap: 1.3rem;
+	}
 
+	.nav-item-number {
+		font-weight: bold;
+	}
+
+	.navlink {
+		display: inline-block;
+		text-decoration: none;
+		position: relative;
+		color: var(--color-primary);
+		font-family: var(--font-display);
+	}
+
+	.navigation-wrapper.header-panel {
 		.nav-item {
-			display: none;
+			font-size: 1.6rem;
+		}
 
-			@media (min-width: 768px) {
-				display: flex;
-				gap: 3px;
-				align-items: baseline;
+		@media (min-width: 1024px) {
+			.nav-item {
+				display: block;
 			}
+		}
+	}
+
+	.navigation-wrapper.top {
+		.nav-item {
+			font-size: var(--fs-300);
 		}
 
 		.navlink {
-			display: inline-block;
-			text-decoration: none;
-			position: relative;
-			/* overflow: hidden; */
-			color: var(--color-primary);
-			/* padding-bottom: 10px; */
-			font-family: var(--font-display);
-		}
+			color: #fff;
 
-		/*
-		.navlink span::after {
+			/*
+		  span::after {
 			position: absolute;
 			display: block;
 			content: ' ';
@@ -107,35 +116,22 @@ const fullClassList = `navigation-wrapper ${className}`
 			bottom: 1px;
 		}
 
-		.navlink:hover span::after {
+		  &:hover span::after {
 			transition: left 500ms linear;
 			left: 100%;
 		}
     */
-
-		.nav-item-number {
-			font-weight: bold;
-		}
-	}
-
-	.navigation-wrapper.header-panel {
-		.nav-item {
-			font-size: 16px;
-		}
-	}
-
-	.navigation-wrapper.top {
-		.nav-item {
-			font-size: 14px;
-		}
-
-		.navlink {
-			color: #fff;
 		}
 
 		.nav-item-number {
 			font-weight: 300;
 			color: var(--color-secondary);
+		}
+
+		@media (min-width: 768px) {
+			.nav-item {
+				display: block;
+			}
 		}
 	}
 </style>

@@ -39,7 +39,6 @@ const changeTab = (index) => {
                 ref="tabHeaders">{{ tab.title }}</button>
       </div>
     </div>
-    <!-- this is where the tabs go, in this slot -->
     <div id="active-tab">
       <slot></slot>
     </div>
@@ -50,7 +49,7 @@ const changeTab = (index) => {
 #tabs-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  row-gap: 1rem;
+  row-gap: 2rem;
   margin: 0 auto;
 
   @container article (width > 1024px) {
@@ -75,13 +74,14 @@ const changeTab = (index) => {
 #active-tab {
   grid-column: 1 / span 4;
 
-  max-height: 32rem;
+  max-height: 48rem;
   overflow-y: scroll;
 
   @container article (width > 1024px) {
     grid-column: 3 / span 6;
     grid-row: 1;
-    padding: 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 }
 

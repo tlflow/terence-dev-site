@@ -8,37 +8,42 @@ const publishedPosts = await getCollection('experiments', ({ data }) => {
 ---
 
 <div class="outer-layout-grid">
-	<h2
-		id="experiments"
-		class="section-heading">
-		My Experiments
-	</h2>
-	<p class="section-description">Some fun stuff I've been tinkering with lately</p>
-	<div class="card-layout-grid">
-		{
-			publishedPosts.map((post) => (
-				<div class="card">
-					<div class="icon icon-lg">
-						<SVGFloppyDisk />
+	<header>
+		<h2
+			id="experiments"
+			class="section-heading">
+			My Experiments
+		</h2>
+		<p class="section-description">Some fun stuff I've been tinkering with lately</p>
+	</header>
+	<div class="section-content">
+		<div class="cards">
+			{
+				publishedPosts.map((post) => (
+					<div class="card">
+						<div class="icon icon-lg">
+							<SVGFloppyDisk />
+						</div>
+						<h3 class="h4">
+							<a
+								class="card-link"
+								href={`/blog/${post.slug}`}>
+								{post.data.title}
+							</a>
+						</h3>
+						<p class="description">{post.data.description}</p>
 					</div>
-					<h3 class="h4">
-						<a
-							class="card-link"
-							href={`/blog/${post.slug}`}>
-							{post.data.title}
-						</a>
-					</h3>
-					<p class="description">{post.data.description}</p>
-				</div>
-			))
-		}
+				))
+			}
+		</div>
 	</div>
-	<div class="see-more">
+
+	<div class="btn-wrapper">
 		<a
 			href="/experiments/"
-			class="btn"
-			>see more</a
-		>
+			class="btn">
+			see more
+		</a>
 	</div>
 </div>
 
@@ -46,68 +51,83 @@ const publishedPosts = await getCollection('experiments', ({ data }) => {
 	.outer-layout-grid {
 		container-type: inline-size;
 		display: grid;
-		gap: 1rem;
+		row-gap: 2rem;
 		grid-template-columns: repeat(4, 1fr);
 
-		@container article (width > 768px) {
+		@container article (width >= 768px) {
 			grid-template-columns: repeat(12, 1fr);
 		}
 	}
 
-	.section-heading,
-	.section-description,
-	.card-layout-grid,
-	.see-more {
-		grid-column: 1 / span 4;
-	}
-
-	.see-more {
-		text-align: center;
+	header {
 		grid-column: 1 / span 4;
 
-		@container article (width > 768px) {
-			grid-column: 1 / span 12;
+		@container article (width >= 768px) {
+			grid-column: 3 / span 8;
 		}
 	}
 
 	.section-content {
 		grid-column: 1 / span 4;
-
-		@container article (width > 768px) {
-			grid-column: 3 / span 8;
+		@container article (width >= 768px) {
+			grid-column: 1 / span 12;
+		}
+		@container article (width >= 1024px) {
+			grid-column: 2 / span 10;
 		}
 	}
 
-	.card-layout-grid {
+	.btn-wrapper {
+		grid-column: 1 / span 4;
+		text-align: center;
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(30ch, 1fr));
-		gap: 1rem;
-		margin: 0 auto;
-		padding-bottom: 1em;
+
+		@container article (width >= 768px) {
+			grid-column: 1 / span 12;
+			place-items: center;
+			text-align: center;
+		}
+	}
+
+	.cards {
+		grid-column: 1 / span 4;
+		display: grid;
+		grid-template-columns: repeat(1, fr);
+		row-gap: 1rem;
+
+		@container article (width >= 768px) {
+			grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+			gap: 1rem;
+		}
+		@container article (width >= 1024px) {
+			grid-template-columns: repeat(auto-fit, minmax(16ch, 1fr));
+		}
 	}
 
 	.card {
-		border-radius: var(--panel-border-radius);
+		border-radius: var(--btn-border-radius);
 		background-color: var(--color-primary-darker);
 		padding: var(--panel-padding);
 	}
 
 	.card h3 {
-		/* font-size: 1.4rem; */
-		margin-bottom: 0.8em;
+		font-size: var(--fs-300);
+		margin-top: 0;
+		margin-bottom: 1rem;
 	}
 	.card p {
-		line-height: 1.3;
+		font-size: var(--fs-300);
+		line-height: 1.4;
 		margin-bottom: 0.5rem;
 	}
 
 	.card .icon {
 		color: var(--color-secondary);
-		padding-bottom: 3em;
+		margin-bottom: 2rem;
 	}
 
 	.card-link {
-		font-size: 0.8rem;
 		color: var(--color-secondary);
+		font-weight: 300;
 	}
 </style>

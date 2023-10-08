@@ -1,20 +1,19 @@
 ---
-
+const { class: className } = Astro.props
 ---
 
-<div class="contact-btns">
+<div class=`${className} contact-btns`>
 	<div class="btn-wrapper">
+		<slot />
 		<a
 			class="btn email"
 			href="mailto:terenceflowers.ux@gmail.com"
-			target="_blank"
-		>
+			target="_blank">
 			me@terenceflowers.com
 		</a>
 		<a
 			class="btn phone"
-			href="tel:234-567-8900"
-		>
+			href="tel:234-567-8900">
 			+ 1 704.502.9526</a
 		>
 	</div>
@@ -30,15 +29,28 @@
 
 		.email.btn,
 		.phone.btn {
-			/* border: none; */
-			font-size: 1rem;
+			/* font-size: 1.8rem; */
 			border: 1px solid var(--color-secondary);
 		}
 		.email.btn {
-			font-size: 0.9rem;
+			/* font-size: 0.9rem; */
 
-			@container (width > 450px) {
-				font-size: 1rem;
+			/*
+			@container (width > 48em) {
+				font-size: 1.8rem;
+			} */
+		}
+	}
+
+	.contact-btns.menu {
+		.btn-wrapper {
+			justify-items: stretch;
+			text-align: center;
+		}
+
+		@container sitenav (width > 48em) {
+			.contact-btns .btn-wrapper {
+				justify-items: start;
 			}
 		}
 	}

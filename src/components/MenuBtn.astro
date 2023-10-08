@@ -1,0 +1,58 @@
+---
+const { class: className } = Astro.props
+const fullClassList = `nav-button ${className}`
+---
+
+<div class={fullClassList}>
+	<a
+		class="menu-btn btn icon-link"
+		href="#">
+		<div class="icon">
+			<slot />
+		</div>
+	</a>
+</div>
+
+<style>
+	.nav-button {
+		&.header-panel .menu-btn {
+			width: 7.5rem;
+			height: 4rem;
+			padding: 0 2rem;
+		}
+		&.top .menu-btn {
+			width: 2.4rem;
+			height: 2.4rem;
+			padding: 0;
+		}
+	}
+	.menu-btn {
+		background-color: var(--color-primary);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: 50em;
+
+		.icon {
+			color: var(--color-secondary);
+			--icon-size: 1.6rem;
+		}
+	}
+
+	/* headerpanel button
+  .menu-btn {
+		background-color: var(--color-primary);
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		border-radius: 50em;
+		width: 4rem;
+		height: 2rem;
+		padding: 0 4px;
+
+		.icon {
+			color: var(--color-secondary);
+			--icon-size: 1.6rem;
+		}
+	} */
+</style>

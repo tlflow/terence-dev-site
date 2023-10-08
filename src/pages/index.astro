@@ -5,6 +5,7 @@ import HeaderPanel from '../components/HeaderPanel.astro'
 import MyExperience from '../partials/Experience.astro'
 import MyExperiments from '../partials/Experiments.astro'
 import MyExpertise from '../partials/Expertise.astro'
+import Contact from '../partials/Contact.astro'
 ---
 
 <BaseLayout
@@ -17,33 +18,31 @@ import MyExpertise from '../partials/Expertise.astro'
 
 				<section class="expertise">
 					<div class="container">
-						<div class="content-wrapper">
-							<MyExpertise />
-						</div>
+						<MyExpertise />
 					</div>
 				</section>
 
 				<section class="experience">
 					<div class="container">
-						<div class="content-wrapper">
-							<MyExperience />
-						</div>
+						<MyExperience />
 					</div>
 				</section>
 
 				<section class="experiments">
 					<div class="container">
-						<div class="content-wrapper">
-							<MyExperiments />
-						</div>
+						<MyExperiments />
 					</div>
 				</section>
 
 				<section class="about">
 					<div class="container">
-						<div class="content-wrapper">
-							<About />
-						</div>
+						<About />
+					</div>
+				</section>
+
+				<section class="contact">
+					<div class="container">
+						<Contact />
 					</div>
 				</section>
 			</div>
@@ -60,46 +59,18 @@ import MyExpertise from '../partials/Expertise.astro'
 </script>
 
 <style is:global>
+	section:not(.contact) {
+		padding-block: clamp(min(2vh, 2.4rem), 2.75rem, 6rem);
+	}
+
 	section.expertise {
 		background: linear-gradient(var(--color-primary-darkest), var(--color-primary));
+		/* background-color: orange; */
 	}
 
-	section.about {
-		padding-top: 1rem;
-	}
-
-	.section-header {
-		grid-column: 1 / span 4;
+	section.contact {
 		text-align: center;
-		margin-bottom: 1em;
-
-		@container article (width > 768px) {
-			grid-column: 1 / span 12;
-		}
-	}
-
-	.wrapper {
-		max-width: 1200px;
-		margin: 0 auto;
-
-		@container article (width > 1800px) {
-			max-width: 1550px;
-		}
-	}
-
-	.section-heading {
-		position: sticky;
-		top: 4rem;
-		z-index: 98;
-		background: var(--color-primary);
-		font-size: 0.8rem !important;
-		text-transform: uppercase;
-		padding: 0.8rem 0;
-
-		@container article (width > 375px) {
-			position: relative;
-			top: 0;
-			background-color: transparent;
-		}
+		/* background-color: red; */
+		padding-block: clamp(min(10vh, 3.5em), 5vw + 1rem, 14em);
 	}
 </style>

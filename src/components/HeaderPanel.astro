@@ -8,26 +8,30 @@ import SVGInstagram from '../partials/svgs/instagram.astro'
 import SVGWebflow from '../partials/svgs/webflow.astro'
 import SVGMouse from '../partials/svgs/mouse.astro'
 import NavItems from './NavItems.astro'
+import MenuBtn from './MenuBtn.astro'
+import HamburgerIcon from '../partials/svgs/hamburger.astro'
 ---
 
 <header class="page-header">
 	<div class="header-wrapper">
 		<div
 			id="panel"
-			class="panel"
-		>
+			class="panel">
 			<div class="panel-wrapper">
 				<div class="panel-content-top">
-					<div>
+					<div class="panel-icon">
 						<a
 							class="btn icon home-nav-icon icon-link"
-							href="#"
-						>
+							href="#">
 							<SVGBrandLogo />
 						</a>
 					</div>
-					<div>
-						<NavItems class="header-panel" />
+					<div class="panel-nav">
+						<NavItems class="header-panel">
+							<MenuBtn class="header-panel">
+								<HamburgerIcon />
+							</MenuBtn>
+						</NavItems>
 					</div>
 				</div>
 				<div class="panel-content-middle">
@@ -48,24 +52,21 @@ import NavItems from './NavItems.astro'
 					<div class="btn-group group-1">
 						<a
 							href="#"
-							class="btn icon-link"
-						>
+							class="btn icon-link">
 							<div class="contact-icon icon">
 								<SVGGithub />
 							</div>
 						</a>
 						<a
 							href="#"
-							class="btn icon-link"
-						>
+							class="btn icon-link">
 							<div class="contact-icon icon">
 								<SVGCodeSandbox />
 							</div>
 						</a>
 						<a
 							href="#"
-							class="btn icon-link"
-						>
+							class="btn icon-link">
 							<div class="contact-icon icon">
 								<SVGWebflow />
 							</div>
@@ -74,24 +75,21 @@ import NavItems from './NavItems.astro'
 					<div class="btn-group group-2">
 						<a
 							href="#"
-							class="btn icon-link"
-						>
+							class="btn icon-link">
 							<div class="contact-icon icon">
 								<SVGTwitter />
 							</div>
 						</a>
 						<a
 							href="#"
-							class="btn icon-link"
-						>
+							class="btn icon-link">
 							<div class="contact-icon icon">
 								<SVGInstagram />
 							</div>
 						</a>
 						<a
 							href="#"
-							class="btn icon-link"
-						>
+							class="btn icon-link">
 							<div class="contact-icon icon">
 								<SVGLinkedIn />
 							</div>
@@ -103,17 +101,16 @@ import NavItems from './NavItems.astro'
 				<div class="cta">
 					<a
 						href="#"
-						class="cta-btn"
+						class="btn panel-cta"
 						data-scrollto="contact"
-						>Say hello!</a
+						>Say Hello!</a
 					>
 				</div>
 				<div class="cta-bkg">
 					<svg
 						viewBox="0 0 290 52"
 						fill="none"
-						xmlns="http://www.w3.org/2000/svg"
-					>
+						xmlns="http://www.w3.org/2000/svg">
 						<path
 							id="panel_cutout"
 							fill-rule="evenodd"
@@ -137,11 +134,12 @@ import NavItems from './NavItems.astro'
 
 <script>
 	import movingBlobs from '../js/display/movingBlobs'
-	import buildThresholds from '../js/utils/thresholds'
+	// import buildThresholds from '../js/utils/thresholds'
 
 	const r = document.querySelector(':root')
 
-	let currDeg = 0
+	/*
+  let currDeg = 0
 	let prevRatio = 0
 	let currRatio = 0
 	let num = 0
@@ -187,6 +185,8 @@ import NavItems from './NavItems.astro'
 	}
 
 	createObserver()
+  */
+
 	movingBlobs()
 </script>
 
@@ -208,17 +208,18 @@ import NavItems from './NavItems.astro'
 
 	.home-nav-icon.icon {
 		color: var(--color-primary);
+		--icon-size: 3.6rem;
 
-		@container article (width >= 810px) {
-			--icon-size: 3rem;
+		@container article (width > 768px) {
+			--icon-size: 3.6rem;
 		}
 	}
 	.contact-icon.icon {
-		--icon-size: 1.6rem;
+		--icon-size: 2.4rem;
 		color: var(--color-primary);
 
-		@container article (width >= 810px) {
-			--icon-size: 2rem;
+		@container article (width >= 768px) {
+			--icon-size: 3.2rem;
 		}
 	}
 
@@ -241,16 +242,22 @@ import NavItems from './NavItems.astro'
 		}
 	}
 
+	.btn-group {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1rem;
+	}
+
 	.header-wrapper {
 		height: 100vh;
 		overflow: hidden;
-		perspective: 650px;
+		perspective: 6.5rem;
 		padding: 1rem;
 		padding-bottom: 2.5rem;
 		display: flex;
 		align-items: center;
 
-		@container article (width >= 810px) {
+		@container article (width > 768px) {
 			display: block;
 		}
 	}
@@ -264,7 +271,7 @@ import NavItems from './NavItems.astro'
 		color: var(--color-primary);
 		transform: rotateX(var(--panel-num));
 
-		@container article (width >= 810px) {
+		@container article (width >= 768px) {
 			height: 100%;
 		}
 	}
@@ -281,7 +288,7 @@ import NavItems from './NavItems.astro'
 		padding: var(--panel-padding);
 		padding-bottom: calc(var(--panel-padding) + 2rem);
 
-		@container article (width >= 810px) {
+		@container article (width >= 768px) {
 			padding-bottom: var(--panel-padding);
 		}
 	}
@@ -295,13 +302,13 @@ import NavItems from './NavItems.astro'
 		z-index: 2;
 		position: absolute;
 		width: 100%;
-		height: 2.7rem;
+		height: 4.8rem;
 		bottom: 0;
 		display: flex;
 		justify-content: center;
 
 		/* height determines where tab is located */
-		@container article (width > 1600px) {
+		@container article (width > 160rem) {
 			height: 4.7rem;
 		}
 	}
@@ -313,13 +320,13 @@ import NavItems from './NavItems.astro'
 		width: 270px;
 		color: var(--color-primary-darkest);
 
-		@container article (width > 1600px) {
+		@container article (width > 120rem) {
 			width: 27rem;
 		}
 	}
 
 	.cta-btn {
-		@container article (width > 1600px) {
+		@container article (width > 160rem) {
 			font-size: 1.8rem;
 		}
 	}
@@ -338,11 +345,12 @@ import NavItems from './NavItems.astro'
 
 	.title {
 		font-family: var(--font-display);
-		font-size: 3.4rem;
+		color: var(--color-primary);
+		font-size: clamp(3.4rem, 14vw, 13rem);
 		font-weight: 300;
 		letter-spacing: 2px;
-		margin-bottom: 0.1em;
-		line-height: 0.9;
+		line-height: 1;
+		margin: 0;
 		text-align: center;
 
 		.last-name {
@@ -352,41 +360,16 @@ import NavItems from './NavItems.astro'
 			position: relative;
 			left: 4px;
 		}
-
-		@container article (width >= 678px) {
-			font-size: 6rem;
-		}
-		@container article (width >= 1024px) {
-			font-size: 8rem;
-		}
-		@container article (width >= 1280px) {
-			font-size: 7.4rem;
-		}
-		@container article (width >= 1440px) {
-			font-size: 9rem;
-		}
-		@container article (width >= 2100px) {
-			font-size: 18rem;
-			margin-bottom: 0.2em;
-		}
 	}
 
 	.subtitle {
 		font-family: var(--font-primary);
 		text-align: center;
-		font-size: 1rem;
+		font-size: clamp(1.2rem, 5vw, 5rem);
 		font-weight: 400;
 		margin-bottom: 0;
 		letter-spacing: 2px;
 		color: color-mix(in srgb, var(--color-primary), #fff 5%);
-
-		@container article (width >= 678px) {
-			font-size: 2rem;
-		}
-
-		@container article (width >= 1280px) {
-			font-size: 1.8rem;
-		}
 	}
 
 	canvas {

@@ -1,20 +1,50 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import BlogIndexLayout from "../../layouts/BlogIndexLayout.astro";
-import { getCollection } from "astro:content";
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import BlogIndexLayout from '../../layouts/BlogIndexLayout.astro'
+import { getCollection } from 'astro:content'
 
-const blogPosts = await getCollection("experiments");
+const experimentPosts = await getCollection('experiments', ({ data }) => {
+	return data.draft !== false && data.pubDate < new Date()
+})
 ---
 
-<BaseLayout class="blog-index" pageTitle="Experiments | Terence Flowers">
-  <BlogIndexLayout>
-    <h1 class="post-title" slot="blog-header">Experiments</h1>
-    <p slot="blog-description">This is a few projects I'm working on.</p>
-    {blogPosts.map((post) => (
-        <h2><a class="link" href={`/experiments/${post.slug}`}>{post.data.title}</a></h2>
-        <p>{post.data.description}</p>
-        <a href={`/experiments/${post.slug}`}>Read Post</a>
-        ))
-      }
-  </BlogIndexLayout>
+<BaseLayout
+	class="blog-index"
+	pageTitle="Experiments | Terence Flowers">
+	<BlogIndexLayout>
+		<h1
+			class="post-title"
+			slot="blog-header">
+			Experiments
+		</h1>
+		<p slot="blog-description">Here's an archive of experiments I've played around with.</p>
+
+		{
+			experimentPosts.map((post) => (
+				<div class="blog-item">
+					<h2>
+						<a
+							class="link"
+							href={`/blog/${post.slug}`}>
+							{post.data.title}
+						</a>
+					</h2>
+					<p>{post.data.description}</p>
+					<div class="tags">
+						<div class="tags-list">
+							{post.data.tags.map((tag) => (
+								<div class="tag-wrapper">
+									<a
+										class="tag"
+										href={`/experiments/tags/${tag}`}>
+										{tag}
+									</a>
+								</div>
+							))}
+						</div>
+					</div>
+				</div>
+			))
+		}
+	</BlogIndexLayout>
 </BaseLayout>

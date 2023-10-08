@@ -1,0 +1,51 @@
+<div class="outer-layout-grid">
+	<h2
+		id="contact"
+		class="section-heading contact">
+		Get In Touch
+	</h2>
+	<p class="section-description">
+		My inbox is always open. Whether you have questions or just want to say hi, I'll try to get right
+		back to you!
+	</p>
+	<div class="get-in-touch">
+		<a
+			href="mailto:me@terenceflowers.com"
+			class="btn">
+			Let's Connect!
+		</a>
+	</div>
+</div>
+
+<style>
+	.outer-layout-grid {
+		/* container-type: inline-size; */
+		display: grid;
+		row-gap: 1rem;
+		grid-template-columns: repeat(4, 1fr);
+	}
+
+	h2,
+	p,
+	.get-in-touch {
+		grid-column: 1 / span 4;
+	}
+	h2.contact {
+		font-family: var(--font-display);
+		color: color-mix(in srgb, var(--color-accent), #fff 65%);
+		font-weight: 500;
+		line-height: 1.1;
+	}
+	p {
+		width: 100%;
+		margin: 0 auto;
+		margin-bottom: 2em;
+
+		@container article (width > 600px) {
+			width: 36ch;
+		}
+	}
+	.get-in-touch {
+		margin-bottom: 2em;
+	}
+</style>

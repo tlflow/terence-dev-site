@@ -1,36 +1,55 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import BlogIndexLayout from '../../layouts/BlogIndexLayout.astro';
-import { getCollection } from "astro:content";
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import BlogIndexLayout from '../../layouts/BlogIndexLayout.astro'
+import { getCollection } from 'astro:content'
 
-
-// const blogPosts = await getCollection("blog");
-const blogPosts = await getCollection("blog", ({ data }) => {
-    return data.draft !== false && data.pubDate < new Date();
-  });
+const blogPosts = await getCollection('blog', ({ data }) => {
+	return data.draft !== false && data.pubDate < new Date()
+})
 ---
 
-<BaseLayout class="blog" pageTitle="Blog | Terence Flowers">
-  <BlogIndexLayout>
-    <main>
-    <article>
-      <header class="page-header">
-        <div class="header-wrapper">
-          <h1>Blog Index</h1>
-        </div>
-      </header>
-      <section>
-        <div class="container">
+<BaseLayout
+	class="blog"
+	pageTitle="Blog | Terence Flowers">
+	<BlogIndexLayout>
+		<h1
+			class="post-title"
+			slot="blog-header">
+			Blog Index
+		</h1>
+		<p slot="blog-description">Sometimes I like to write about stuff I find interesting.</p>
 
-          {blogPosts.map((post) => (
-            <h2>{post.data.title}</h2>
-            <p>{post.data.description}</p>
-            <a href={`/blog/${post.slug}`}>Read Post</a>
-            ))
-          }
-      </div>
-      </section>
-    </article>
-  </main>
-  </BlogIndexLayout>
+		{
+			blogPosts.map((post) => (
+				<div class="blog-item">
+					<h2>
+						<a
+							class="link"
+							href={`/blog/${post.slug}`}>
+							{post.data.title}
+						</a>
+					</h2>
+					<div class="date">
+						{new Intl.DateTimeFormat('en-US', {
+							dateStyle: 'full',
+						}).format(post.data.pubDate)}
+					</div>
+					<p>{post.data.description}</p>
+					<div class="tags">
+						<div class="tags-list">
+							{post.data.tags.map((tag) => (
+								<div class="tag-wrapper">
+									<a
+										class="tag"
+										href={`/blog/tags/${tag}`}>
+										{tag}
+									</a>
+								</div>
+							))}
+						</div>
+					</div>
+				</div>
+			))
+		}
+	</BlogIndexLayout>
 </BaseLayout>

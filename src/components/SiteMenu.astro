@@ -1,159 +1,234 @@
 ---
-import SVGClose from "../partials/svgs/close.astro";
-import SocialBtns from "../components/SocialButtons.astro";
-import ContactBtns from "../components/ContactButtons.astro";
+import { getCollection } from 'astro:content'
+import SVGClose from '../partials/svgs/close.astro'
+import SocialBtns from '../components/SocialButtons.astro'
+import ContactBtns from '../components/ContactButtons.astro'
+
+const links = [
+	{ name: 'Expertise', url: '/index.html#about' },
+	{ name: 'Experience', url: '/index.html#experience' },
+	{ name: 'Experiments', url: '/index.html#experiments' },
+	{ name: 'About', url: '/index.html#about' },
+	{ name: 'Contact', url: '/index.html#contact' },
+]
+
+const blogPosts = await getCollection('blog', ({ data }) => {
+	return data.draft !== false && data.pubDate < new Date()
+})
+const experimentPosts = await getCollection('experiments', ({ data }) => {
+	return data.draft !== false && data.pubDate < new Date()
+})
+
+const blogTags = [...new Set(blogPosts.map((post) => post.data.tags).flat())]
+const experimentTags = [...new Set(experimentPosts.map((post) => post.data.tags).flat())]
 ---
 
-<div id="main_menu" data-status="">
-  <div class="container">
-    <div class="outer-layout-grid">
-      <div class="nav-section">
-        <div class="nav-controller">
-          <h2>Site Navigation</h2>
-          <a id="close_menu_btn" class="close-btn" href="#">
-            <div class="icon">
-              <SVGClose />
-            </div>
-          </a>
-        </div>
-      </div>
-      <div class="nav-section">
-        <h3>Home</h3>
-        <nav class="nav-links">
-          <a class="link" href="/index.html#about">Expertise</a>
-          <a class="link" href="/index.html#about">Experience</a>
-          <a class="link" href="/index.html#about">Experiments</a>
-          <a class="link" href="/index.html#about">About</a>
-        </nav>
-      </div>
-      <div class="nav-section">
-        <h3>Blog</h3>
-        <nav class="nav-links">
-          <a class="link" href="/blog">Index</a>
-          <a class="link" href="/blog">Most Recent</a>
-          <a class="link" href="/blog">Favorites</a>
-        </nav>
-
-        <h4>Categories</h4>
-        <div class="tag-wrapper">
-          <a class="link" href="#">Category One</a>
-          <a class="link" href="#">Category Two</a>
-          <a class="link" href="#">Category Three</a>
-          <a class="link" href="#">Category Four</a>
-        </div>
-        <h4>Tags</h4>
-        <div class="tag-wrapper">
-          <a class="tag" href="#">One</a>
-          <a class="tag" href="#">Two</a>
-          <a class="tag" href="#">Three</a>
-          <a class="tag" href="#">Four</a>
-        </div>
-      </div>
-      <div class="nav-section">
-        <h3>Experiments</h3>
-        <nav class="nav-links">
-          <a class="link" href="/experiments">Index</a>
-          <a class="link" href="/experiments">Favorites</a>
-        </nav>
-        <h4>Tags</h4>
-        <div class="tag-wrapper">
-          <a class="tag" href="#">One</a>
-          <a class="tag" href="#">Two</a>
-          <a class="tag" href="#">Three</a>
-          <a class="tag" href="#">Four</a>
-        </div>
-      </div>
-      <div class="nav-section">
-        <div class="btns-wrapper">
-          <div class="btn-wrapper">
-            <a id="panel-menu-btn" class="btn alternative" href="#">My Resume</a
-            >
-          </div>
-        </div>
-        <ContactBtns />
-        <SocialBtns />
-      </div>
-    </div>
-  </div>
+<div
+	id="main_menu"
+	data-status="">
+	<div class="container">
+		<div class="outer-layout-grid">
+			<div class="nav-section">
+				<div class="nav-controller">
+					<h2>Site Navigation</h2>
+					<a
+						id="close_menu_btn"
+						class="close-btn"
+						href="#">
+						<div class="icon">
+							<SVGClose />
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="nav-section">
+				<h3>Home</h3>
+				<nav class="nav-links">
+					{
+						links.map((link) => (
+							<a
+								class="link"
+								href={`${link.url}`}>
+								{link.name}
+							</a>
+						))
+					}
+				</nav>
+			</div>
+			<div class="nav-section">
+				<h3>Blog</h3>
+				<nav class="nav-links">
+					<a
+						class="link"
+						href="/blog"
+						>Index</a
+					>
+				</nav>
+				<div class="tags">
+					<div class="tags-list">
+						{
+							blogTags.map((tag) => (
+								<div class="tags-wrapper">
+									<a
+										class="tag"
+										href={`/blog/tags/${tag}`}>
+										{tag}
+									</a>
+								</div>
+							))
+						}
+					</div>
+				</div>
+			</div>
+			<div class="nav-section">
+				<h3>Experiments</h3>
+				<nav class="nav-links">
+					<a
+						class="link"
+						href="/experiments"
+						>Index</a
+					>
+				</nav>
+				<div class="tags">
+					<div class="tags-list">
+						{
+							experimentTags.map((tag) => (
+								<div class="tags-wrapper">
+									<a
+										class="tag"
+										href={`/experiments/tags/${tag}`}>
+										{tag}
+									</a>
+								</div>
+							))
+						}
+					</div>
+				</div>
+			</div>
+			<div class="nav-section contact">
+				<ContactBtns class="menu">
+					<a
+						id="panel-menu-btn"
+						class="btn alternative resume"
+						href="#"
+						>My Resume</a
+					>
+				</ContactBtns>
+				<SocialBtns class="menu" />
+			</div>
+		</div>
+	</div>
 </div>
 
 <style>
-  h2 {
-    font-size: 1.2rem;
-  }
+	h2 {
+		font-size: 1.2rem;
+	}
 
-  a {
-    color: var(--color-secondary);
-  }
+	h3 {
+		margin-bottom: var(--spc-sm);
+	}
 
-  .btn-wrapper {
-    text-align: center;
-    margin-bottom: 1em;
-  }
+	a {
+		color: var(--color-secondary);
+	}
 
-  .nav-links {
-    display: grid;
-    grid-template-columns: 1fr;
-    row-gap: 0.8em;
-    padding-top: 1.2em;
-  }
+	.btn-wrapper {
+		text-align: center;
+		margin-bottom: 1em;
+	}
 
-  .close-btn {
-    color: var(--color-secondary);
-  }
+	.nav-links {
+		display: grid;
+		grid-template-columns: 1fr;
+		row-gap: 0.8em;
+	}
 
-  .outer-layout-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    row-gap: 2rem;
-    margin-top: 2em;
+	.close-btn {
+		color: var(--color-secondary);
+	}
+	.nav-controller {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
 
-    @container sitenav (width > 800px) {
-      max-width: 1142px;
-      margin: 0 auto;
-    }
-  }
+	.tags {
+		margin-top: var(--spc-sm);
+	}
 
-  .nav-section {
-    grid-column: 1 / span 4;
-  }
+	.tag-wrapper {
+		display: flex;
+		gap: 8px;
+	}
 
-  .nav-controller {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+	.tags-list {
+		display: flex;
+		gap: 0.8rem;
+	}
 
-  .tag-wrapper {
-    display: flex;
-    gap: 8px;
-  }
+	.contact .btn.resume {
+		border-radius: 0.8rem;
+	}
 
-  #main_menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--color-primary);
-    container-name: sitenav;
-    container-type: inline-size;
-    z-index: -1;
-    opacity: 0;
-    transition: 0.2s all 0.2s ease-in;
-    overflow-y: scroll;
-    overflow-x: hidden;
+	#main_menu {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: var(--color-primary);
+		container-name: sitenav;
+		container-type: inline-size;
+		opacity: 0;
+		transition: 0.2s all 0.2s ease-in;
+		overflow-y: scroll;
+		overflow-x: hidden;
+		z-index: -1;
 
-    .container {
-      @container sitenav (width > 768px) {
-        padding: 0 4rem;
-      }
-    }
+		&[data-status='active'] {
+			z-index: 100;
+			opacity: 1;
+			transition: 0.2s all 0.2s ease-in;
+		}
+	}
 
-    &[data-status="active"] {
-      z-index: 100;
-      opacity: 1;
-      transition: 0.2s all 0.2s ease-in;
-    }
-  }
+	.outer-layout-grid {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		row-gap: 2rem;
+		padding: 2em 0 4em;
+
+		@container sitenav (width > 640px) {
+			grid-template-columns: repeat(12, 1fr);
+		}
+	}
+
+	.nav-section {
+		grid-column: 1 / span 4;
+
+		@container sitenav (width > 48em) {
+			grid-column: 3 / span 9;
+		}
+
+		/*
+    @container sitenav (width > 60em) {
+			grid-column: 3 / span 9;
+		}
+    */
+	}
+
+	.nav-section.contact {
+		padding-top: 2rem;
+
+		.contact-btns .btn-wrapper {
+			justify-items: stretch;
+		}
+
+		@container sitenav (width > 48em) {
+			.contact-btns .btn-wrapper {
+				justify-items: start;
+			}
+		}
+	}
 </style>

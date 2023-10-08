@@ -1,4 +1,5 @@
 ---
+import '../styles/blogIndex.css'
 const { sectionName } = Astro.props
 ---
 
@@ -14,59 +15,14 @@ const { sectionName } = Astro.props
 					</div>
 				</div>
 			</header>
-
-			<div class="content">
+			<section class="content">
 				<div class="container">
 					<slot />
 					<div class="tags">
 						<slot name="blog-tags" />
 					</div>
 				</div>
-			</div>
+			</section>
 		</div>
 	</article>
 </main>
-
-<style>
-	.article {
-		container-name: article;
-		container-type: inline-size;
-	}
-
-	.page-header,
-	.content {
-		width: 100%;
-
-		@container article (width >= 1024px) {
-			width: 65ch;
-			margin: 0 auto;
-		}
-	}
-	.page-header {
-		padding-top: 5em;
-	}
-
-	.header-wrapper {
-	}
-
-	.page-header {
-		/* height: 18rem; */
-		padding-top: 2rem;
-	}
-
-	.outer-layout-grid {
-		display: grid;
-		grid-template-columns: repeat(4, 1fr);
-		row-gap: 2rem;
-
-		header,
-		.content,
-		footer {
-			grid-column: 1 / span 4;
-		}
-	}
-
-	.section-title {
-		color: var(--cool-grey-200);
-	}
-</style>

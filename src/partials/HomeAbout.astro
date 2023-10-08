@@ -1,117 +1,152 @@
 ---
-import { Image } from "astro:assets";
-import myImage from "../assets/images/me-and-black-panther.jpg";
+import { Image } from 'astro:assets'
+import myImage from '../assets/images/me-and-black-panther.jpg'
 ---
 
 <div
-  class="outer-layout-grid"
-  data-animation-delay="0"
-  data-animation-direction="up"
->
-  <h2 class="section-heading">About</h2>
-  <div
-    class="pic animate"
-    data-animation-delay="1"
-    data-animation-direction="up"
-  >
-    <div class="img-wrapper" id="about">
-      <Image src={myImage} alt="Me and Black Panther suit at Discovery Place" />
-    </div>
-  </div>
-  <div class="information">
-    <div class="content">
-      <h2 class="about-heading">A Certified Front-End Dev Techie</h2>
-      <p class="big">
-        ...but, also a fun loving guy with a big heart for helping people.
-      </p>
-      <p>
-        I'm a people's guy and active in my church and community. In my spare
-        time you'll find me playing/watching sports, watching movies and custom
-        car building shows.
-      </p>
-      <p>
-        On a creative front, I'm constantly tinkering with DIY projects, doing
-        origami, painting, drawing cartoons, and practicing calligraphy.
-      </p>
-      <p>
-        However, at the end of the day, my greatest joy is being a husband and a
-        father to 4 wonderful kids.
-      </p>
-    </div>
-  </div>
+	class="outer-layout-grid"
+	data-animation-delay="0"
+	data-animation-direction="up">
+	<header>
+		<h2 class="section-heading">About Me</h2>
+		<p class="section-description">A little bit about the guy behind this site.</p>
+	</header>
+	<div class="section-content">
+		<div
+			class="pic animate"
+			data-animation-delay="0"
+			data-animation-direction="up">
+			<div
+				class="img-wrapper"
+				id="about">
+				<Image
+					src={myImage}
+					alt="Me and Black Panther suit at Discovery Place"
+				/>
+			</div>
+		</div>
+		<div class="information">
+			<h3 class="about-heading">A Front-End Dev Techie</h3>
+			<p class="big">...but, also a fun loving guy with a big heart for helping people.</p>
+			<p>
+				I'm a people's guy and active in my church and community. In my spare time you'll find me
+				playing/watching sports, watching movies and custom car building shows.
+			</p>
+			<p>
+				On a creative front, I'm constantly tinkering with DIY projects, making origami, sketching, and
+				practicing calligraphy.
+			</p>
+			<p>
+				However, at the end of the day, my greatest joy is being a husband to spectacular wife and a
+				father to 4 wonderful kids.
+			</p>
+		</div>
+	</div>
 </div>
 
 <style>
-  .outer-layout-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    place-items: center;
-    row-gap: 2em;
-    max-width: 1200px;
-    margin: 0 auto;
+	.outer-layout-grid {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		place-items: center;
+		row-gap: 2em;
+		margin: 0 auto;
 
-    @container article (width > 1024px) {
-      grid-template-columns: repeat(12, 1fr);
-      max-width: 1450px;
-    }
-  }
+		@container article (width >= 768px) {
+			grid-template-columns: repeat(8, 1fr);
+		}
 
-  .section-heading {
-    grid-column: 1 / span 4;
-    place-self: stretch;
-  }
+		@container article (width > 1024px) {
+			grid-template-columns: repeat(12, 1fr);
+		}
+	}
 
-  h2.about-heading {
-    font-family: var(--font-display);
-    color: color-mix(in srgb, var(--color-accent), #fff 65%);
-    font-size: 1.8rem;
-    font-weight: 500;
-    line-height: 1.1;
-    margin-bottom: 0.6em;
+	header {
+		grid-column: 1 / span 4;
 
-    span {
-      display: block;
-      font-size: 2rem;
-      color: color-mix(in srgb, var(--color-accent), #fff 80%);
-      line-height: 1.4;
-    }
-  }
+		@container article (width > 768px) {
+			grid-column: 1 / span 8;
+		}
+		@container article (width >= 1024px) {
+			grid-column: 2 / span 10;
+		}
+	}
 
-  .pic {
-    grid-column: 1 / span 4;
+	h3.about-heading {
+		font-family: var(--font-display);
+		color: var(--cool-grey-50);
+		font-weight: 500;
+		span {
+			display: block;
+			/* font-size: 2rem; */
+			color: var(--cool-grey-100);
+			line-height: 1.4;
+		}
 
-    .img-wrapper {
-      position: relative;
-      border-radius: var(--panel-border-radius);
-      overflow: hidden;
-      width: 18rem;
-      /* aspect-ratio: 4/6; */
-      height: auto;
+		@container article (width >= 1024px) {
+			/* font-size: 3.6rem; */
+			margin-bottom: 1rem;
+		}
+	}
 
-      @container article (width > 678px) {
-        width: 24rem;
-      }
+	.section-content {
+		display: grid;
+		grid-column: 1 / span 4;
+		/* grid-template-columns: subgrid; */
+		row-gap: 3rem;
 
-      @container article (width > 1200px) {
-        width: 32rem;
-      }
-    }
+		@container article (width >= 768px) {
+			grid-column: 2 / span 6;
+		}
+		@container article (width >= 1024px) {
+			grid-column: 1 / span 12;
 
-    @container (width > 678px) {
-      grid-column: 1 / span 6;
-    }
-  }
+			grid-template-columns: subgrid;
+		}
+		@container article (width >= 1366px) {
+			grid-column: 1 / span 12;
+		}
+	}
 
-  .content {
-    max-width: 48ch;
-    padding: 0 1em;
-  }
+	.pic {
+		grid-column: 1 / span 4;
 
-  .information {
-    grid-column: 1 / span 4;
+		@container article (width >= 1024px) {
+			grid-column: 2 / span 4;
+		}
+	}
 
-    @container article (width >= 1024px) {
-      grid-column: 7 / span 6;
-    }
-  }
+	.img-wrapper {
+		position: relative;
+		border-radius: var(--panel-border-radius);
+		overflow: hidden;
+		width: 30rem;
+		height: auto;
+
+		@container article (width >= 768px) {
+			width: 48rem;
+			margin: 0 auto;
+		}
+
+		@container article (width >= 1024px) {
+			width: 32rem;
+		}
+
+		@container article (width >= 1024px) {
+			width: 32rem;
+		}
+
+		@container article (width >= 1440px) {
+			width: 42rem;
+		}
+	}
+
+	.information {
+		grid-column: 1 / span 4;
+
+		@container article (width >= 1024px) {
+			grid-column: 6 / span 6;
+			padding: 0 1rem;
+		}
+	}
 </style>

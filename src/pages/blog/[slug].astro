@@ -1,67 +1,60 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import BlogPostLayout from "../../layouts/BlogPostLayout.astro";
-import { CollectionEntry, getCollection } from "astro:content";
+import '../../styles/blogPosts.css'
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import BlogPostLayout from '../../layouts/BlogPostLayout.astro'
+import { CollectionEntry, getCollection } from 'astro:content'
 
 export async function getStaticPaths() {
-  const blogPosts = await getCollection("blog", ({ data }) => {
-    return data.draft !== false && data.pubDate < new Date();
-  });
+	const blogPosts = await getCollection('blog', ({ data }) => {
+		return data.draft !== false && data.pubDate < new Date()
+	})
 
-  return blogPosts.map((post) => ({
-    params: { slug: post.slug },
-    props: { post },
-  }));
+	return blogPosts.map((post) => ({
+		params: { slug: post.slug },
+		props: { post },
+	}))
 }
 
 interface Props {
-  post: CollectionEntry<"blog">;
-  sectionName: string;
-  headerClass: string;
+	post: CollectionEntry<'blog'>
+	sectionName: string
+	headerClass: string
 }
 
-const { post } = Astro.props;
-const convertedDate = new Intl.DateTimeFormat("en-US", {
-  dateStyle: "full",
-}).format(post.data.pubDate);
-const tags = post.data.tags.flat();
-const { Content } = await post.render();
+const { post } = Astro.props
+const convertedDate = new Intl.DateTimeFormat('en-US', {
+	dateStyle: 'full',
+}).format(post.data.pubDate)
+const tags = post.data.tags.flat()
+const { Content } = await post.render()
 ---
 
-<BaseLayout class="blog-tags" pageTitle="Blog | Terence Flowers">
-  <BlogPostLayout sectionName="Blog" postDate={convertedDate}>
-    <h1 class="post-title" slot="blog-header">{post.data.title}</h1>
-    <Content />
-    <div class="tags-list" slot="blog-tags">
-      {
-        tags.map((tag) => (
-          <div class="tag-wrapper">
-            <a class="tag" href={`/blog/tags/${tag}`}>
-              {tag}
-            </a>
-          </div>
-        ))
-      }
-    </div>
-  </BlogPostLayout>
+<BaseLayout
+	class="blog-tags"
+	pageTitle="Blog | Terence Flowers">
+	<BlogPostLayout
+		sectionName="Blog"
+		postDate={convertedDate}>
+		<h1
+			class="post-title"
+			slot="blog-header">
+			{post.data.title}
+		</h1>
+		<Content />
+		<div
+			class="tags-list"
+			slot="blog-tags">
+			{
+				tags.map((tag) => (
+					<div class="tag-wrapper">
+						<a
+							class="tag"
+							href={`/blog/tags/${tag}`}>
+							{tag}
+						</a>
+					</div>
+				))
+			}
+		</div>
+	</BlogPostLayout>
 </BaseLayout>
-
-<style>
-  .post-title {
-    /* font-size: 3.2rem; */
-    font-weight: 700;
-    color: var(--color-secondary-2);
-    /* font-family: var(--font-display); */
-  }
-   {
-  }
-
-  .tags-list {
-    display: flex;
-    gap: 8px;
-  }
-
-  .tag {
-    color: var(--color-secondary);
-  }
-</style>

@@ -1,4 +1,5 @@
 ---
+import '../../styles/blogPosts.css'
 import BaseLayout from '../../layouts/BaseLayout.astro'
 import BlogPostLayout from '../../layouts/BlogPostLayout.astro'
 import { CollectionEntry, getCollection } from 'astro:content'
@@ -57,23 +58,3 @@ const seoTitle = `Experiments | ${post.data.title}`
 		</div>
 	</BlogPostLayout>
 </BaseLayout>
-
-<style>
-	.post-title {
-		quotes: '\201c' '\201d';
-
-		&:before,
-		&:after {
-			color: var(--cool-grey-50);
-			font-weight: 700;
-			font-family: Arial, Helvetica, sans-serif;
-		}
-		&:before {
-			content: open-quote;
-		}
-		&:after {
-			content: close-quote;
-			font-weight: 700;
-		}
-	}
-</style>

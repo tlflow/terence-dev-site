@@ -1,0 +1,29 @@
+.article {
+	h1.post-title {
+		font-weight: 700;
+		color: var(--color-secondary-2);
+		quotes: '\201c' '\201d';
+
+		&:before,
+		&:after {
+			font-weight: 700;
+			font-family: Arial, Helvetica, sans-serif;
+		}
+		&:before {
+			content: open-quote;
+		}
+		&:after {
+			content: close-quote;
+			font-weight: 700;
+		}
+	}
+
+	.tags-list {
+		display: flex;
+		gap: 0.8rem;
+	}
+
+	.tag {
+		color: var(--color-secondary);
+	}
+}

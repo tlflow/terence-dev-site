@@ -1,29 +1,35 @@
 ---
 import SVGBrandLogo from '../partials/svgs/brandlogo.astro'
 import NavItems from './NavItems.astro'
+import MenuBtn from './MenuBtn.astro'
+import HamburgerIcon from '../partials/svgs/hamburger.astro'
 ---
 
 <div
 	id="top_nav"
 	data-status="">
-	<div class="nav-content">
+	<div class="top_nav-content">
 		<div class="container">
-			<div class="top-nav-wrapper">
+			<div class="top_nav-wrapper">
 				<div class="nav-brand">
 					<a
 						class="brand-link"
 						href="/">
-						<div class="icon home-nav-icon icon-link">
+						<div class="home-nav-icon icon-link">
 							<SVGBrandLogo />
 						</div>
-						<span>Terence Flowers</span>
+						<span class="name">Terence Flowers</span>
 					</a>
 				</div>
-				<NavItems class="top" />
+				<NavItems class="top">
+					<MenuBtn class="top">
+						<HamburgerIcon />
+					</MenuBtn>
+				</NavItems>
 			</div>
 		</div>
 	</div>
-	<div class="nav-overlay"></div>
+	<div class="top_nav-overlay"></div>
 </div>
 
 <style>
@@ -31,21 +37,20 @@ import NavItems from './NavItems.astro'
 		display: flex;
 	}
 
-	.nav-content {
+	.top_nav-content {
 		position: absolute;
 		z-index: 1;
 		background-color: hsl(233, 27.5%, 17.8%, 90%);
 		height: 100%;
 		width: 100%;
 		top: 0;
-		padding: 16px 0;
+		padding-block: 2rem;
 		box-shadow: none;
 	}
 
-	.nav-overlay {
+	.top_nav-overlay {
 		position: relative;
 		z-index: 0;
-		/* filter: blur(4px) brightness(50%); */
 		position: absolute;
 		backdrop-filter: blur(4px);
 		-webkit-backdrop-filter: blur(4px);
@@ -57,21 +62,33 @@ import NavItems from './NavItems.astro'
 
 	.nav-brand .brand-link {
 		display: flex;
-		gap: 0.8rem;
+		gap: 1rem;
 		align-items: center;
 		color: var(--color-secondary);
 		font-family: var(--font-display);
+
+		span {
+			@media (min-width: 768px) {
+				display: none;
+			}
+
+			@media (min-width: 1024px) {
+				display: block;
+				position: relative;
+				top: 2px;
+				font-size: var(--fs-300);
+			}
+		}
 	}
 
 	#top_nav {
 		position: relative;
 		top: 0;
 		width: 100%;
-
 		z-index: 99;
 		transform: translateY(0px);
 		transition: all 0.3s ease-in;
-		min-height: 4rem;
+		min-height: 7rem;
 
 		&[data-status='unlocked'] {
 			transform: translateY(-100px);
@@ -82,20 +99,18 @@ import NavItems from './NavItems.astro'
 			transform: translateY(0px);
 			transition: all 0.35s ease-in-out;
 
-			.nav-content {
+			.top_nav-content {
 				box-shadow:
 					rgba(0, 0, 0, 0.499) 0px 2px 6px,
 					inset rgba(67, 67, 67, 0.14) 0px -2px 0;
 			}
-
-			/* inset rgba(26, 31, 49, 0.746) 0px -4px 0; */
 		}
 	}
 
 	body.homepage #top_nav {
 		position: fixed;
-		top: 0;
 		transform: translateY(-100px);
+		top: 0;
 
 		&[data-status='active'] {
 			transform: translateY(0px);
@@ -109,8 +124,9 @@ import NavItems from './NavItems.astro'
 
 	.home-nav-icon {
 		display: inline-block;
+		width: 1.8rem;
 	}
-	.top-nav-wrapper {
+	.top_nav-wrapper {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;

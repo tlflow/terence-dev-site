@@ -10,24 +10,21 @@ const { class: className } = Astro.props
 	<div class="btn-wrapper">
 		<a
 			href="#"
-			class="btn"
-		>
+			class="btn">
 			<div class="icon">
 				<SVGLinkedIn />
 			</div>
 		</a>
 		<a
 			href="#"
-			class="btn"
-		>
+			class="btn">
 			<div class="icon">
 				<SVGTwitter />
 			</div>
 		</a>
 		<a
 			href="#"
-			class="btn"
-		>
+			class="btn">
 			<div class="icon">
 				<SVGInstagram />
 			</div>
@@ -37,33 +34,18 @@ const { class: className } = Astro.props
 
 <style>
 	.btn {
-		/* border: none; */
-		color: var(--color-secondary);
-		padding: 0.5em;
-		border-radius: 1rem;
+		padding: 0.8em;
 		border: 1px solid var(--color-secondary);
-
-		/*
-    &:hover {
-      transition: color 0.2s ease-in;
-      color: color-mix(in srgb, var(--color-accent), #000 25%);
-    }
-
-    &:visited {
-      color: var(--color-accent);
-    }
-    */
-
 		.icon {
-			--icon-size: 2rem;
+			--icon-size: 2.4rem;
 		}
 	}
 
 	.btn-wrapper {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, 4rem);
-		width: 13rem;
-		column-gap: 0.5rem;
+		grid-template-columns: repeat(auto-fit, 5.5rem);
+		min-width: 14rem;
+		column-gap: 1.8rem;
 
 		.btn {
 			place-self: center;
@@ -74,6 +56,25 @@ const { class: className } = Astro.props
 		@container footer (width >= 800px) {
 			justify-self: end;
 			align-self: end;
+
+			.btn-wrapper {
+				place-content: end;
+			}
+		}
+	}
+
+	.menu.social-btns {
+		margin-top: 1rem;
+
+		.btn-wrapper {
+			width: 100%;
+			justify-content: center;
+		}
+
+		@container sitenav (width > 48em) {
+			.contact-btns .btn-wrapper {
+				justify-items: start;
+			}
 		}
 	}
 </style>

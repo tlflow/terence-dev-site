@@ -1,95 +1,117 @@
 ---
-import "../styles/main.css";
-import "../styles/text.css";
-import "../styles/button.css";
-import "../styles/layout.css";
-import "../styles/animation.css";
+import '../styles/main.css'
+import '../styles/text.css'
+import '../styles/button.css'
+import '../styles/animation.css'
 
-import SiteFooter from "../partials/SiteFooter.astro";
-import SiteMenu from "../components/SiteMenu.astro";
-import TopNav from "../components/TopNav.astro";
+import SiteFooter from '../partials/SiteFooter.astro'
+import SiteMenu from '../components/SiteMenu.astro'
+import TopNav from '../components/TopNav.astro'
 
 // import ColorPicker from "../components/ColorPicker.vue";
 
 export interface Props {
-  pageTitle: string;
-  class: string;
+	pageTitle: string
+	class: string
 }
 
-const { pageTitle, class: pageClass } = Astro.props;
+const { pageTitle, class: pageClass } = Astro.props
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Saira:wght@200..900&family=Inter:wght@200..900&display=swap"
-      rel="stylesheet"
-    />
+	<head>
+		<link
+			rel="preconnect"
+			href="https://fonts.googleapis.com"
+		/>
+		<link
+			rel="preconnect"
+			href="https://fonts.gstatic.com"
+			crossorigin
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Saira:wght@200..900&family=Inter:wght@200..900&display=swap"
+			rel="stylesheet"
+		/>
 
-    <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{pageTitle}</title>
-  </head>
+		<meta charset="UTF-8" />
+		<meta
+			name="description"
+			content="Astro description"
+		/>
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<link
+			rel="icon"
+			type="image/svg+xml"
+			href="/favicon.svg"
+		/>
+		<meta
+			name="generator"
+			content={Astro.generator}
+		/>
+		<title>{pageTitle}</title>
+	</head>
 
-  <!-- <ColorPicker client:load /> -->
+	<!-- <ColorPicker client:load /> -->
 
-  <body id="page-body" class={pageClass} data-main-menu="">
-    <div class="page-wrapper">
-      <TopNav />
-      <div class="page-content">
-        <slot />
-        <SiteFooter />
-      </div>
-      <SiteMenu />
-    </div>
-  </body>
+	<body
+		id="page-body"
+		class={pageClass}
+		data-main-menu="">
+		<div class="page-wrapper">
+			<TopNav />
+			<div class="page-content">
+				<slot />
+				<SiteFooter />
+			</div>
+			<SiteMenu />
+		</div>
+	</body>
 </html>
 
 <style>
-  .page-wrapper {
-    position: relative;
-    top: 0;
-    width: 100%;
-    height: 100%;
-  }
+	.page-wrapper {
+		position: relative;
+		top: 0;
+		width: 100%;
+		height: 100%;
+	}
 
-  body[data-main-menu="active"] {
-    overflow: hidden;
-    width: 100vw;
-    height: 100vh;
-    transition: filter 0.2s ease-in;
-    .page-content {
-      position: relative;
-      filter: blur(4px) brightness(50%);
-      transition: filter 0.2s ease-in;
-      z-index: 1;
-    }
-  }
+	body[data-main-menu='active'] {
+		overflow: hidden;
+		width: 100vw;
+		height: 100vh;
+		transition: filter 0.2s ease-in;
+		.page-content {
+			position: relative;
+			filter: blur(4px) brightness(50%);
+			transition: filter 0.2s ease-in;
+			z-index: 1;
+		}
+	}
 
-  .btn {
-    display: inline-block;
+	.btn {
+		display: inline-block;
 
-    &.icon-link {
-      border: none;
-      padding: 0;
-      background-color: transparent;
-    }
+		&.icon-link {
+			border: none;
+			padding: 0;
+			background-color: transparent;
+		}
 
-    &:hover {
-      transition: color 0.2s ease-in;
-      color: color-mix(in srgb, var(--color-secondary), #fff 25%);
-    }
-  }
+		&:hover {
+			transition: color 0.2s ease-in;
+			color: color-mix(in srgb, var(--color-secondary), #fff 25%);
+		}
+	}
 </style>
 
 <script>
-  import navigation from "../js/handlers/navigation";
+	import navigation from '../js/handlers/navigation'
 
-  navigation();
+	navigation()
 </script>
