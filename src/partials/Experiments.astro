@@ -5,6 +5,8 @@ import { getCollection } from 'astro:content'
 const publishedPosts = await getCollection('experiments', ({ data }) => {
 	return data.draft !== false && data.pubDate < new Date()
 })
+
+const mostRecent = publishedPosts.slice(0, 3)
 ---
 
 <div class="outer-layout-grid">
@@ -19,7 +21,7 @@ const publishedPosts = await getCollection('experiments', ({ data }) => {
 	<div class="section-content">
 		<div class="cards">
 			{
-				publishedPosts.map((post) => (
+				mostRecent.map((post) => (
 					<div class="card">
 						<div class="icon icon-lg">
 							<SVGFloppyDisk />

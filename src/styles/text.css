@@ -135,15 +135,15 @@
 		line-height: 1.4;
 	}
 
-	.section-heading {
-		font-family: var(--font-display);
-		width: 100%;
-		margin-bottom: var(--spc-sm);
-	}
-
 	.section-heading,
 	.section-description {
 		text-align: center;
+	}
+
+	.section-heading {
+		font-family: var(--font-display);
+		width: 100%;
+		margin-bottom: calc(var(--spc-sm) * 0.5);
 	}
 
 	.section-description {
@@ -154,7 +154,7 @@
 		text-align: center;
 		max-width: 32ch;
 		margin: 0 auto;
-		margin-bottom: var(--spc-lg);
+		margin-bottom: var(--spc-md);
 
 		@container article (width > 390px) {
 			padding: 0;
