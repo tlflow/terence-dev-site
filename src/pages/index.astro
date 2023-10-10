@@ -73,4 +73,13 @@ import Contact from '../partials/Contact.astro'
 		/* background-color: red; */
 		padding-block: clamp(min(10vh, 3.5em), 5vw + 1rem, 14em);
 	}
+
+	main .container {
+		@container article (width >= 1280px) {
+			padding: 0 12rem;
+		}
+		@container article (width >= 2000px) {
+			padding: 0 32rem;
+		}
+	}
 </style>

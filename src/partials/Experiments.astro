@@ -1,5 +1,5 @@
 ---
-import SVGFloppyDisk from './svgs/floppydisk.astro'
+import SVGBeaker from './svgs/experiment.astro'
 import { getCollection } from 'astro:content'
 
 const publishedPosts = await getCollection('experiments', ({ data }) => {
@@ -24,7 +24,7 @@ const mostRecent = publishedPosts.slice(0, 3)
 				mostRecent.map((post) => (
 					<div class="card">
 						<div class="icon icon-lg">
-							<SVGFloppyDisk />
+							<SVGBeaker />
 						</div>
 						<h3 class="h4">
 							<a
