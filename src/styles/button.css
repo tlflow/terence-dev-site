@@ -8,10 +8,14 @@
 	display: inline-block;
 	border: 2px solid var(--color-secondary);
 	line-height: 1;
+	transition: all 0.2s ease-in;
+	transform: translateY(0);
+	box-shadow: none;
 
 	&:hover {
-		transition: color 0.2s ease-in;
-		color: var(--cool-grey-200);
+		transform: scale(1.025) translateY(-6px);
+		box-shadow: rgba(0, 0, 0, 0.25) 0px 5px 0px;
+		transition: all 0.2s ease-in;
 	}
 }
 

@@ -110,6 +110,15 @@ const mostRecent = publishedPosts.slice(0, 3)
 		border-radius: var(--btn-border-radius);
 		background-color: var(--color-primary-darker);
 		padding: var(--panel-padding);
+		transform: translateY(0);
+		transition: transform 0.2s ease-in;
+		box-shadow: none;
+
+		&:hover {
+			transition: all 0.2s ease-in;
+			transform: translateY(-6px);
+			box-shadow: rgba(0, 0, 0, 0.25) 0px 5px 0px;
+		}
 	}
 
 	.card h3 {

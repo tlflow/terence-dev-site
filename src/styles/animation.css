@@ -26,7 +26,6 @@
 }
 
 .fade {
-	/* animation: fade 1.2s both; */
 	animation-delay: var(--delay);
 	animation-name: fade;
 	animation-duration: 1.2s;
