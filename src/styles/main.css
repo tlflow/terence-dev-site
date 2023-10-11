@@ -43,13 +43,19 @@
 	--spc-xl: calc((var(--spc-sm) * 4));
 
 	/* Font Sizes */
-	--fs-xl: 7.576rem;
-	--fs-800: 5.68rem;
-	--fs-700: clamp(4.263rem, -0.875rem + 8.33333vw, 5.2rem);
-	--fs-600: clamp(3.198rem, -0.875rem + 8.33333vw, 4rem);
-	--fs-500: clamp(2.399rem, -0.875rem + 8.33333vw, 3rem);
-	--fs-400: clamp(1.8rem, -0.875rem + 8.33333vw, 2.4rem);
+	--fs-xl: 7.68rem;
+	--fs-700: clamp(4rem, -0.875rem + 2vw, 4.6rem);
+	--fs-600: clamp(3.2rem, -0.875rem + 2vw, 3.6rem);
+	--fs-500: clamp(2.4rem, -0.875em + 2vw, 2.8rem);
+	--fs-400: clamp(1.8rem, -0.875em + 2vw, 2rem);
 	--fs-300: clamp(1.6rem, -0.875rem + 8.33333vw, 1.8rem);
+}
+
+@media (min-width: 1024px) {
+	:root {
+		--fs-500: clamp(2.8rem, -0.875em + 2vw, 3.2rem);
+		--fs-400: clamp(2.1rem, -0.875em + 2vw, 2.4rem);
+	}
 }
 
 *,
@@ -84,7 +90,7 @@ html {
 
 body {
 	min-height: 100vh;
-	font-size: var(--fs-400);
+	font-size: 1.8rem;
 	line-height: 1.6;
 	color: var(--cool-grey-400);
 }

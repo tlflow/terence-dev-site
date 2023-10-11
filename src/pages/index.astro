@@ -76,10 +76,7 @@ import Contact from '../partials/Contact.astro'
 
 	main .container {
 		@container article (width >= 1280px) {
-			padding: 0 12rem;
-		}
-		@container article (width >= 2000px) {
-			padding: 0 32rem;
+			padding: 0 clamp(12rem, 10vw + -0.875rem, 32rem);
 		}
 	}
 

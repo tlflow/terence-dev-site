@@ -25,87 +25,87 @@ const experimentTags = [...new Set(experimentPosts.map((post) => post.data.tags)
 
 <div
 	id="main_menu"
-	data-status="">
+	data-status="active">
 	<div class="container">
 		<div class="outer-layout-grid">
-			<div class="nav-section">
-				<div class="nav-controller">
-					<h2>Site Navigation</h2>
-					<a
-						id="close_menu_btn"
-						class="close-btn"
-						href="#">
-						<div class="icon">
-							<SVGClose />
+			<div class="nav-controller">
+				<h2>Site Navigation</h2>
+				<a
+					id="close_menu_btn"
+					class="close-btn"
+					href="#">
+					<div class="icon">
+						<SVGClose />
+					</div>
+				</a>
+			</div>
+			<div class="navs">
+				<div class="nav-section">
+					<h3>Home</h3>
+					<nav class="nav-links">
+						{
+							links.map((link) => (
+								<a
+									class="link"
+									href={`${link.url}`}>
+									{link.name}
+								</a>
+							))
+						}
+					</nav>
+				</div>
+				<div class="nav-section">
+					<h3>Blog</h3>
+					<nav class="nav-links">
+						<a
+							class="link"
+							href="/blog"
+							>Index</a
+						>
+					</nav>
+					<div class="tags">
+						<div class="tags-list">
+							{
+								blogTags.map((tag) => (
+									<div class="tags-wrapper">
+										<a
+											class="tag"
+											href={`/blog/tags/${tag}`}>
+											{tag}
+										</a>
+									</div>
+								))
+							}
 						</div>
-					</a>
+					</div>
 				</div>
-			</div>
-			<div class="nav-section">
-				<h3>Home</h3>
-				<nav class="nav-links">
-					{
-						links.map((link) => (
-							<a
-								class="link"
-								href={`${link.url}`}>
-								{link.name}
-							</a>
-						))
-					}
-				</nav>
-			</div>
-			<div class="nav-section">
-				<h3>Blog</h3>
-				<nav class="nav-links">
-					<a
-						class="link"
-						href="/blog"
-						>Index</a
-					>
-				</nav>
-				<div class="tags">
-					<div class="tags-list">
-						{
-							blogTags.map((tag) => (
-								<div class="tags-wrapper">
-									<a
-										class="tag"
-										href={`/blog/tags/${tag}`}>
-										{tag}
-									</a>
-								</div>
-							))
-						}
+				<div class="nav-section">
+					<h3>Experiments</h3>
+					<nav class="nav-links">
+						<a
+							class="link"
+							href="/experiments"
+							>Index</a
+						>
+					</nav>
+					<div class="tags">
+						<div class="tags-list">
+							{
+								experimentTags.map((tag) => (
+									<div class="tags-wrapper">
+										<a
+											class="tag"
+											href={`/experiments/tags/${tag}`}>
+											{tag}
+										</a>
+									</div>
+								))
+							}
+						</div>
 					</div>
 				</div>
 			</div>
-			<div class="nav-section">
-				<h3>Experiments</h3>
-				<nav class="nav-links">
-					<a
-						class="link"
-						href="/experiments"
-						>Index</a
-					>
-				</nav>
-				<div class="tags">
-					<div class="tags-list">
-						{
-							experimentTags.map((tag) => (
-								<div class="tags-wrapper">
-									<a
-										class="tag"
-										href={`/experiments/tags/${tag}`}>
-										{tag}
-									</a>
-								</div>
-							))
-						}
-					</div>
-				</div>
-			</div>
-			<div class="nav-section contact">
+			<div class="nav-contacts">
 				<ContactBtns class="menu">
 					<a
 						id="panel-menu-btn"
@@ -123,6 +123,7 @@ const experimentTags = [...new Set(experimentPosts.map((post) => post.data.tags)
 <style>
 	h2 {
 		font-size: var(--fs-400);
+		font-weight: 300;
 	}
 
 	h3 {
@@ -167,7 +168,7 @@ const experimentTags = [...new Set(experimentPosts.map((post) => post.data.tags)
 		gap: 0.8rem;
 	}
 
-	.contact .btn.resume {
+	.nav-contacts .btn.resume {
 		border-radius: 0.8rem;
 	}
 
@@ -193,26 +194,37 @@ const experimentTags = [...new Set(experimentPosts.map((post) => post.data.tags)
 		}
 	}
 
+	#main_menu .container {
+		@media (min-width: 768px) {
+			padding: 0 clamp(12rem, 10vw + -0.875rem, 32rem);
+		}
+	}
+
 	.outer-layout-grid {
 		display: grid;
-		grid-template-columns: repeat(4, 1fr);
-		row-gap: 2rem;
-		padding: 2em 0 4em;
-
-		@container sitenav (width > 640px) {
-			grid-template-columns: repeat(12, 1fr);
-		}
+		padding: 3rem 0 4em;
+		grid-template-columns: 60% 40%;
+		grid-template-rows: auto;
+		grid-template-areas:
+			'header header'
+			'nav contacts';
 	}
 
-	.nav-section {
-		grid-column: 1 / span 4;
-
-		@container sitenav (width > 48em) {
-			grid-column: 3 / span 9;
-		}
+	.nav-controller {
+		grid-area: header;
+		margin-bottom: var(--spc-md);
+	}
+	.nav {
+		grid-area: nav;
 	}
 
-	.nav-section.contact {
+	.navs {
+		display: grid;
+		grid-template-columns: auto;
+		row-gap: 3rem;
+	}
+	.nav-contacts {
+		grid-area: contacts;
 		padding-top: 2rem;
 
 		.contact-btns .btn-wrapper {
