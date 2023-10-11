@@ -1,0 +1,29 @@
+---
+const { class: className, url, height, width } = Astro.props
+const fullClassList = `icon icon-link ${className}`
+---
+
+<a
+	href={url}
+	class={fullClassList}>
+	<slot />
+</a>
+
+<style>
+	.header-panel.btn {
+		color: var(--color-primary);
+		display: inline-block;
+
+		&.icon-link {
+			border: none;
+			padding: 0;
+			background-color: transparent;
+		}
+
+		&.icon-link:hover {
+			padding: 4px;
+			transition: all 0.2s ease-in;
+			background-color: var(--color-primary);
+		}
+	}
+</style>

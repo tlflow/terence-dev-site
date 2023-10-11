@@ -16,9 +16,22 @@ const fullClassList = `nav-button ${className}`
 <style>
 	.nav-button {
 		&.header-panel .menu-btn {
-			width: 7.5rem;
-			height: 4rem;
-			padding: 0 2rem;
+			width: 6.5rem;
+			height: 3.4rem;
+			padding: 0 8px;
+			align-items: center;
+			justify-content: start;
+
+			.icon {
+				--icon-size: 2rem;
+				transform: translateX(0);
+				transition: transform 0.3s ease-in;
+			}
+
+			&.-js--active .icon {
+				transform: translateX(28px);
+				transition: transform 0.3s ease-in;
+			}
 		}
 		&.top .menu-btn {
 			width: 2.4rem;

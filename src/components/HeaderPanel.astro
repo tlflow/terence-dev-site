@@ -10,6 +10,8 @@ import SVGMouse from '../partials/svgs/mouse.astro'
 import NavItems from './NavItems.astro'
 import MenuBtn from './MenuBtn.astro'
 import HamburgerIcon from '../partials/svgs/hamburger.astro'
+import IconButton from './IconButton.astro'
+import SVGCircle from '../partials/svgs/circle.astro'
 ---
 
 <header class="page-header">
@@ -21,7 +23,7 @@ import HamburgerIcon from '../partials/svgs/hamburger.astro'
 				<div class="panel-content-top">
 					<div class="panel-icon">
 						<a
-							class="btn icon home-nav-icon icon-link"
+							class="brand icon icon-link"
 							href="#">
 							<SVGBrandLogo />
 						</a>
@@ -29,7 +31,7 @@ import HamburgerIcon from '../partials/svgs/hamburger.astro'
 					<div class="panel-nav">
 						<NavItems class="header-panel">
 							<MenuBtn class="header-panel">
-								<HamburgerIcon />
+								<SVGCircle />
 							</MenuBtn>
 						</NavItems>
 					</div>
@@ -50,50 +52,26 @@ import HamburgerIcon from '../partials/svgs/hamburger.astro'
 				</div>
 				<div class="panel-content-bottom">
 					<div class="btn-group group-1">
-						<a
-							href="#"
-							class="btn icon-link">
-							<div class="contact-icon icon">
-								<SVGGithub />
-							</div>
-						</a>
-						<a
-							href="#"
-							class="btn icon-link">
-							<div class="contact-icon icon">
-								<SVGCodeSandbox />
-							</div>
-						</a>
-						<a
-							href="#"
-							class="btn icon-link">
-							<div class="contact-icon icon">
-								<SVGWebflow />
-							</div>
-						</a>
+						<IconButton class="btn header-panel">
+							<SVGGithub />
+						</IconButton>
+						<IconButton class="btn header-panel">
+							<SVGCodeSandbox />
+						</IconButton>
+						<IconButton class="btn header-panel">
+							<SVGWebflow />
+						</IconButton>
 					</div>
 					<div class="btn-group group-2">
-						<a
-							href="#"
-							class="btn icon-link">
-							<div class="contact-icon icon">
-								<SVGTwitter />
-							</div>
-						</a>
-						<a
-							href="#"
-							class="btn icon-link">
-							<div class="contact-icon icon">
-								<SVGInstagram />
-							</div>
-						</a>
-						<a
-							href="#"
-							class="btn icon-link">
-							<div class="contact-icon icon">
-								<SVGLinkedIn />
-							</div>
-						</a>
+						<IconButton class="btn header-panel">
+							<SVGTwitter />
+						</IconButton>
+						<IconButton class="btn header-panel">
+							<SVGInstagram />
+						</IconButton>
+						<IconButton class="btn header-panel">
+							<SVGLinkedIn />
+						</IconButton>
 					</div>
 				</div>
 			</div>
@@ -206,40 +184,8 @@ import HamburgerIcon from '../partials/svgs/hamburger.astro'
 		text-transform: lowercase;
 	}
 
-	.home-nav-icon.icon {
-		color: var(--color-primary);
-		--icon-size: 3.6rem;
-
-		@container article (width > 768px) {
-			--icon-size: 3.6rem;
-		}
-	}
-	.contact-icon.icon {
-		--icon-size: 2.4rem;
-		color: var(--color-primary);
-
-		@container article (width >= 768px) {
-			--icon-size: 3.2rem;
-		}
-	}
-
 	.page-header {
 		background-color: var(--color-primary-darkest);
-	}
-
-	.btn {
-		display: inline-block;
-
-		&.icon-link {
-			border: none;
-			padding: 0;
-			background-color: transparent;
-		}
-
-		&.icon-link:hover {
-			transition: color 0.2s ease-in;
-			color: color-mix(in srgb, var(--color-accent), #000 25%);
-		}
 	}
 
 	.btn-group {
@@ -274,6 +220,15 @@ import HamburgerIcon from '../partials/svgs/hamburger.astro'
 		@container article (width >= 768px) {
 			height: 100%;
 		}
+	}
+
+	.brand.icon.icon-link {
+		display: inline-block;
+		color: var(--color-primary);
+		border: none;
+		padding: 0;
+		background-color: transparent;
+		width: 3.6rem;
 	}
 
 	.panel-wrapper {

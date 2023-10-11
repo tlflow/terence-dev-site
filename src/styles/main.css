@@ -37,10 +37,10 @@
 	font-size: 62.5%;
 
 	/* Typography Spacing */
-	--spc-sm: 1em;
-	--spc-md: calc(var(--spc-sm) * 2);
-	--spc-lg: calc(var(--spc-sm) * 3);
-	--spc-xl: calc(var(--spc-sm) * 4);
+	--spc-sm: 1.2rem;
+	--spc-md: calc((var(--spc-sm) * 2));
+	--spc-lg: calc((var(--spc-sm) * 3));
+	--spc-xl: calc((var(--spc-sm) * 4));
 
 	/* Font Sizes */
 	--fs-xl: 7.576rem;

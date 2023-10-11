@@ -143,13 +143,14 @@
 	.section-heading {
 		font-family: var(--font-display);
 		width: 100%;
-		margin-bottom: calc(var(--spc-sm) * 0.5);
+		/* margin-bottom: calc(var(--spc-sm) * 0.5); */
+		margin-bottom: var(--spc-sm);
 	}
 
 	.section-description {
 		font-size: var(--fs-400);
 		font-weight: 300;
-		color: var(--cool-grey-400);
+		color: var(--cool-grey-200);
 		line-height: 1.4;
 		text-align: center;
 		max-width: 32ch;
