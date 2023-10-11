@@ -173,8 +173,8 @@ import SVGCircle from '../partials/svgs/circle.astro'
 	}
 
 	.scroll-down {
-		text-align: center;
 		display: flex;
+		text-align: center;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
@@ -194,12 +194,12 @@ import SVGCircle from '../partials/svgs/circle.astro'
 	}
 
 	.header-wrapper {
+		display: flex;
 		height: 100vh;
 		overflow: hidden;
 		perspective: 6.5rem;
 		padding: 1rem;
 		padding-bottom: 2.5rem;
-		display: flex;
 		align-items: center;
 
 		@container article (width > 768px) {
@@ -231,15 +231,19 @@ import SVGCircle from '../partials/svgs/circle.astro'
 	}
 
 	.panel-wrapper {
+		display: flex;
 		width: 100%;
 		height: 100%;
 		position: absolute;
 		z-index: 2;
-		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		flex-direction: column;
 		padding: var(--panel-padding);
+
+		@container article (width < 425px) {
+			height: 95%;
+		}
 	}
 
 	.cta {
