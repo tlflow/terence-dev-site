@@ -233,13 +233,17 @@ import SVGCircle from '../partials/svgs/circle.astro'
 		}
 	}
 
-	.brand.icon.icon-link {
+	a.brand.icon.icon-link {
 		display: inline-block;
 		color: var(--color-primary);
 		border: none;
 		padding: 0;
 		background-color: transparent;
 		width: 3.6rem;
+
+		&:hover {
+			color: var(--color-primary);
+		}
 	}
 
 	.panel-wrapper {
