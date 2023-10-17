@@ -1,0 +1,108 @@
+---
+// import LottieAnimation from 'astro-integration-lottie/Lottie.astro'
+---
+
+<div id="preloader">
+	<div class="overlay">
+		<div class="overlay-container">
+			<div
+				id="dunno"
+				class="thingy">
+				<div class="spinner"></div>
+				<div class="lottie-container"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+<script>
+	const loader = document.getElementById('preloader')
+	const thingy = document.getElementById('dunno')
+	const lottieContainer = document.querySelector('.lottie-container')
+
+	document.addEventListener('DOMContentLoaded', () => {
+		lottie.loadAnimation({
+			container: lottieContainer,
+			renderer: 'svg',
+			loop: true,
+			autoplay: true,
+			path: '/lotties/tf-logo-loading.json',
+		})
+	})
+
+	window.addEventListener('load', function () {
+		thingy.classList.add('shrink')
+		setInterval(() => {
+			loader.style.display = 'none'
+		}, 1000)
+	})
+</script>
+
+<style>
+	:root {
+		--_thingy-size: 25rem;
+		--_spinner-color: var(--color-secondary);
+		--_spinner-bg-color: hsla(163, 90%, 50%, 0.01);
+	}
+
+	.overlay {
+		position: fixed;
+		top: 0;
+		width: 100%;
+		height: 100vh;
+		z-index: 99;
+		background-color: var(--color-primary);
+	}
+
+	.overlay-container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
+	}
+
+	.thingy {
+		position: relative;
+		top: 0;
+		width: var(--_thingy-size);
+		height: var(--_thingy-size);
+
+		&.shrink {
+			transform: scale(0);
+			transition: 1s transform 0.3s ease-in;
+		}
+	}
+
+	.lottie-container {
+		position: absolute;
+		width: var(--_thingy-size);
+		height: var(--_thingy-size);
+		z-index: 1;
+		top: 0;
+		left: 0%;
+	}
+
+	.spinner {
+		position: absolute;
+		border: 16px solid var(--_spinner-bg-color);
+		border-top: 16px solid var(--_spinner-color);
+		border-bottom: 16px solid var(--_spinner-color);
+		border-radius: 50%;
+		width: var(--_thingy-size);
+		height: var(--_thingy-size);
+		animation: spin 3s linear infinite;
+		z-index: 0;
+		top: 0;
+		left: 0;
+	}
+
+	@keyframes spin {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+</style>

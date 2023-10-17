@@ -3,8 +3,8 @@
 	--color-background: rgb(28, 30, 43);
 	--color-primary-lighter: color-mix(in srgb, var(--color-primary), #fff 5%);
 	--color-primary: hsl(233, 27.5%, 17.8%);
-	--color-primary-darker: color-mix(in srgb, var(--color-primary), #000 15%);
-	--color-primary-darkest: color-mix(in srgb, var(--color-primary), #000 20%);
+	--color-primary-darker: hsl(231, 27.78, 14.12%);
+	--color-primary-darkest: hsl(232, 29, 14%, 1);
 	--color-secondary: hsl(163, 90.6%, 50.2%);
 	--color-secondary-2: hsl(145, 48.3%, 65.9%);
 	--color-accent2: hsl(200, 87.3%, 59.8%);
