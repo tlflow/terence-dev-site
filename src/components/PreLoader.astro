@@ -29,14 +29,45 @@
 			autoplay: true,
 			path: '/lotties/tf-logo-loading.json',
 		})
+		onLoadAnimations()
 	})
 
 	window.addEventListener('load', function () {
-		thingy.classList.add('shrink')
-		setInterval(() => {
-			loader.style.display = 'none'
-		}, 1000)
+		onCloseAnimations()
 	})
+
+	let nextAnimation = (el: Element, duration: number, animationClass: string) => {
+		return new Promise((resolve) => {
+			const seconds = duration * 1000
+			setTimeout(() => {
+				el.classList.add(animationClass)
+				resolve()
+			}, seconds)
+		})
+	}
+
+	const scaleUpLogo = async () => {
+		await nextAnimation(thingy, 1, 'grow')
+		console.log('animation 1')
+	}
+	const scaleDownLogo = async () => {
+		await nextAnimation(thingy, 3, 'shrink')
+		console.log('animation 2')
+	}
+	const hideLoader = async () => {
+		await nextAnimation(loader, 1.5, 'hide')
+		console.log('animation 3')
+	}
+
+	const onLoadAnimations = async () => {
+		await scaleUpLogo()
+	}
+	const onCloseAnimations = async () => {
+		await scaleDownLogo()
+		await hideLoader()
+	}
+
+	// movements().then(() => console.log('animation finished'))
 </script>
 
 <style>
@@ -62,15 +93,29 @@
 		height: 100%;
 	}
 
+	#preloader {
+		&.hide {
+			display: none;
+		}
+	}
+
 	.thingy {
 		position: relative;
 		top: 0;
 		width: var(--_thingy-size);
 		height: var(--_thingy-size);
+		transform: scale(0);
+		opacity: 0;
 
+		&.grow {
+			opacity: 1;
+			transform: scale(1);
+			transition: 1s all 0.3s ease-in;
+		}
 		&.shrink {
+			opacity: 0;
 			transform: scale(0);
-			transition: 1s transform 0.3s ease-in;
+			transition: 1s all 0.3s ease-in;
 		}
 	}
 
