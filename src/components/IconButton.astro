@@ -1,11 +1,12 @@
 ---
-const { class: className, url, height, width } = Astro.props
+const { class: className, url, ariaLabel } = Astro.props
 const fullClassList = `icon icon-link ${className}`
 ---
 
 <a
 	href={url}
-	class={fullClassList}>
+	class={fullClassList}
+	aria-label={ariaLabel}>
 	<slot />
 </a>
 

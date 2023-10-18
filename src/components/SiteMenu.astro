@@ -28,21 +28,30 @@ const experimentTags = [...new Set(experimentPosts.map((post) => post.data.tags)
 	data-status>
 	<div class="container">
 		<div class="outer-layout-grid">
-			<div class="nav-controller">
+			<div
+				class="nav-controller"
+				role="navigation"
+				aria-label="site menu nav">
 				<h2>Site Navigation</h2>
 				<a
 					id="close_menu_btn"
 					class="close-btn"
-					href="#">
+					href="#"
+					aria-label="close menu">
 					<div class="icon">
 						<SVGClose />
 					</div>
 				</a>
 			</div>
 			<div class="navs">
-				<div class="nav-section">
+				<div
+					class="nav-section"
+					role="navigation"
+					aria-label="home nav section">
 					<h3>Home</h3>
-					<nav class="nav-links">
+					<nav
+						class="nav-links"
+						aria-label="home index links">
 						{
 							links.map((link) => (
 								<a
@@ -54,58 +63,72 @@ const experimentTags = [...new Set(experimentPosts.map((post) => post.data.tags)
 						}
 					</nav>
 				</div>
-				<div class="nav-section">
+				<div
+					class="nav-section"
+					role="navigation"
+					aria-label="blog nav section">
 					<h3>Blog</h3>
-					<nav class="nav-links">
+					<nav
+						class="nav-links"
+						aria-label="blog links">
 						<a
 							class="link"
 							href="/blog"
+							aria-label="Blog Index"
 							>Index</a
 						>
-					</nav>
-					<div class="tags">
-						<div class="tags-list">
-							{
-								blogTags.map((tag) => (
-									<div class="tags-wrapper">
-										<a
-											class="tag"
-											href={`/blog/tags/${tag}`}>
-											{tag}
-										</a>
-									</div>
-								))
-							}
+						<div class="tags">
+							<div class="tags-list">
+								{
+									blogTags.map((tag) => (
+										<div class="tags-wrapper">
+											<a
+												class="tag"
+												href={`/blog/tags/${tag}`}>
+												{tag}
+											</a>
+										</div>
+									))
+								}
+							</div>
 						</div>
-					</div>
+					</nav>
 				</div>
-				<div class="nav-section">
+				<div
+					class="nav-section"
+					role="navigation"
+					aria-label="experiment links">
 					<h3>Experiments</h3>
-					<nav class="nav-links">
-						<a
-							class="link"
-							href="/experiments"
-							>Index</a
-						>
-					</nav>
-					<div class="tags">
-						<div class="tags-list">
-							{
-								experimentTags.map((tag) => (
-									<div class="tags-wrapper">
-										<a
-											class="tag"
-											href={`/experiments/tags/${tag}`}>
-											{tag}
-										</a>
-									</div>
-								))
-							}
+					<nav aria-label="Experiments Index">
+						<div class="nav-links">
+							<a
+								class="link"
+								href="/experiments"
+								>Index</a
+							>
 						</div>
-					</div>
+						<div class="tags">
+							<div class="tags-list">
+								{
+									experimentTags.map((tag) => (
+										<div class="tags-wrapper">
+											<a
+												class="tag"
+												href={`/experiments/tags/${tag}`}>
+												{tag}
+											</a>
+										</div>
+									))
+								}
+							</div>
+						</div>
+					</nav>
 				</div>
 			</div>
-			<div class="nav-contacts">
+			<div
+				class="nav-contacts"
+				role="navigation"
+				aria-label="contact buttons">
 				<ContactBtns class="menu">
 					<a
 						target="_blank"
