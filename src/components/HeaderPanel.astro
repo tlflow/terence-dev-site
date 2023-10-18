@@ -22,13 +22,16 @@ import SVGCircle from '../partials/svgs/circle.astro'
 				<div class="panel-content-top">
 					<div class="panel-icon">
 						<a
+							href="#"
 							class="brand icon icon-link"
-							href="#">
+							aria-label="home link">
 							<SVGBrandLogo />
 						</a>
 					</div>
 					<div class="panel-nav">
-						<NavItems class="header-panel">
+						<NavItems
+							class="header-panel"
+							ariaLabel="header panel navigation">
 							<MenuBtn class="header-panel">
 								<SVGCircle />
 							</MenuBtn>
@@ -37,7 +40,9 @@ import SVGCircle from '../partials/svgs/circle.astro'
 				</div>
 				<div class="panel-content-middle">
 					<div class="title-wrapper">
-						<h1 class="title">
+						<h1
+							class="title"
+							tabindex="0">
 							Terence <span class="last-name">Flowers</span>
 						</h1>
 						<p class="subtitle">Software Engineer</p>
@@ -52,35 +57,41 @@ import SVGCircle from '../partials/svgs/circle.astro'
 				<div class="panel-content-bottom">
 					<div class="btn-group group-1">
 						<IconButton
+							url="#"
 							class="btn header-panel"
-							url="#">
+							ariaLabel="github">
 							<SVGGithub />
 						</IconButton>
 						<IconButton
+							url="#"
 							class="btn header-panel"
-							url="#">
+							ariaLabel="code sandbox">
 							<SVGCodeSandbox />
 						</IconButton>
 						<IconButton
+							url="#"
 							class="btn header-panel"
-							url="#">
+							ariaLabel="webflow">
 							<SVGWebflow />
 						</IconButton>
 					</div>
 					<div class="btn-group group-2">
 						<IconButton
+							url="#"
 							class="btn header-panel"
-							url="#">
+							ariaLabel="twitter">
 							<SVGTwitter />
 						</IconButton>
 						<IconButton
+							url="#"
 							class="btn header-panel"
-							url="#">
+							ariaLabel="instagram">
 							<SVGInstagram />
 						</IconButton>
 						<IconButton
+							url="#"
 							class="btn header-panel"
-							url="#">
+							ariaLabel="linkedin">
 							<SVGLinkedIn />
 						</IconButton>
 					</div>

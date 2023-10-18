@@ -12,16 +12,20 @@ import HamburgerIcon from '../partials/svgs/hamburger.astro'
 		<div class="container">
 			<div class="top_nav-wrapper">
 				<div class="nav-brand">
-					<a
-						class="brand-link"
-						href="/">
-						<div class="home-nav-icon icon-link">
-							<SVGBrandLogo />
-						</div>
-						<span class="name">Terence Flowers</span>
-					</a>
+					<nav>
+						<a
+							class="brand-link"
+							href="/">
+							<div class="home-nav-icon icon-link">
+								<SVGBrandLogo />
+							</div>
+							<span class="name">Terence Flowers</span>
+						</a>
+					</nav>
 				</div>
-				<NavItems class="top">
+				<NavItems
+					class="top"
+					ariaLabel="Top Navigation">
 					<MenuBtn class="top">
 						<HamburgerIcon />
 					</MenuBtn>

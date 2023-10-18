@@ -162,6 +162,11 @@
 			padding: 0;
 		}
 	}
+
+	.timeline-item .inner ul li {
+		font-size: var(--fs-300);
+		margin-left: 2rem;
+	}
 }
 
 .article.blog-index {

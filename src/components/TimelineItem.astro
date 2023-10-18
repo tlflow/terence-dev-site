@@ -64,7 +64,6 @@ const { Content } = await entry.render()
 		.inner {
 			position: relative;
 			padding-left: 2em;
-			font-size: var(--fs-300);
 			line-height: 1.5;
 
 			&::before {
@@ -78,13 +77,6 @@ const { Content } = await entry.render()
 				left: 6px;
 				top: 1.4rem;
 			}
-
-			/* @container article (width >= 1024px) {
-				font-size: 1.8rem;
-			}
-			@container article (width >= 1440px) {
-				font-size: 1.3rem;
-			} */
 		}
 	}
 
@@ -99,9 +91,10 @@ const { Content } = await entry.render()
 			margin-left: 1rem;
 		}
 	}
-	ul li {
+	li {
 		margin-left: 2rem;
 		padding-bottom: 1em;
+		font-size: var(--fs-300);
 
 		&:last-child {
 			padding-bottom: 3em;

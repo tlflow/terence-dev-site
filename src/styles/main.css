@@ -168,3 +168,15 @@ code {
 .cp_embed_wrapper {
 	margin-bottom: 1rem;
 }
+
+.visually-hidden:not(:focus):not(:active) {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: auto;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+	white-space: nowrap;
+}
