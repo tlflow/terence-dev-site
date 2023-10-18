@@ -3,8 +3,8 @@
 	--color-background: rgb(28, 30, 43);
 	--color-primary-lighter: color-mix(in srgb, var(--color-primary), #fff 5%);
 	--color-primary: hsl(233, 27.5%, 17.8%);
-	--color-primary-darker: color-mix(in srgb, var(--color-primary), #000 15%);
-	--color-primary-darkest: color-mix(in srgb, var(--color-primary), #000 20%);
+	--color-primary-darker: hsla(231, 27.78%, 14.12%, 0.5);
+	--color-primary-darkest: hsla(232, 29%, 14%, 1);
 	--color-secondary: hsl(163, 90.6%, 50.2%);
 	--color-secondary-2: hsl(145, 48.3%, 65.9%);
 	--color-accent2: hsl(200, 87.3%, 59.8%);
@@ -167,4 +167,16 @@ code {
 
 .cp_embed_wrapper {
 	margin-bottom: 1rem;
+}
+
+.visually-hidden:not(:focus):not(:active) {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: auto;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+	white-space: nowrap;
 }

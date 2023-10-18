@@ -1,0 +1,103 @@
+---
+import { getEntry } from 'astro:content'
+const { slug } = Astro.props
+const entry = await getEntry('experience', slug)
+
+const { title, timeframe } = entry.data
+const { Content } = await entry.render()
+---
+
+<div class="timeline-item">
+	<div class="descr">
+		<div class="inner">
+			<h3 class="title">{title}</h3>
+			<p class="timeframe-label">{timeframe}</p>
+			<Content />
+		</div>
+	</div>
+</div>
+
+<style>
+	.title {
+		font-weight: 600;
+		font-size: var(--fs-400);
+		margin-bottom: var(--spc-sm);
+	}
+
+	.timeframe-label {
+		margin-bottom: 0.6em;
+		line-height: 1;
+		font-size: var(--fs-300);
+		font-weight: 300;
+		color: var(--cool-grey-100);
+	}
+
+	.descr {
+		position: relative;
+		margin-left: 0.625rem;
+
+		&::before,
+		&::after {
+			display: block;
+		}
+
+		&::before {
+			position: absolute;
+			content: '';
+			border-radius: 50em;
+			height: 13px;
+			width: 13px;
+			background-color: var(--cool-grey-700);
+			top: 0.8rem;
+		}
+
+		&:last-child&::after {
+			position: absolute;
+			content: '';
+			border-radius: 50em;
+			height: 2px;
+			width: 13px;
+			background-color: var(--cool-grey-700);
+			bottom: -1.4rem;
+		}
+
+		.inner {
+			position: relative;
+			padding-left: 2em;
+			line-height: 1.5;
+
+			&::before {
+				content: '';
+				width: 0;
+				height: 100%;
+				position: absolute;
+				background-color: var(--cool-grey-700);
+				border: 0.4px dotted var(--cool-grey-700);
+				bottom: 0;
+				left: 6px;
+				top: 1.4rem;
+			}
+		}
+	}
+
+	.descr:last-child li:last-child {
+		padding-bottom: 0;
+	}
+
+	ul {
+		padding-top: 1.6em;
+
+		@container article (width > 768px) {
+			margin-left: 1rem;
+		}
+	}
+	li {
+		margin-left: 2rem;
+		padding-bottom: 1em;
+		font-size: var(--fs-300);
+
+		&:last-child {
+			padding-bottom: 3em;
+		}
+	}
+</style>

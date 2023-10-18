@@ -2,12 +2,14 @@
 import BaseLayout from '../layouts/BaseLayout.astro'
 import About from '../partials/HomeAbout.astro'
 import HeaderPanel from '../components/HeaderPanel.astro'
+import PreLoader from '../components/PreLoader.astro'
 import MyExperience from '../partials/Experience.astro'
 import MyExperiments from '../partials/Experiments.astro'
 import MyExpertise from '../partials/Expertise.astro'
 import Contact from '../partials/Contact.astro'
 ---
 
+<!-- <PreLoader /> -->
 <BaseLayout
 	class="homepage"
 	pageTitle="Terence Flowers: Designer Developer">
@@ -65,12 +67,10 @@ import Contact from '../partials/Contact.astro'
 
 	section.expertise {
 		background: linear-gradient(var(--color-primary-darkest), var(--color-primary));
-		/* background-color: orange; */
 	}
 
 	section.contact {
 		text-align: center;
-		/* background-color: red; */
 		padding-block: clamp(min(10vh, 3.5em), 5vw + 1rem, 14em);
 	}
 

@@ -13,7 +13,8 @@ const mostRecent = publishedPosts.slice(0, 3)
 	<header>
 		<h2
 			id="experiments"
-			class="section-heading">
+			class="section-heading"
+			tabindex="0">
 			My Experiments
 		</h2>
 		<p class="section-description">Some fun stuff I've been tinkering with lately</p>
@@ -82,11 +83,9 @@ const mostRecent = publishedPosts.slice(0, 3)
 	.btn-wrapper {
 		grid-column: 1 / span 4;
 		text-align: center;
-		display: grid;
 
 		@container article (width >= 768px) {
 			grid-column: 1 / span 12;
-			place-items: center;
 			text-align: center;
 		}
 	}

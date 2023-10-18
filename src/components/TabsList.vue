@@ -39,7 +39,8 @@ const changeTab = (index) => {
                 ref="tabHeaders">{{ tab.title }}</button>
       </div>
     </div>
-    <div id="active-tab">
+    <div id="active-tab"
+         tabindex="0">
       <slot></slot>
     </div>
   </div>
@@ -102,8 +103,9 @@ const changeTab = (index) => {
   padding: 1rem 1.25rem;
   position: relative;
   cursor: pointer;
-  color: var(--accent-color);
+  color: hsl(227, 21%, 87%);
   border: 2px solid transparent;
+  /* background-color: #fff; */
 
   &.active {
     border: 2px solid var(--color-secondary);
