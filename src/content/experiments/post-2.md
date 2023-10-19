@@ -2,7 +2,7 @@
 title: Javascript and CSS Post 2
 description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.
 pubDate: 2023-01-02
-draft: true
+published: true
 author: Jane Doe
 tags: ["javascript", "css"]
 ---

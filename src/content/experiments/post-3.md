@@ -2,7 +2,7 @@
 title: This is a Javascript Story Post 3
 description: Lorem ipsum dolor sit amet.
 pubDate: 2023-01-02
-draft: true
+published: true
 tags: ["javascript"]
 ---
 

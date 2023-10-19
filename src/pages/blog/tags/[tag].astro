@@ -1,12 +1,12 @@
 ---
 import { getCollection } from 'astro:content'
 
-import BlogPost from '../../../components/BlogPost.astro'
 import BaseLayout from '../../../layouts/BaseLayout.astro'
+import BlogIndexLayout from '../../../layouts/BlogIndexLayout.astro'
 
 export async function getStaticPaths() {
 	const allPosts = await getCollection('blog', ({ data }) => {
-		return data.draft !== false && data.pubDate < new Date()
+		return data.published && data.pubDate < new Date()
 	})
 
 	const uniqueTags = [...new Set(allPosts.map((post) => post.data.tags).flat())]
@@ -22,21 +22,40 @@ export async function getStaticPaths() {
 }
 
 const { tag } = Astro.params
+const capitalizedTag = tag.charAt(0).toUpperCase() + tag.slice(1)
+const pageTitleString = `Blog ${capitalizedTag} Tag Index | Terence Flowers`
 const { posts } = Astro.props
 ---
 
 <BaseLayout
-	class="blog-tag-index"
-	pageTitle={tag}>
-	<p>Posts tagged with {tag}</p>
-	<ul>
+	class="blog"
+	pageTitle={pageTitleString}>
+	<BlogIndexLayout>
+		<h1
+			class="post-title"
+			slot="blog-header">
+			Blog {capitalizedTag} Tag Index
+		</h1>
+		<p slot="blog-description">Sometimes I like to write about stuff I find interesting.</p>
+
 		{
 			posts.map((post) => (
-				<BlogPost
-					url={'/blog/' + post.slug}
-					title={post.data.title}
-				/>
+				<div class="blog-item">
+					<h2>
+						<a
+							class="link"
+							href={`/blog/${post.slug}`}>
+							{post.data.title}
+						</a>
+					</h2>
+					<div class="date">
+						{new Intl.DateTimeFormat('en-US', {
+							dateStyle: 'full',
+						}).format(post.data.pubDate)}
+					</div>
+					<p>{post.data.description}</p>
+				</div>
 			))
 		}
-	</ul>
+	</BlogIndexLayout>
 </BaseLayout>

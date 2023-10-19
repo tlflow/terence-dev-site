@@ -3,7 +3,7 @@ import SVGBeaker from './svgs/experiment.astro'
 import { getCollection } from 'astro:content'
 
 const publishedPosts = await getCollection('experiments', ({ data }) => {
-	return data.draft !== false && data.pubDate < new Date()
+	return data.published && data.pubDate < new Date()
 })
 
 const mostRecent = publishedPosts.slice(0, 3)

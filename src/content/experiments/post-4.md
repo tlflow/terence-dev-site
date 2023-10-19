@@ -2,7 +2,7 @@
 title: This is a HTML Experiment Post
 description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 pubDate: 2023-01-02
-draft: true
+published: true
 tags: ["css", "html"]
 ---
 

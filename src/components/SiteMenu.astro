@@ -13,10 +13,10 @@ const links = [
 ]
 
 const blogPosts = await getCollection('blog', ({ data }) => {
-	return data.draft !== false && data.pubDate < new Date()
+	return data.published && data.pubDate < new Date()
 })
 const experimentPosts = await getCollection('experiments', ({ data }) => {
-	return data.draft !== false && data.pubDate < new Date()
+	return data.published && data.pubDate < new Date()
 })
 
 const blogTags = [...new Set(blogPosts.map((post) => post.data.tags).flat())]

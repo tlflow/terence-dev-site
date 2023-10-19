@@ -2,7 +2,7 @@
 title: Experiment 1
 description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 pubDate: 2023-01-02
-draft: false
+published: false
 tags: ["css"]
 ---
 

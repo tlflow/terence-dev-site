@@ -1,41 +1,63 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection } from 'astro:content'
 
-import BlogPost from "../../../components/BlogPost.astro";
-import BaseLayout from "../../../layouts/BaseLayout.astro";
+import BaseLayout from '../../../layouts/BaseLayout.astro'
+import BlogIndexLayout from '../../../layouts/BlogIndexLayout.astro'
 
 export async function getStaticPaths() {
-  const allPosts = await getCollection("experiments", ({ data }) => {
-    return data.draft !== false && data.pubDate < new Date();
-  });
+	const allPosts = await getCollection('experiments', ({ data }) => {
+		return data.published && data.pubDate < new Date()
+	})
 
-  const uniqueTags = [
-    ...new Set(allPosts.map((post) => post.data.tags).flat()),
-  ];
+	const uniqueTags = [...new Set(allPosts.map((post) => post.data.tags).flat())]
 
-  return uniqueTags.map((tag) => {
-    const filteredPosts = allPosts.filter((post) =>
-      post.data.tags.includes(tag)
-    );
+	return uniqueTags.map((tag) => {
+		const filteredPosts = allPosts.filter((post) => post.data.tags.includes(tag))
 
-    return {
-      params: { tag },
-      props: { posts: filteredPosts },
-    };
-  });
+		return {
+			params: { tag },
+			props: { posts: filteredPosts },
+		}
+	})
 }
 
-const { tag } = Astro.params;
-const { posts } = Astro.props;
+const { tag } = Astro.params
+const capitalizedTag = tag.charAt(0).toUpperCase() + tag.slice(1)
+const pageTitleString = `Experiment ${capitalizedTag} Tag Index | Terence Flowers`
+const { posts } = Astro.props
 ---
 
-<BaseLayout pageTitle={tag}>
-  <p>Posts tagged with {tag}</p>
-  <ul>
-    {
-      posts.map((post) => (
-        <BlogPost url={"/experiments/" + post.slug} title={post.data.title} />
-      ))
-    }
-  </ul>
+<BaseLayout
+	class="blog"
+	pageTitle={pageTitleString}>
+	<BlogIndexLayout>
+		<h1
+			class="post-title"
+			slot="blog-header">
+			Experiment {capitalizedTag} Tag Index
+		</h1>
+		<p slot="blog-description">
+			Here's a tag cloud of some of the fun items I've played around with.
+		</p>
+
+		{
+			posts.map((post) => (
+				<div class="blog-item">
+					<h2>
+						<a
+							class="link"
+							href={`/experiments/${post.slug}`}>
+							{post.data.title}
+						</a>
+					</h2>
+					<div class="date">
+						{new Intl.DateTimeFormat('en-US', {
+							dateStyle: 'full',
+						}).format(post.data.pubDate)}
+					</div>
+					<p>{post.data.description}</p>
+				</div>
+			))
+		}
+	</BlogIndexLayout>
 </BaseLayout>

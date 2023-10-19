@@ -2,7 +2,7 @@
 title: Post 1
 description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 pubDate: 2023-01-02
-draft: false
+published: false
 author: John Doe
 tags: ["astro"]
 ---

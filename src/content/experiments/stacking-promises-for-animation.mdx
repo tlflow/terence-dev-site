@@ -1,0 +1,23 @@
+---
+title: Stack Promises for Animations
+description: Stacking a few promises together for animation timing
+pubDate: 2023-08-04
+published: true
+tags: ['javascript']
+---
+
+import JSFiddleEmbed from '../../components/JSFiddleEmbed.astro'
+
+So I was working on a preloader and realized that I had to stack a number of different animations one after the other for it to look right. I needed them to occur in a certain sequence, add delays in etc. but I also noticed that I needed to time different animations off of the "stage" (what I'm calling the div container) and it's players (the children elements).
+
+Needless to say, when I started thinking about how to execute this, I thought this was going to be tricky. What was going to be a simple preloader animation (something most people with fast internet will hopefully barely see) was turning into a rather large effort. But, then I thought about it and it turns out it's not that bad... with promises. Here's a JS Fiddle to show you what I mean:
+
+<JSFiddleEmbed
+	embedId="o4xyrbqw"
+	tabs="js,html,css,result"
+/>
+
+When it comes down to it, basically all you have to do is set a number of promises and have a call back function (in my case, a setTimeout) that sets a time for the animation to end. Once that set time ends, the next animation falls in line. Basically this is what I've done below, and hopefully, it helps.
+
+
+Pretty easy, right? Again, I thought this wouldve been a lot harder than it actually was to set it up. I'll be sure to use this approach going forward, maybe even adding in a callbacks to see if it's looking for other animations to finish first.

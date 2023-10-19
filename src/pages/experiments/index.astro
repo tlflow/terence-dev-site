@@ -4,7 +4,7 @@ import BlogIndexLayout from '../../layouts/BlogIndexLayout.astro'
 import { getCollection } from 'astro:content'
 
 const experimentPosts = await getCollection('experiments', ({ data }) => {
-	return data.draft !== false && data.pubDate < new Date()
+	return data.published && data.pubDate < new Date()
 })
 ---
 

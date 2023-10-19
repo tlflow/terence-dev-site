@@ -2,7 +2,7 @@
 title: This would probably be a realistic size for a title
 description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 pubDate: 2023-01-02
-draft: true
+published: false
 author: Jane Doe
 tags: ["astro", "blogging"]
 ---

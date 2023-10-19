@@ -1,0 +1,30 @@
+---
+export interface Props {
+	embedId: string
+	tabs: string
+}
+
+/**
+ * o4xyrbqw
+ * js,html,css,result
+ * tabs can be any either "html | js |css" and then result'
+ * ex. "html,result" or "css,result" --> NO SPACES
+ */
+
+const { embedId, tabs } = Astro.props
+
+const fiddleUrl = `//jsfiddle.net/terenceflowers/${embedId}/26/embed/${tabs}/dark/`
+---
+
+<div class="jsfiddle-embed">
+	<script
+		async
+		src={fiddleUrl}
+	></script>
+</div>
+
+<style>
+	.jsfiddle-embed {
+		margin-block: 2em;
+	}
+</style>

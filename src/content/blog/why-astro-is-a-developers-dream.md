@@ -2,7 +2,7 @@
 title: Why Astro is a Web Developer's Dream
 description: As site generators go, Astro is getting immensely popular in the web dev world and I can see why.
 pubDate: 2023-07-02
-draft: true
+published: true
 author: Terence Flowers
 tags: ["astro"]
 ---
