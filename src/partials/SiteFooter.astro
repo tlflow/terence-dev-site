@@ -18,6 +18,24 @@ import ContactBtns from '../components/ContactButtons.astro'
 				</div>
 			</div>
 		</div>
+		<div class="rights">
+			<div>&copy; 2024 Terence Flowers. All rights reserved.</div>
+			<div>
+				This is site is a labor of love created using
+				<a
+					href="https://astro.build/"
+					class="link"
+					target="_blank"
+					>Astro</a
+				> and
+				<a
+					href="https://www.netlify.com/"
+					class="link"
+					target="_blank"
+					>Netlify</a
+				>.
+			</div>
+		</div>
 	</div>
 </footer>
 
@@ -29,7 +47,6 @@ import ContactBtns from '../components/ContactButtons.astro'
 	.panel {
 		background-color: var(--color-primary-darker);
 		border-radius: var(--panel-border-radius);
-		margin-bottom: 2rem;
 	}
 
 	.panel-wrapper {
@@ -66,5 +83,13 @@ import ContactBtns from '../components/ContactButtons.astro'
 			grid-template-columns: repeat(2, 1fr);
 			/* background: orange; */
 		}
+	}
+
+	.rights {
+		display: flex;
+		justify-content: space-between;
+		font-size: 1.6rem;
+		padding-block: 1rem;
+		margin-bottom: 2rem;
 	}
 </style>

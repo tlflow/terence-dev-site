@@ -7,11 +7,12 @@ import ContactBtns from '../components/ContactButtons.astro'
 const links = [
 	{ name: 'Expertise', url: '/index.html#about' },
 	{ name: 'Experience', url: '/index.html#experience' },
-	{ name: 'Experiments', url: '/index.html#experiments' },
+	// { name: 'Experiments', url: '/index.html#experiments' },
 	{ name: 'About', url: '/index.html#about' },
 	{ name: 'Contact', url: '/index.html#contact' },
 ]
 
+/*
 const blogPosts = await getCollection('blog', ({ data }) => {
 	return data.draft !== false && data.pubDate < new Date()
 })
@@ -21,6 +22,7 @@ const experimentPosts = await getCollection('experiments', ({ data }) => {
 
 const blogTags = [...new Set(blogPosts.map((post) => post.data.tags).flat())]
 const experimentTags = [...new Set(experimentPosts.map((post) => post.data.tags).flat())]
+*/
 ---
 
 <div
@@ -63,6 +65,7 @@ const experimentTags = [...new Set(experimentPosts.map((post) => post.data.tags)
 						}
 					</nav>
 				</div>
+				<!--
 				<div
 					class="nav-section"
 					role="navigation"
@@ -124,6 +127,7 @@ const experimentTags = [...new Set(experimentPosts.map((post) => post.data.tags)
 						</div>
 					</nav>
 				</div>
+        -->
 			</div>
 			<div
 				class="nav-contacts"
