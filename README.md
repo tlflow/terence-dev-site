@@ -1,16 +1,29 @@
-# Astro Starter Kit: Basics
+<img style="width: 30%; display: block; margin-left: auto; margin-right: auto;" src="https://github.com/tlflow/terence-dev-site/assets/415773/ac68fa37-80f6-4bf0-9343-7029ebf86d2a" alt="TF Logo">
+</img>
 
-```
-npm create astro@latest -- --template basics
-```
+<h1 align="center">
+  terenceflowers.com - v1
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+</h1>
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b28e9294-d101-4315-a76c-327f266f2e90/deploy-status)](https://app.netlify.com/sites/terence-dev-site/deploys)
 
-![basics](https://user-images.githubusercontent.com/4677417/186188965-73453154-fdec-4d6b-9c34-cb35c248ae5b.png)
+<p align="center">
+  The first (I'm sure there will be more) iteration of <a href="https://terenceflowers.com" target="_blank">terenceflowers.com</a> built with <a href="https://www.astro.build/" target="_blank">Astro</a> and hosted with <a href="https://www.netlify.com/" target="_blank">Netlify</a>
+</p>
+
+## 🎨 Color Reference
+
+| Color          | Hex                                                                |
+| -------------- | ------------------------------------------------------------------ |
+| Navy           | ![#0a192f](https://via.placeholder.com/10/0a192f?text=+) `#0a192f` |
+| Light Navy     | ![#112240](https://via.placeholder.com/10/0a192f?text=+) `#112240` |
+| Lightest Navy  | ![#233554](https://via.placeholder.com/10/303C55?text=+) `#233554` |
+| Slate          | ![#8892b0](https://via.placeholder.com/10/8892b0?text=+) `#8892b0` |
+| Light Slate    | ![#a8b2d1](https://via.placeholder.com/10/a8b2d1?text=+) `#a8b2d1` |
+| Lightest Slate | ![#ccd6f6](https://via.placeholder.com/10/ccd6f6?text=+) `#ccd6f6` |
+| White          | ![#e6f1ff](https://via.placeholder.com/10/e6f1ff?text=+) `#e6f1ff` |
+| Green          | ![#64ffda](https://via.placeholder.com/10/64ffda?text=+) `#64ffda` |
 
 ## 🚀 Project Structure
 
